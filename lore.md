@@ -36,7 +36,7 @@ Long ago a communist Fairy regime ruled Draconia — a propaganda state that con
 
 ## Legendaries
 
-- **Draponie** — Dragon/Fairy. Led the revolution; national hero. Exempt from the Fairy ban (Dragon-primary, predates the law). Ancient best friends with Ho-Oh — did Ho-Oh a favour long ago (left mysterious). Personally escorted Fairy Pokémon to Mirage Island.
+- **Draponie** — Officially pure Dragon-type (Pokédex entry). Draponie has refused to identify as Fairy — but functions mechanically as Dragon/Fairy. National hero; led the revolution. Exempt from the Fairy ban (Dragon-primary, predates the law). Ancient best friends with Ho-Oh — Draponie gave Ho-Oh a sandwich in ancient times and they became best buddies; the bond has lasted ever since. Personally escorted Fairy Pokémon to Mirage Island.
 - **Prototype** — Dragon/Dark. A Zygarde cell that refused to rejoin during the world-reshaping. Gathered stray cells into its own body. Pokémon of Disorder. Waits at the top of the Tower. Kills Professor Larch at the summit. Merges back into Zygarde-Complete after NH defeats it.
 - **Zygarde** — Pokémon of Order. Hides in the depths of Lumiose City after reshaping the world.
 
@@ -46,25 +46,17 @@ Long ago a communist Fairy regime ruled Draconia — a propaganda state that con
 
 An ancient creature that lurks in the deep. Not a Pokémon. Not an animal. It has no name — it predates language itself. It does not love. It does not hate. It feels nothing. It simply acts, and things fall apart.
 
-It is the true force behind Team Fairy — controlling them for reasons nobody knows and nobody can explain. That unknowability is the horror. Larch was a puppet. The senate was a tool. What it ultimately wants has never been revealed.
+It feeds on souls. Fairy-type souls are the most delicious. This is why it has always surrounded itself with Fairies — the Fairy regime, Team Fairy — not out of ideology, but appetite. It has been cultivating them. Larch was a puppet. The senate was a tool. The horror is that none of them ever knew what they were really for.
 
 **Zygarde is its exact opposite** — the Pokémon of Order exists as a direct counterforce to this creature. Even **Prototype** — a being that defied Zygarde itself — is afraid of it. Even **Lugia** is afraid of it. It predates all of them.
 
----
-
-## The Crystals of the Gods
-
-Three ancient artifacts given to NH by **Haci** near the end of the game. Together they form a complete power. Individually they do nothing — only when all three are combined can they work.
-
-At the very end, after the gyms, the Elite Four, and Lance — the nameless creature reveals itself and begins **rampaging across the world**. NH faces it and is almost destroyed.
-
-The three crystals activate. The most powerful beings in existence are **resurrected into their origin forms** — their oldest, truest, most powerful selves — including **Arceus**. Together they descend and **destroy the creature once and for all**.
+When the corrupted Diancie explodes in Indigo City, the creature is unleashed. NH and the full team defeat it in a final battle.
 
 ---
 
 ## Team Fairy
 
-Secretly run by the senate. **Professor Larch** is their puppet leader — former Fairy regime supporter, recruited by Sam. Grunts: Fen, Liora, Sable. Admin: Clio.
+Secretly run by corrupt senators within the senate. **Professor Larch** is their puppet leader — former Fairy regime supporter. Grunts: Fen, Liora, Sable. Admin: Clio.
 
 ---
 
@@ -89,7 +81,7 @@ Senate leader. Openly aggressive and politically dominant — dismissive of Isaa
 Best friends since birth. Look completely different, share the exact same loud funny personality. **Unaware of the Team Fairy conspiracy.** Give NH and the group supplies throughout the journey. Become Elite Four 2 (double battle). Vote to confirm Isaac's veto power at the end.
 
 ### Nico (Rival)
-Arrogant descendant of both Lance and Clair — double Dragon Master bloodline. His family was attacked during the civil war and fled to Eon Palace; this made him more arrogant (proves Dragon bloodline status matters). Focused entirely on proving he is the greatest. **Never changes.** Does not know Lance is the Champion — the reveal hits him hard and cracks his arrogance for the first time.
+Kind and funny — good rival energy, not a villain. Descendant of both Lance and Clair — double Dragon Master bloodline. His family was attacked during the civil war and fled to Eon Palace. Does not know Lance is the Champion. When he sees Lance for the first time at the Champion battle, he is literally speechless — the funny chatty guy has nothing to say. Teams up with NH through the Elite Four (except Haci). Together they face Lance in a silent double battle, Red vs Gold on Mount Silver style. Signature Pokémon: **Dragapult**.
 
 ### Haci (Oil Lord of Bakil City / Elite Four 1)
 Elder of Bakil City. During the communist Fairy regime he **fought for women's rights** and used his wealth to build schools for women. When the regime fell he expanded the schools for both genders. A revered legend in Bakil City. NH knows him personally. Becomes Elite Four 1 — uses **Rock/Ground types**.
@@ -101,7 +93,7 @@ A wandering Dragon Master NH runs into mid-journey. Seems like just a traveller 
 Very smelly. Annoying. Says "tough luck" way too much. Uses **pure Poison-type** Pokémon. Deceptively dangerous despite the irritating personality.
 
 ### Professor Larch
-Gives NH their starter (from Eon Palace). Secretly Team Fairy's puppet leader. Former Fairy regime supporter, recruited by Sam. Killed by Prototype at the Tower summit.
+Gives NH their starter (from Eon Palace). Secretly Team Fairy's puppet leader. Former Fairy regime supporter, recruited by corrupt senators. Killed by Prototype at the Tower summit.
 
 ### Lance (Champion)
 140 years old. Still the Champion. Nobody knows how he's still alive — he refuses to explain. Scientists have studied him. He just keeps winning. Ancestor of Nico. The reveal that Lance is the Champion cracks Nico's arrogance completely.
@@ -153,21 +145,18 @@ Discovered at Eon Palace by Professor Larch. All are Dragon-type hybrids.
 4. Team Fairy appear across the region causing trouble
 5. Team Fairy attempts to capture Emperor Isaac — NH rescues him
 6. Isaac joins the group
-7. Tomas and Arman help with supplies at key moments (unaware of Sam)
+7. Tomas and Arman help with supplies at key moments (unaware of the conspiracy)
 8. Nico challenges NH as a rival throughout
-9. The group uncovers the senate–Team Fairy link
+9. The group uncovers the corrupt senators' link to Team Fairy
 10. Larch is exposed — reaches the Tower summit — Prototype kills him
 11. NH defeats Prototype — it merges back into Zygarde-Complete
-12. Senate's conspiracy is exposed Sam helps a lot by helping them infiltrate the senate building.— Isaac granted veto power
+12. The corrupt senators are exposed — Sam helps the group infiltrate the senate building — Isaac granted veto power
 13. Tomas and Arman vote to confirm Isaac's authority
 14. With Team Fairy defeated, Hasan recovers — the Bakil City gym finally opens
 15. NH returns home and battles his father Hasan as the 9th gym leader
 16. NH challenges the Elite Four → battles Lance → Nico watches Lance revealed and cracks
-17. The nameless creature reveals itself and begins rampaging the world
-18. NH faces it and is nearly destroyed
-19. The three Crystals of the Gods — given to NH by Haci — activate
-20. The gods resurrect into their origin forms, including Arceus
-21. Together they destroy the creature once and for all
+17. The corrupted Diancie explodes — the Deep Thing is unleashed and begins rampaging the world
+18. NH and the full team face it together in a final battle and defeat it
 
 ---
 
