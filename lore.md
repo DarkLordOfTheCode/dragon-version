@@ -36,9 +36,9 @@ Long ago a communist Fairy regime ruled Draconia — a propaganda state that con
 
 ## Legendaries
 
-- **Draponie** — Officially pure Dragon-type (Pokédex entry). Draponie has refused to identify as Fairy — but functions mechanically as Dragon/Fairy. National hero; led the revolution. Exempt from the Fairy ban (Dragon-primary, predates the law). Ancient best friends with Ho-Oh — Draponie gave Ho-Oh a sandwich in ancient times and they became best buddies; the bond has lasted ever since. Personally escorted Fairy Pokémon to Mirage Island.
+- **Draponie** — Officially pure Dragon-type (Pokédex entry). Draponie has refused to identify as Fairy — but functions mechanically as Dragon/Fairy. National hero; led the revolution. Exempt from the Fairy ban (Dragon-primary, predates the law). Ancient best friends with Ho-Oh — Draponie gave Ho-Oh a sandwich in ancient times and they became best buddies; the bond has lasted ever since. Personally escorted Fairy Pokémon to Mirage Island. Appears in a flashback and a cutscene in the main game; can be encountered in the wild post-game.
 - **Prototype** — Dragon/Dark. A Zygarde cell that refused to rejoin during the world-reshaping. Gathered stray cells into its own body. Pokémon of Disorder. Waits at the top of the Tower. Kills Professor Larch at the summit. Merges back into Zygarde-Complete after NH defeats it.
-- **Zygarde** — Pokémon of Order. Hides in the depths of Lumiose City after reshaping the world.
+- **Zygarde** — Pokémon of Order. Hides in the depths of Lumiose City after reshaping the world. Can be encountered there post-game.
 
 ---
 
@@ -50,7 +50,7 @@ It feeds on souls. Fairy-type souls are the most delicious. This is why it has a
 
 **Zygarde is its exact opposite** — the Pokémon of Order exists as a direct counterforce to this creature. Even **Prototype** — a being that defied Zygarde itself — is afraid of it. Even **Lugia** is afraid of it. It predates all of them.
 
-When the corrupted Diancie explodes in Indigo City, the creature is unleashed. NH and the full team defeat it in a final battle.
+When the corrupted Diancie explodes in Indigo City, the creature is unleashed. NH and the full team face it in a horde battle — the entire party vs the Deep Thing.
 
 ---
 
@@ -84,7 +84,7 @@ Best friends since birth. Look completely different, share the exact same loud f
 Kind and funny — good rival energy, not a villain. Descendant of both Lance and Clair — double Dragon Master bloodline. His family was attacked during the civil war and fled to Eon Palace. Does not know Lance is the Champion. When he sees Lance for the first time at the Champion battle, he is literally speechless — the funny chatty guy has nothing to say. Teams up with NH through the Elite Four (except Haci). Together they face Lance in a silent double battle, Red vs Gold on Mount Silver style. Signature Pokémon: **Dragapult**.
 
 ### Haci (Oil Lord of Bakil City / Elite Four 1)
-Elder of Bakil City. During the communist Fairy regime he **fought for women's rights** and used his wealth to build schools for women. When the regime fell he expanded the schools for both genders. A revered legend in Bakil City. NH knows him personally. Becomes Elite Four 1 — uses **Rock/Ground types**.
+Elder of Bakil City. During the communist Fairy regime he **fought for women's rights** and used his wealth to build schools for women. When the regime fell he expanded the schools for both genders. A revered legend in Bakil City. NH knows him personally. Becomes Elite Four 1 — uses **Dragon/Oil types**.
 
 ### Barbaros (Elite Four 3)
 A wandering Dragon Master NH runs into mid-journey. Seems like just a traveller — hides his true strength until the Elite Four. Details TBD.
@@ -129,7 +129,7 @@ Discovered at Eon Palace by Professor Larch. All are Dragon-type hybrids.
 
 | # | Name | Type | Notes |
 |---|---|---|---|
-| E4 1 | **Haci** | Rock/Ground | Oil lord elder of Bakil City, civil rights legend |
+| E4 1 | **Haci** | Dragon/Oil | Oil lord elder of Bakil City, civil rights legend |
 | E4 2 | **Tomas & Arman** | Fire & Water | Double battle — mirror types that work in sync |
 | E4 3 | **Barbaros** | Dragon/Fighting | Wandering Dragon Master, met earlier in the journey |
 | E4 4 | **Max** | Poison | Very smelly, says "tough luck" too much |

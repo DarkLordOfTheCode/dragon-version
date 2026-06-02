@@ -7,24 +7,22 @@
 - Download/create sprites for gym leaders
 - Design the rival (Nico) battle team
 
-## Open Lore Questions (need answers before implementing)
-- Who are the corrupt senators? Named characters or anonymous background figures?
-- Does Draponie appear anywhere in the main game, or is it history/lore only?
-- Does NH ever encounter Zygarde in Lumiose City, or is it background lore?
-- Final battle vs the Deep Thing: who specifically is on NH's side, and is it a double battle or something different?
-
-## Lore Inconsistencies (need resolving)
-- **Elite Four location conflict**: Lore says E4/Lance are in Indigo City, but the Nation section says the capital (Draconia City) is where the E4/Champion are — pick one
-- **Story step 7 leftover**: Still says "unaware of Sam" — Sam is no longer implicated, should say "unaware of the conspiracy"
-- **Corrupt senators vs Tomas & Arman**: Tomas and Arman are senators who are unaware of the conspiracy, but the conspiracy is run by "corrupt senators" — who specifically are the corrupt ones?
-- **Rock/Ground cluster at endgame**: Flint (gym 8, Rock/Dragon), Hasan (gym 9, Ground/Dragon), Haci (E4 1, Rock/Ground) — three Rock/Ground-adjacent specialists in a row may feel repetitive
-- **Alola Rattata mission timing**: Gym 7 is Hau'oli City (Alola) — is the Rattata/underground train mission the same trip or a separate detour? Order of events unclear
-- **"The senate was a tool"** (Deep Thing section) implies the whole senate, but Tomas/Arman are good senators — rephrase to "corrupt senators" or "parts of the senate"
+## Lore Notes (resolved)
+- Senators involved in Team Fairy are just called "senators" — no named villain senators
+- Draponie: wild encounter (post-game), flashback, and cutscene in main game
+- Zygarde: post-game encounter in Lumiose City depths
+- Deep Thing final battle: horde battle — entire party vs the Deep Thing
+- E4/Champion are in Draconia City
+- Haci (E4 1) uses Dragon/Oil types
 
 ## In Progress
 - Nothing currently in progress
 
 ## Done
+- [x] Created routes.py — Routes 1, 2, and 3 with wild Pokémon and young trainer battles
+- [x] Added Pikachu to pokedex.py
+- [x] Changed Trapinch/Vibrava/Flygon from Ground to Bug type in pokedex.py
+- [x] Resolved all open lore questions and inconsistencies (see Lore Notes section)
 - [x] Wrote full lore bible (lore.md)
 - [x] Designed all 9 gym leader teams (gym_leaders.py)
 - [x] Set up pokedex.py (all Pokémon including custom Draconia lines)

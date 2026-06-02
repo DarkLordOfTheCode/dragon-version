@@ -411,7 +411,7 @@ pokedex = {
         "special": 70,
     },
     "Trapinch": {
-        "type": ["Ground"],
+        "type": ["Bug"],
         "hp": 45,
         "attack": 100,
         "defence": 45,
@@ -419,7 +419,7 @@ pokedex = {
         "special": 45,
     },
     "Vibrava": {
-        "type": ["Dragon", "Ground"],
+        "type": ["Dragon", "Bug"],
         "hp": 50,
         "attack": 70,
         "defence": 50,
@@ -427,7 +427,7 @@ pokedex = {
         "special": 50,
     },
     "Flygon": {
-        "type": ["Dragon", "Ground"],
+        "type": ["Dragon", "Bug"],
         "hp": 80,
         "attack": 100,
         "defence": 80,
@@ -1211,5 +1211,13 @@ pokedex = {
         "defence": 116,
         "speed": 33,
         "special": 79,
+    },
+    "Pikachu": {
+        "type": ["Electric"],
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "speed": 90,
+        "special": 50,
     },
 }
