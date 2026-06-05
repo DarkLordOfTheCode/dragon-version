@@ -128,7 +128,7 @@ def try_catch(player, enemy_mon):
 
 
 def give_exp(player_mon, enemy_mon, is_trainer):
-    exp_gain = enemy_mon["level"] * (3 if is_trainer else 2)
+    exp_gain = enemy_mon["level"] * (9 if is_trainer else 6)
     player_mon["exp"] += exp_gain
     print(f"  {player_mon['name']} gained {exp_gain} EXP!")
     while player_mon["exp"] >= player_mon["exp_to_next"]:

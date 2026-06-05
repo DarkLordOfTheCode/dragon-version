@@ -4,7 +4,7 @@ from pokemon import create_pokemon
 def create_player(starter_name):
     return {
         "name": "NH",
-        "party": [create_pokemon(starter_name, 5)],
+        "party": [create_pokemon(starter_name, 10)],
         "bag": {
             "Poké Ball": 5,
             "Potion": 5,
