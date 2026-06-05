@@ -72,7 +72,7 @@ def route1(player):
     print()
     print(tom["defeat_text"])
     player["money"] += tom["reward"]
-    print(f"Teymur gave you ${tom['reward']}!")
+    print(f"{tom['name']} gave you ${tom['reward']}!")
     print()
     input("(Press Enter to continue...)")
     print()
@@ -100,7 +100,7 @@ def route1(player):
     print()
     print(mia["defeat_text"])
     player["money"] += mia["reward"]
-    print(f"Mira gave you ${mia['reward']}!")
+    print(f"{mia['name']} gave you ${mia['reward']}!")
     print()
     input("(Press Enter to continue...)")
     print()
