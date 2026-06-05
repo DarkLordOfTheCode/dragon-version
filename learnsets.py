@@ -1190,4 +1190,13 @@ learnsets = {
         30: ["Body Slam"],
         45: ["Close Combat"],
     },
+    "Pikachu": {
+        1: ["Thunder Shock"],
+        12: ["Thunderbolt"],
+        30: ["Thunder"],
+    },
+    "Caterpie": {
+        1: ["Scratch"],
+        5: ["Bug Bite"],
+    },
 }

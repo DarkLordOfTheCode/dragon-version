@@ -1220,4 +1220,12 @@ pokedex = {
         "speed": 90,
         "special": 50,
     },
+    "Caterpie": {
+        "type": ["Bug"],
+        "hp": 45,
+        "attack": 30,
+        "defence": 35,
+        "speed": 45,
+        "special": 20,
+    },
 }

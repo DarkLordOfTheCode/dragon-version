@@ -1,21 +1,22 @@
 # Pokémon Dragon Version — Main Game To Do List
 
 ## Next
-- Build Saffron City (arrive, look around, mall, enter gym)
-- Build Gym 1 battle (Sabina — Psychic/Dragon)
-- Build Nico first meetup and battle in Saffron City
-- Build Routes 2 and 3
+- Build Routes 2 and 3 (playable files — data already in routes.py)
 - Design Nico's full rival team progression
 
 ## Open Questions (need answers before building)
-- **Nico's first battle team** — just Gible, and what level?
-- **Team Fairy hideout (mall floor -1)** — what happens when NH goes down there after beating the gym? Story cutscene, grunt battles, both?
 - **TMs on mall floor 2** — specific TMs in mind, or should a sensible early-game selection be picked?
+
+## Resolved
+- **Nico's first battle team** — Gible + Caterpie
+- **Saffron City mall** — the main hub; gym is inside the mall; Team Fairy hideout is on floor -1, only accessible after beating the gym
 
 ## In Progress
 - Nothing currently in progress
 
 ## Done
+- [x] saffron_city.py — arrival, Team Fairy grunt blocks exit, city exploration, Nico battle (Gible + Caterpie), mall (shop, TM shop, gym, hideout), Sabina gym battle, Team Fairy hideout on floor -1, exit unlocks after hideout cleared
+- [x] Added Caterpie to pokedex.py and learnsets.py; added Pikachu learnset
 - [x] main.py — full intro: home scene (Narmina, Hasan, Aziza, boiled eggs), Larch arrives, starter selection, Haci gives items
 - [x] battle.py — full battle system: Fight, Bag, Pokémon, Run; type effectiveness, damage formula, catching, switching, EXP gain, leveling up
 - [x] moves.py — move database with power, type, category for all moves in learnsets

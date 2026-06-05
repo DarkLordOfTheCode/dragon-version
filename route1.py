@@ -107,3 +107,5 @@ def route1(player):
 
     print("You arrive at Saffron City.")
     print()
+    from saffron_city import saffron_city
+    return saffron_city(player)
