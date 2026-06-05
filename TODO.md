@@ -9,7 +9,11 @@
 
 ## Resolved
 - **Nico's first battle team** — Gible + Caterpie
-- **Saffron City mall** — the main hub; gym is inside the mall; Team Fairy hideout is on floor -1, only accessible after beating the gym
+- **Ganja mall** — the main hub; gym is inside the mall; Team Fairy hideout is on floor -1, only accessible after beating the gym
+- **Draconia gimmick** — Azerbaijan parallel: senate oligarchy, oil wealth, "Land of Fire and Scale"; no emperor
+- **City names** — all gyms renamed to real Azerbaijani cities (Ganja, Sumgait, Lankaran, Mingachevir, Nakhchivan, Sheki, Astara, Gabala)
+- **Gym leader names** — updated to Azerbaijani names (Aytən, Mərcan, Vasif, Rauf, Ləyla, Tural, Fərhad)
+- **Isaac, Sam, Nico** — no political roles; just friends of NH who travel with the group
 
 ## In Progress
 - Nothing currently in progress
