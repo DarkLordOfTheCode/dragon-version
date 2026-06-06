@@ -1,6 +1,7 @@
 import random
 from moves import moves as move_data
 from pokemon import level_up
+from sprites import show_battle_screen
 
 type_chart = {
     "Normal":   {"Rock": 0.5, "Steel": 0.5, "Ghost": 0},
@@ -75,17 +76,30 @@ def show_status(player_mon, enemy_mon):
     print("-" * 40)
 
 
-def use_potion(player, player_mon):
-    potions = player["bag"].get("Potion", 0)
-    if potions == 0:
-        print("You have no Potions!")
+HEALING_ITEMS = {
+    "Potion":       20,
+    "Super Potion":  50,
+    "Hyper Potion": 120,
+    "Max Potion":   9999,
+}
+
+CATCH_RATES = {
+    "Poké Ball":  (0.30, 0.50),
+    "Great Ball": (0.40, 0.60),
+    "Ultra Ball": (0.50, 0.70),
+}
+
+
+def use_healing_item(player, player_mon, item_name, heal_amount):
+    if player["bag"].get(item_name, 0) == 0:
+        print(f"You have no {item_name}s!")
         return False
-    heal = min(20, player_mon["max_hp"] - player_mon["hp"])
+    heal = min(heal_amount, player_mon["max_hp"] - player_mon["hp"])
     if heal == 0:
         print(f"{player_mon['name']}'s HP is already full!")
         return False
     player_mon["hp"] += heal
-    player["bag"]["Potion"] -= 1
+    player["bag"][item_name] -= 1
     print(f"{player_mon['name']} recovered {heal} HP!")
     return True
 
@@ -109,15 +123,15 @@ def switch_pokemon(player, current_mon):
         return current_mon
 
 
-def try_catch(player, enemy_mon):
-    balls = player["bag"].get("Poké Ball", 0)
-    if balls == 0:
-        print("You have no Poké Balls!")
+def try_catch(player, enemy_mon, ball_name):
+    if player["bag"].get(ball_name, 0) == 0:
+        print(f"You have no {ball_name}s!")
         return False
+    base, bonus = CATCH_RATES[ball_name]
     hp_ratio = enemy_mon["hp"] / enemy_mon["max_hp"]
-    catch_chance = 0.3 + 0.5 * (1 - hp_ratio)
-    player["bag"]["Poké Ball"] -= 1
-    print("You threw a Poké Ball!")
+    catch_chance = base + bonus * (1 - hp_ratio)
+    player["bag"][ball_name] -= 1
+    print(f"You threw a {ball_name}!")
     if random.random() < catch_chance:
         print(f"Gotcha! {enemy_mon['name']} was caught!")
         player["party"].append(enemy_mon)
@@ -199,19 +213,30 @@ def battle(player, enemy_party, is_wild=False):
                 print("Invalid move.")
 
         elif action == "2":
-            if is_wild:
-                print("  1. Potion")
-                print("  2. Poké Ball")
-                bag_choice = input("Choose: ").strip()
-                if bag_choice == "1":
-                    used_turn = use_potion(player, player_mon)
-                elif bag_choice == "2":
-                    caught = try_catch(player, enemy_mon)
-                    if caught:
-                        return "catch"
-                    used_turn = True
+            heal_options = [(n, a) for n, a in HEALING_ITEMS.items() if player["bag"].get(n, 0) > 0]
+            ball_options = [n for n in CATCH_RATES if player["bag"].get(n, 0) > 0] if is_wild else []
+            all_options = [("heal", n, a) for n, a in heal_options] + [("ball", n, 0) for n in ball_options]
+            if not all_options:
+                print("Your bag is empty!")
             else:
-                used_turn = use_potion(player, player_mon)
+                for i, (_, name, _2) in enumerate(all_options, 1):
+                    print(f"  {i}. {name}  x{player['bag'].get(name, 0)}")
+                print(f"  {len(all_options) + 1}. Back")
+                bag_choice = input("Choose: ").strip()
+                print()
+                try:
+                    bidx = int(bag_choice) - 1
+                    if 0 <= bidx < len(all_options):
+                        kind, name, heal_amount = all_options[bidx]
+                        if kind == "heal":
+                            used_turn = use_healing_item(player, player_mon, name, heal_amount)
+                        else:
+                            caught = try_catch(player, enemy_mon, name)
+                            if caught:
+                                return "catch"
+                            used_turn = True
+                except (ValueError, IndexError):
+                    print("Invalid choice.")
 
         elif action == "3":
             new_mon = switch_pokemon(player, player_mon)
