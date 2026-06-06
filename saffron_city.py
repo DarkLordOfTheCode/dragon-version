@@ -1,5 +1,5 @@
 import random
-from battle import battle
+from battle import battle, calculate_damage, enemy_attack, give_exp, switch_pokemon, use_healing_item, HEALING_ITEMS
 from pokemon import create_pokemon
 from gym_leaders import gym_leaders
 
@@ -226,38 +226,70 @@ def tm_shop(player):
 def nico_encounter(player):
     print("=" * 40)
     print()
-    print("A boy about your age pushes through the mall entrance.")
-    print("He's got a scarf around his neck and a Poké Ball")
-    print("already in his hand.")
+    print("A familiar voice from somewhere inside the crowd.")
     print()
     pause()
 
-    print("???: Hey! You're NH, aren't you.")
+    print("Nico: NH. WHAT.")
     print()
     pause()
 
-    print("NH: ...Do I know you?")
+    print("NH: Nico?!")
     print()
     pause()
 
-    print("Nico: Nico. Word travels — everyone on Route 1 is")
-    print("talking about the trainer who swept through.")
+    print("Nico: What are you doing in Saffron City?")
     print()
     pause()
 
-    print("NH: I did break a little sweat.")
+    print("NH: What are YOU doing in Saffron City?")
     print()
     pause()
 
-    print("Nico: *laughs* Battle me. Right now.")
+    print("Nico: I asked first.")
     print()
     pause()
 
-    print("NH: You're not going to let me say no, are you.")
+    print("NH: Journey. Gyms. The whole thing.")
     print()
     pause()
 
-    print("Nico: Absolutely not.")
+    print("Nico: *stares*")
+    print("Nico: Me too.")
+    print()
+    pause()
+
+    print("NH: No way.")
+    print()
+    pause()
+
+    print("Nico: I left three weeks ago. Didn't tell anyone.")
+    print()
+    pause()
+
+    print("NH: You didn't tell anyone?")
+    print()
+    pause()
+
+    print("Nico: I told my mum.")
+    print("Nico: ...She cried.")
+    print()
+    pause()
+
+    print("NH: Okay — since we're both here —")
+    print()
+    pause()
+
+    print("Nico: Battle. Obviously.")
+    print()
+    pause()
+
+    print("NH: I was going to say get food but sure.")
+    print()
+    pause()
+
+    print("Nico: Food after. Battle now. I've been waiting")
+    print("two years for this.")
     print()
     pause()
 
@@ -270,24 +302,163 @@ def nico_encounter(player):
         return "lose"
 
     print()
-    print("Nico: *stares at his Pokémon*")
-    print("Nico: ...Okay. You're better than I thought.")
+    print("Nico: *looks at his Pokémon*")
+    print("Nico: ...Okay.")
     print()
     pause()
 
-    print("NH: Train harder.")
+    print("NH: You brought a Caterpie.")
     print()
     pause()
 
-    print("Nico: *grins* Rematch after the gym. Count on it.")
+    print("Nico: He's got heart.")
     print()
     pause()
 
-    print("Nico ran off further into the mall.")
+    print("NH: He went down in one hit.")
+    print()
+    pause()
+
+    print("Nico: He's building character.")
+    print("Nico: Rematch after the gym. Don't disappear.")
+    print()
+    pause()
+
+    print("Nico pushed further into the mall.")
     print()
     pause()
 
     return "win"
+
+
+def gym_double_battle(player, nico_party, enemy_party):
+    enemy_index = 0
+    enemy_mon = enemy_party[enemy_index]
+    nico_index = 0
+    nico_mon = nico_party[nico_index]
+
+    print(f"\n{enemy_mon['name']} was sent out!")
+    player_mon = next(p for p in player["party"] if p["hp"] > 0)
+    print(f"Go, {player_mon['name']}!")
+    print(f"Nico sent out {nico_mon['name']}!")
+    print()
+
+    while True:
+        print(f"  {enemy_mon['name']} Lv.{enemy_mon['level']}   HP: {enemy_mon['hp']}/{enemy_mon['max_hp']}")
+        print()
+        print(f"  {player_mon['name']} Lv.{player_mon['level']}   HP: {player_mon['hp']}/{player_mon['max_hp']}")
+        if nico_mon["hp"] > 0:
+            print(f"  Nico's {nico_mon['name']} Lv.{nico_mon['level']}   HP: {nico_mon['hp']}/{nico_mon['max_hp']}")
+        print("-" * 40)
+
+        print("What will you do?")
+        print("  1. Fight")
+        print("  2. Bag")
+        print("  3. Pokémon")
+        action = input("\nChoose: ").strip()
+        print()
+
+        used_turn = False
+
+        if action == "1":
+            print("Choose a move:")
+            for i, move_name in enumerate(player_mon["moves"]):
+                print(f"  {i + 1}. {move_name}")
+            move_choice = input("Enter number: ").strip()
+            try:
+                move_name = player_mon["moves"][int(move_choice) - 1]
+                damage, effectiveness = calculate_damage(player_mon, move_name, enemy_mon)
+                enemy_mon["hp"] = max(0, enemy_mon["hp"] - damage)
+                print(f"\n  {player_mon['name']} used {move_name}!")
+                if effectiveness == 0:
+                    print("  It had no effect...")
+                elif effectiveness > 1:
+                    print("  It's super effective!")
+                elif effectiveness < 1:
+                    print("  It's not very effective...")
+                print(f"  {enemy_mon['name']} took {damage} damage. HP: {enemy_mon['hp']}/{enemy_mon['max_hp']}")
+                used_turn = True
+            except (ValueError, IndexError):
+                print("Invalid move.")
+
+        elif action == "2":
+            heal_options = [(n, a) for n, a in HEALING_ITEMS.items() if player["bag"].get(n, 0) > 0]
+            if not heal_options:
+                print("Nothing useful in your bag!")
+            else:
+                for i, (name, _) in enumerate(heal_options, 1):
+                    print(f"  {i}. {name}  x{player['bag'].get(name, 0)}")
+                print(f"  {len(heal_options) + 1}. Back")
+                bag_choice = input("Choose: ").strip()
+                print()
+                try:
+                    bidx = int(bag_choice) - 1
+                    if 0 <= bidx < len(heal_options):
+                        name, heal_amount = heal_options[bidx]
+                        used_turn = use_healing_item(player, player_mon, name, heal_amount)
+                except (ValueError, IndexError):
+                    print("Invalid choice.")
+
+        elif action == "3":
+            new_mon = switch_pokemon(player, player_mon)
+            if new_mon is not player_mon:
+                player_mon = new_mon
+                used_turn = True
+
+        else:
+            print("Invalid choice.")
+
+        if not used_turn:
+            continue
+
+        # Nico auto-attacks
+        if nico_mon["hp"] > 0 and enemy_mon["hp"] > 0:
+            move_name = random.choice(nico_mon["moves"])
+            damage, effectiveness = calculate_damage(nico_mon, move_name, enemy_mon)
+            enemy_mon["hp"] = max(0, enemy_mon["hp"] - damage)
+            print(f"  Nico's {nico_mon['name']} used {move_name}!")
+            if effectiveness > 1:
+                print("  It's super effective!")
+            elif effectiveness < 1:
+                print("  It's not very effective...")
+            print(f"  {enemy_mon['name']} took {damage} damage. HP: {enemy_mon['hp']}/{enemy_mon['max_hp']}")
+            print()
+
+        # Check enemy fainted
+        if enemy_mon["hp"] <= 0:
+            print(f"  {enemy_mon['name']} fainted!")
+            give_exp(player_mon, enemy_mon, is_trainer=True)
+            enemy_index += 1
+            if enemy_index >= len(enemy_party):
+                print("\nYou won the battle!")
+                return "win"
+            enemy_mon = enemy_party[enemy_index]
+            print(f"  {enemy_mon['name']} was sent out!")
+            continue
+
+        # Enemy attacks NH
+        print()
+        enemy_attack(enemy_mon, player_mon)
+        print()
+
+        # Check if player mon fainted
+        if player_mon["hp"] <= 0:
+            print(f"  {player_mon['name']} fainted!")
+            next_mon = next((p for p in player["party"] if p["hp"] > 0), None)
+            if next_mon is None:
+                print("\nYou have no more Pokémon...")
+                print("You blacked out.")
+                return "lose"
+            player_mon = next_mon
+            print(f"Go, {player_mon['name']}!")
+
+        # Check if Nico's mon fainted
+        if nico_mon["hp"] <= 0:
+            print(f"  Nico's {nico_mon['name']} fainted!")
+            nico_index += 1
+            if nico_index < len(nico_party):
+                nico_mon = nico_party[nico_index]
+                print(f"  Nico sent out {nico_mon['name']}!")
 
 
 def gym_battle(player):
@@ -302,12 +473,26 @@ def gym_battle(player):
     print()
     pause()
 
+    print("Nico: *appears beside you*")
+    print("Nico: Double battle?")
+    print()
+    pause()
+
+    print("NH: You were already in here waiting.")
+    print()
+    pause()
+
+    print("Nico: I wanted a good spot.")
+    print()
+    pause()
+
     print(SABINA["greeting"])
     print()
     pause()
 
     sabina_team = [create_pokemon(name, level) for name, level in SABINA["team"]]
-    result = battle(player, sabina_team, is_wild=False)
+    nico_team = [create_pokemon("Gible", 10), create_pokemon("Caterpie", 8)]
+    result = gym_double_battle(player, nico_team, sabina_team)
     if result == "lose":
         return "lose"
 
