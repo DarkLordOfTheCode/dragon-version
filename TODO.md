@@ -9,12 +9,16 @@
 
 ## Open Questions (need answers before building)
 - **TMs on mall floor 2** — specific TMs in mind, or should a sensible early-game selection be picked?
+- **Coral's gym team** — what Pokémon does Coral use? (Water/Dragon, gym 3, Slateport City — levels should be ~lv25-28 range)
+- **Slateport City layout** — anything special here beyond the gym? Port area, shops, story beat with Team Fairy?
+- **Routes between Goldenrod and Slateport** — do Routes 4–5 need building before Slateport, or go straight to the city?
+- **Nico's Slateport team** — what does Nico bring to the Coral gym double battle? (Gabite will have levelled up by now)
 
 ## Resolved
 - **Nico's first battle team** — Gible + Caterpie
 - **Saffron City mall** — the main hub; gym is inside the mall; Team Fairy hideout is on floor -1, only accessible after beating the gym
 - **Draconia gimmick** — Azerbaijan parallel: senate oligarchy, oil wealth, "Land of Fire and Scale"; no emperor
-- **City names** — all gyms renamed to real Azerbaijani cities (Saffron City, Goldenrod City, Slateport City, Jubilife City, Castelia City, Lumiose City, Hau'oli City, Hammerlocke)
+- **City names** — reverted to original Pokémon names (Saffron City, Goldenrod City, Slateport City, etc.); only route trainers use Azerbaijani names
 - **Gym leader names** — kept original (Whiteout, Coral, Vance, Rook, Lysara, Tide, Flint); only route trainers use Azerbaijani names
 - **Isaac, Sam, Nico** — no political roles; just friends of NH who travel with the group
 
