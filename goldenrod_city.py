@@ -136,6 +136,22 @@ def double_battle(player, nico_party, enemy_party):
                 print(f"  Nico sent out {nico_mon['name']}!")
 
 
+def pokecenter(player):
+    print("=" * 40)
+    print("  POKÉMON CENTER")
+    print("=" * 40)
+    print()
+    print("Nurse Joy: Welcome! We'll restore your")
+    print("Pokémon to full health.")
+    print()
+    pause()
+    for mon in player["party"]:
+        mon["hp"] = mon["max_hp"]
+    print("Your Pokémon have been healed!")
+    print()
+    pause()
+
+
 def arrive(player):
     print("=" * 40)
     print("  GOLDENROD CITY")
@@ -391,7 +407,8 @@ def goldenrod_city(player):
         print("What do you want to do?")
         print("  1. Radio Tower")
         print("  2. Gym")
-        print("  3. Head north")
+        print("  3. Pokémon Center")
+        print("  4. Head north")
         print()
         choice = input("Choose: ").strip()
         print()
@@ -418,6 +435,9 @@ def goldenrod_city(player):
                 state["gym_beaten"] = True
 
         elif choice == "3":
+            pokecenter(player)
+
+        elif choice == "4":
             if not state["tower_done"]:
                 print("Team Fairy still controls the Radio Tower.")
                 print("You should deal with that first.")

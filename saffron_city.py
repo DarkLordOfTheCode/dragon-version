@@ -12,6 +12,22 @@ def pause():
     print()
 
 
+def pokecenter(player):
+    print("=" * 40)
+    print("  POKÉMON CENTER")
+    print("=" * 40)
+    print()
+    print("Nurse Joy: Welcome! We'll restore your")
+    print("Pokémon to full health.")
+    print()
+    pause()
+    for mon in player["party"]:
+        mon["hp"] = mon["max_hp"]
+    print("Your Pokémon have been healed!")
+    print()
+    pause()
+
+
 def arrive(player):
     print("=" * 40)
     print("  SAFFRON CITY")
@@ -646,8 +662,9 @@ def saffron_city(player):
         print()
         print("What do you want to do?")
         print("  1. Enter the mall")
-        print("  2. Go back to Route 1 to train")
-        print("  3. Head to the northern exit")
+        print("  2. Pokémon Center")
+        print("  3. Go back to Route 1 to train")
+        print("  4. Head to the northern exit")
         print()
         choice = input("Choose: ").strip()
         print()
@@ -663,11 +680,14 @@ def saffron_city(player):
                 return "lose"
 
         elif choice == "2":
+            pokecenter(player)
+
+        elif choice == "3":
             result = train_on_route(player)
             if result == "lose":
                 return "lose"
 
-        elif choice == "3":
+        elif choice == "4":
             if not state["hideout_done"]:
                 print("Team Fairy Grunt: *steps in your way*")
                 print("Team Fairy Grunt: Road's still closed.")
