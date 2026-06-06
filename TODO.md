@@ -1,8 +1,11 @@
 # Pokémon Dragon Version — Main Game To Do List
 
 ## Next
-- Build Routes 2 and 3 (playable files — data already in routes.py)
 - Design Nico's full rival team progression
+- Build Lankaran (gym 3, Coral, Water/Dragon)
+
+## In Progress
+- Nothing currently in progress
 
 ## Open Questions (need answers before building)
 - **TMs on mall floor 2** — specific TMs in mind, or should a sensible early-game selection be picked?
@@ -15,10 +18,8 @@
 - **Gym leader names** — kept original (Whiteout, Coral, Vance, Rook, Lysara, Tide, Flint); only route trainers use Azerbaijani names
 - **Isaac, Sam, Nico** — no political roles; just friends of NH who travel with the group
 
-## In Progress
-- Nothing currently in progress
-
 ## Done
+- [x] goldenrod_city.py — Sumgait: arrival, Nico reunite, Radio Tower (3 floors, Clio admin boss), Whiteout gym double battle with Nico
 - [x] saffron_city.py — arrival, Team Fairy grunt blocks exit, city exploration, Nico battle (Gible + Caterpie), mall (shop, TM shop, gym, hideout), Sabina gym battle, Team Fairy hideout on floor -1, exit unlocks after hideout cleared
 - [x] Added Caterpie to pokedex.py and learnsets.py; added Pikachu learnset
 - [x] main.py — full intro: home scene (Narmina, Hasan, Aziza, boiled eggs), Larch arrives, starter selection, Haci gives items
