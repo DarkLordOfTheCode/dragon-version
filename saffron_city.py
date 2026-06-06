@@ -2,7 +2,7 @@ import random
 from battle import battle, calculate_damage, enemy_attack, give_exp, switch_pokemon, use_healing_item, HEALING_ITEMS
 from pokemon import create_pokemon
 from gym_leaders import gym_leaders
-from sprites import show_battle_screen, get_sprite, hp_bar
+from sprites import get_sprite, hp_bar
 
 SABINA = gym_leaders[0]
 
@@ -348,6 +348,39 @@ def nico_encounter(player):
     return "win"
 
 
+def show_double_battle_screen(player_mon, nico_mon, enemy_mon):
+    p_lines = get_sprite(player_mon["name"])
+    n_lines = get_sprite(nico_mon["name"])
+    e_lines = get_sprite(enemy_mon["name"])
+
+    height = max(len(p_lines), len(n_lines), len(e_lines))
+    while len(p_lines) < height:
+        p_lines.append("")
+    while len(n_lines) < height:
+        n_lines.append("")
+    while len(e_lines) < height:
+        e_lines.append("")
+
+    p_width = max((len(l) for l in p_lines), default=9)
+    n_width = max((len(l) for l in n_lines), default=9)
+    e_width = max((len(l) for l in e_lines), default=9)
+    gap_in  = "  "
+    gap_out = "       "
+
+    print()
+    for p_line, n_line, e_line in zip(p_lines, n_lines, e_lines):
+        print(p_line.ljust(p_width) + gap_in + n_line.ljust(n_width) + gap_out + e_line.ljust(e_width))
+
+    p_bar = hp_bar(player_mon["hp"], player_mon["max_hp"])
+    n_bar = hp_bar(nico_mon["hp"], nico_mon["max_hp"])
+    e_bar = hp_bar(enemy_mon["hp"], enemy_mon["max_hp"])
+    p_label = f"  {player_mon['name']} Lv.{player_mon['level']}  {p_bar} {player_mon['hp']}/{player_mon['max_hp']}"
+    n_label = f"  Nico's {nico_mon['name']} Lv.{nico_mon['level']}  {n_bar} {nico_mon['hp']}/{nico_mon['max_hp']}"
+    e_label = f"  {enemy_mon['name']} Lv.{enemy_mon['level']}  {e_bar} {enemy_mon['hp']}/{enemy_mon['max_hp']}"
+    print(p_label.ljust(p_width + len(gap_in)) + n_label.ljust(n_width + len(gap_out)) + e_label)
+    print()
+
+
 def gym_double_battle(player, nico_party, enemy_party):
     enemy_index = 0
     enemy_mon = enemy_party[enemy_index]
@@ -361,12 +394,7 @@ def gym_double_battle(player, nico_party, enemy_party):
     print()
 
     while True:
-        show_battle_screen(player_mon, enemy_mon)
-        if nico_mon["hp"] > 0:
-            bar = hp_bar(nico_mon["hp"], nico_mon["max_hp"])
-            print(f"  Nico's {nico_mon['name']} Lv.{nico_mon['level']}  {bar} {nico_mon['hp']}/{nico_mon['max_hp']}")
-            print()
-
+        show_double_battle_screen(player_mon, nico_mon, enemy_mon)
         enemy_hp_before = enemy_mon["hp"]
         print("What will you do?")
         print("  1. Fight")
