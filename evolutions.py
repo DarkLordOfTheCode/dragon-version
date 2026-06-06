@@ -95,7 +95,7 @@ evolutions = {
     "Ralts":      ("Kirlia",     20),
     "Kirlia":     ("Gallade",    30),
     "Bronzor":    ("Bronzong",   33),
-    # Aziza's line
+    # A's line
     "Poliwag":    ("Poliwhirl",  15),
 }
 

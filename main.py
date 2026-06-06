@@ -27,9 +27,9 @@ def home_scene():
     print()
     pause()
 
-    print("Narmina: NH! NH, wake up!")
-    print("Narmina: You slept in — again.")
-    print("Narmina: Get downstairs. Breakfast is ready.")
+    print("Mom: NH! NH, wake up!")
+    print("Mom: You slept in — again.")
+    print("Mom: Get downstairs. Breakfast is ready.")
     pause()
 
     print("NH: I'M UP! I'M UP!")
@@ -38,62 +38,62 @@ def home_scene():
     print("NH: I can't believe it's actually happening.")
     pause()
 
-    print("Narmina: It's happening after you eat.")
-    print("Narmina: Sit down.")
+    print("Mom: It's happening after you eat.")
+    print("Mom: Sit down.")
     pause()
 
-    print("Aziza: I'm not eating these eggs.")
-    print("Aziza: They're boiled. Why are they always boiled.")
+    print("A: I'm not eating these eggs.")
+    print("A: They're boiled. Why are they always boiled.")
     pause()
 
     print("NH: Same. These are not journey food.")
     print("NH: These are punishment food.")
     pause()
 
-    print("Narmina: You're both eating the eggs.")
+    print("Mom: You're both eating the eggs.")
     pause()
 
     print("...")
     pause()
 
-    print("Hasan: *sniff*")
-    print("Hasan: Good morning.")
+    print("Dad: *sniff*")
+    print("Dad: Good morning.")
     pause()
 
     print("NH: Dad! You look terrible.")
     pause()
 
-    print("Hasan: I'm fine. Just a cold.")
-    print("Hasan: *sniff*")
-    print("Hasan: Don't look at me like that.")
+    print("Dad: I'm fine. Just a cold.")
+    print("Dad: *sniff*")
+    print("Dad: Don't look at me like that.")
     pause()
 
-    print("Aziza: Your nose is completely blocked.")
+    print("A: Your nose is completely blocked.")
     pause()
 
-    print("Hasan: It's a little blocked.")
-    print("Hasan: I said I'm fine.")
+    print("Dad: It's a little blocked.")
+    print("Dad: I said I'm fine.")
     pause()
 
-    print("Narmina: Sit down. I'll make you something warm.")
+    print("Mom: Sit down. I'll make you something warm.")
     pause()
 
-    print("Hasan: NH.")
+    print("Dad: NH.")
     pause()
 
     print("NH: Yeah?")
     pause()
 
-    print("Hasan: Come back once in a while.")
-    print("Hasan: And when you get better at Pokémon...")
-    print("Hasan: I'll be waiting for you.")
+    print("Dad: Come back once in a while.")
+    print("Dad: And when you get better at Pokémon...")
+    print("Dad: I'll be waiting for you.")
     pause()
 
     print("NH: ...")
     print("NH: I'll hold you to that.")
     pause()
 
-    print("Narmina: Be safe.")
+    print("Mom: Be safe.")
     pause()
 
     print("You leave home.")
@@ -104,7 +104,7 @@ def larch_scene():
     print("*knock knock*")
     pause()
 
-    print("Narmina: I'll get it.")
+    print("Mom: I'll get it.")
     pause()
 
     print("Professor Larch: Good morning. Is NH home?")

@@ -72,11 +72,11 @@ gym_leaders = [
         "reward": 8500,
     },
     {
-        "name": "Hasan",
+        "name": "Dad",
         "title": "Bakil City Gym Leader",
         "gym_number": 9,
         "type": "Ground/Dragon",
-        "greeting": "Hasan: *smiles* You've grown so much, NH. I'm proud of you. Now show me everything you've learned.",
+        "greeting": "Dad: *smiles* You've grown so much, NH. I'm proud of you. Now show me everything you've learned.",
         "team": [("Vibrava", 74), ("Gliscor", 76), ("Krookodile", 78), ("Flygon", 81), ("Garchomp", 84)],
         "reward": 10000,
     },
