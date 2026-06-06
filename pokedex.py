@@ -1228,4 +1228,28 @@ pokedex = {
         "speed": 45,
         "special": 20,
     },
+    "Poliwag": {
+        "type": ["Water"],
+        "hp": 40,
+        "attack": 50,
+        "defence": 40,
+        "speed": 90,
+        "special": 40,
+    },
+    "Poliwhirl": {
+        "type": ["Water"],
+        "hp": 65,
+        "attack": 65,
+        "defence": 65,
+        "speed": 90,
+        "special": 50,
+    },
+    "Poliwrath": {
+        "type": ["Water", "Fighting"],
+        "hp": 90,
+        "attack": 95,
+        "defence": 95,
+        "speed": 70,
+        "special": 70,
+    },
 }

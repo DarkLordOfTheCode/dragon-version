@@ -1199,4 +1199,19 @@ learnsets = {
         1: ["Scratch"],
         5: ["Bug Bite"],
     },
+    "Poliwag": {
+        1: ["Bubble"],
+        8: ["Water Gun"],
+        15: ["Body Slam"],
+    },
+    "Poliwhirl": {
+        1: ["Water Gun"],
+        15: ["Surf"],
+        25: ["Close Combat"],
+    },
+    "Poliwrath": {
+        1: ["Surf"],
+        10: ["Close Combat"],
+        30: ["Hydro Pump"],
+    },
 }

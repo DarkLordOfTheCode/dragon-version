@@ -1,5 +1,6 @@
 from pokedex import pokedex
 from learnsets import learnsets
+from evolutions import evolutions
 
 
 def calc_hp(base, level):
@@ -70,3 +71,35 @@ def level_up(mon):
             print(f"  {mon['name']} learned {move}!")
         else:
             print(f"  {mon['name']} wants to learn {move} but already knows 4 moves.")
+
+    if mon["name"] in evolutions:
+        evo_name, evo_level = evolutions[mon["name"]]
+        if level >= evo_level:
+            old_name = mon["name"]
+            new_data = pokedex[evo_name]
+            mon["name"] = evo_name
+            mon["types"] = new_data["type"]
+            mon["base_stats"] = {
+                "hp":      new_data["hp"],
+                "attack":  new_data["attack"],
+                "defence": new_data["defence"],
+                "special": new_data["special"],
+                "speed":   new_data["speed"],
+            }
+            b = mon["base_stats"]
+            old_max_hp = mon["max_hp"]
+            new_max_hp = calc_hp(b["hp"], level)
+            mon["max_hp"] = new_max_hp
+            mon["hp"] = min(mon["hp"] + (new_max_hp - old_max_hp), new_max_hp)
+            mon["attack"]  = calc_stat(b["attack"],  level)
+            mon["defence"] = calc_stat(b["defence"], level)
+            mon["special"] = calc_stat(b["special"], level)
+            mon["speed"]   = calc_stat(b["speed"],   level)
+            print(f"\n  Congratulations! Your {old_name} evolved into {evo_name}!")
+            for learn_level, move_list in learnsets.get(evo_name, {}).items():
+                if learn_level <= level:
+                    for move in move_list:
+                        if move not in mon["moves"]:
+                            if len(mon["moves"]) < 4:
+                                mon["moves"].append(move)
+                                print(f"  {evo_name} learned {move}!")

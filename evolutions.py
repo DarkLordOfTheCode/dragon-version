@@ -95,10 +95,13 @@ evolutions = {
     "Ralts":      ("Kirlia",     20),
     "Kirlia":     ("Gallade",    30),
     "Bronzor":    ("Bronzong",   33),
+    # Aziza's line
+    "Poliwag":    ("Poliwhirl",  15),
 }
 
 # (pokemon_name, item_name) -> evolved_form
 item_evolutions = {
-    ("Seadra", "Dragon Stone"): "Kingdra",
-    ("Applin", "Dragon Stone"): "Flapple",
+    ("Seadra",    "Dragon Stone"): "Kingdra",
+    ("Applin",    "Dragon Stone"): "Flapple",
+    ("Poliwhirl", "Water Stone"):  "Poliwrath",
 }
