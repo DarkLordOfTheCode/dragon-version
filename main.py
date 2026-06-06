@@ -1,4 +1,5 @@
 from pokemon import create_pokemon
+from sprites import get_sprite
 
 
 def create_player(starter_name):
@@ -117,9 +118,32 @@ def larch_scene():
     print("Professor Larch: They've been waiting for the right trainer.")
     print("Professor Larch: Choose your partner.")
     print()
-    print("1. Frodger  (Dragon / Fire)")
-    print("2. Buliz    (Dragon / Water)")
-    print("3. Falake   (Dragon / Grass)")
+
+    starters = [
+        ("Frodger", "Dragon / Fire"),
+        ("Buliz",   "Dragon / Water"),
+        ("Falake",  "Dragon / Grass"),
+    ]
+
+    sprites = [get_sprite(name) for name, _ in starters]
+    labels = [f"{i}. {name} ({typing})" for i, (name, typing) in enumerate(starters, 1)]
+    gap = "    "
+    col_width = max(
+        max(len(line) for s in sprites for line in s),
+        max(len(l) for l in labels)
+    ) + 2
+
+    for row in range(max(len(s) for s in sprites)):
+        line = ""
+        for s in sprites:
+            cell = s[row] if row < len(s) else ""
+            line += cell.ljust(col_width) + gap
+        print(line)
+
+    print()
+    for label in labels:
+        print(label.ljust(col_width) + gap, end="")
+    print()
     print()
 
     choice = input("Enter 1, 2, or 3: ")
@@ -136,6 +160,10 @@ def larch_scene():
         return larch_scene()
 
     print(f"Professor Larch: {starter}. A fine choice.")
+    print()
+    for line in get_sprite(starter):
+        print("  " + line)
+    print()
     print("Professor Larch: Take good care of each other.")
     pause()
 
