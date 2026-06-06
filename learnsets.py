@@ -46,7 +46,7 @@ learnsets = {
         35: ["Hydro Pump"],
     },
     "Falake": {
-        1: ["Scratch"],
+        1: ["Scratch", "Dragon Rage"],
         5: ["Leafage"],
         8: ["Razor Leaf"],
         12: ["Confusion"],
