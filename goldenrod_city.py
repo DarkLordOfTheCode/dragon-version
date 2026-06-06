@@ -138,10 +138,10 @@ def double_battle(player, nico_party, enemy_party):
 
 def arrive(player):
     print("=" * 40)
-    print("  SUMGAIT")
+    print("  GOLDENROD CITY")
     print("=" * 40)
     print()
-    print("Sumgait is enormous — factories, broadcast")
+    print("Goldenrod City is enormous — factories, broadcast")
     print("towers, crowds moving in every direction.")
     print("The whole city hums with electricity.")
     print()
@@ -201,7 +201,7 @@ def nico_reunite(player):
 
 def radio_tower(player):
     print("=" * 40)
-    print("  SUMGAIT RADIO TOWER")
+    print("  GOLDENROD CITY RADIO TOWER")
     print("=" * 40)
     print()
     print("The lobby is empty — evacuated.")
@@ -327,7 +327,7 @@ def radio_tower(player):
 def gym_battle(player):
     print()
     print("=" * 40)
-    print("  SUMGAIT GYM")
+    print("  GOLDENROD CITY GYM")
     print("=" * 40)
     print()
     print("The gym floor is wide open — a performance space.")
@@ -385,7 +385,7 @@ def goldenrod_city(player):
 
     while True:
         print("=" * 40)
-        print("  SUMGAIT")
+        print("  GOLDENROD CITY")
         print("=" * 40)
         print()
         print("What do you want to do?")
@@ -426,7 +426,7 @@ def goldenrod_city(player):
                 print("You haven't challenged the gym yet.")
                 print()
             else:
-                print("You leave Sumgait heading north.")
+                print("You leave Goldenrod City heading north.")
                 print()
                 pause()
                 return "done"

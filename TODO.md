@@ -2,7 +2,7 @@
 
 ## Next
 - Design Nico's full rival team progression
-- Build Lankaran (gym 3, Coral, Water/Dragon)
+- Build Slateport City (gym 3, Coral, Water/Dragon)
 
 ## In Progress
 - Nothing currently in progress
@@ -12,14 +12,14 @@
 
 ## Resolved
 - **Nico's first battle team** — Gible + Caterpie
-- **Ganja mall** — the main hub; gym is inside the mall; Team Fairy hideout is on floor -1, only accessible after beating the gym
+- **Saffron City mall** — the main hub; gym is inside the mall; Team Fairy hideout is on floor -1, only accessible after beating the gym
 - **Draconia gimmick** — Azerbaijan parallel: senate oligarchy, oil wealth, "Land of Fire and Scale"; no emperor
-- **City names** — all gyms renamed to real Azerbaijani cities (Ganja, Sumgait, Lankaran, Mingachevir, Nakhchivan, Sheki, Astara, Gabala)
+- **City names** — all gyms renamed to real Azerbaijani cities (Saffron City, Goldenrod City, Slateport City, Jubilife City, Castelia City, Lumiose City, Hau'oli City, Hammerlocke)
 - **Gym leader names** — kept original (Whiteout, Coral, Vance, Rook, Lysara, Tide, Flint); only route trainers use Azerbaijani names
 - **Isaac, Sam, Nico** — no political roles; just friends of NH who travel with the group
 
 ## Done
-- [x] goldenrod_city.py — Sumgait: arrival, Nico reunite, Radio Tower (3 floors, Clio admin boss), Whiteout gym double battle with Nico
+- [x] goldenrod_city.py — Goldenrod City: arrival, Nico reunite, Radio Tower (3 floors, Clio admin boss), Whiteout gym double battle with Nico
 - [x] saffron_city.py — arrival, Team Fairy grunt blocks exit, city exploration, Nico battle (Gible + Caterpie), mall (shop, TM shop, gym, hideout), Sabina gym battle, Team Fairy hideout on floor -1, exit unlocks after hideout cleared
 - [x] Added Caterpie to pokedex.py and learnsets.py; added Pikachu learnset
 - [x] main.py — full intro: home scene (Narmina, Hasan, Aziza, boiled eggs), Larch arrives, starter selection, Haci gives items
