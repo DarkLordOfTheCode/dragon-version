@@ -179,7 +179,7 @@ def battle(player, enemy_party, is_wild=False):
     print()
 
     while True:
-        show_status(player_mon, enemy_mon)
+        show_battle_screen(player_mon, enemy_mon)
 
         print("What will you do?")
         print("  1. Fight")

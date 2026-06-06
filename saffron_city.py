@@ -2,6 +2,7 @@ import random
 from battle import battle, calculate_damage, enemy_attack, give_exp, switch_pokemon, use_healing_item, HEALING_ITEMS
 from pokemon import create_pokemon
 from gym_leaders import gym_leaders
+from sprites import show_battle_screen, get_sprite, hp_bar
 
 SABINA = gym_leaders[0]
 
@@ -344,12 +345,11 @@ def gym_double_battle(player, nico_party, enemy_party):
     print()
 
     while True:
-        print(f"  {enemy_mon['name']} Lv.{enemy_mon['level']}   HP: {enemy_mon['hp']}/{enemy_mon['max_hp']}")
-        print()
-        print(f"  {player_mon['name']} Lv.{player_mon['level']}   HP: {player_mon['hp']}/{player_mon['max_hp']}")
+        show_battle_screen(player_mon, enemy_mon)
         if nico_mon["hp"] > 0:
-            print(f"  Nico's {nico_mon['name']} Lv.{nico_mon['level']}   HP: {nico_mon['hp']}/{nico_mon['max_hp']}")
-        print("-" * 40)
+            bar = hp_bar(nico_mon["hp"], nico_mon["max_hp"])
+            print(f"  Nico's {nico_mon['name']} Lv.{nico_mon['level']}  {bar} {nico_mon['hp']}/{nico_mon['max_hp']}")
+            print()
 
         print("What will you do?")
         print("  1. Fight")
