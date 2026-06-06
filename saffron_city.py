@@ -367,6 +367,7 @@ def gym_double_battle(player, nico_party, enemy_party):
             print(f"  Nico's {nico_mon['name']} Lv.{nico_mon['level']}  {bar} {nico_mon['hp']}/{nico_mon['max_hp']}")
             print()
 
+        enemy_hp_before = enemy_mon["hp"]
         print("What will you do?")
         print("  1. Fight")
         print("  2. Bag")
@@ -428,16 +429,19 @@ def gym_double_battle(player, nico_party, enemy_party):
             continue
 
         # Nico auto-attacks
-        if nico_mon["hp"] > 0 and enemy_mon["hp"] > 0:
+        if nico_mon["hp"] > 0 and enemy_hp_before > 0:
             move_name = random.choice(nico_mon["moves"])
             damage, effectiveness = calculate_damage(nico_mon, move_name, enemy_mon)
-            enemy_mon["hp"] = max(0, enemy_mon["hp"] - damage)
             print(f"  Nico's {nico_mon['name']} used {move_name}!")
-            if effectiveness > 1:
-                print("  It's super effective!")
-            elif effectiveness < 1:
-                print("  It's not very effective...")
-            print(f"  {enemy_mon['name']} took {damage} damage. HP: {enemy_mon['hp']}/{enemy_mon['max_hp']}")
+            if enemy_mon["hp"] > 0:
+                enemy_mon["hp"] = max(0, enemy_mon["hp"] - damage)
+                if effectiveness > 1:
+                    print("  It's super effective!")
+                elif effectiveness < 1:
+                    print("  It's not very effective...")
+                print(f"  {enemy_mon['name']} took {damage} damage. HP: {enemy_mon['hp']}/{enemy_mon['max_hp']}")
+            else:
+                print(f"  But {enemy_mon['name']} had already fainted!")
             print()
 
         # Check enemy fainted
@@ -452,9 +456,11 @@ def gym_double_battle(player, nico_party, enemy_party):
             print(f"  {enemy_mon['name']} was sent out!")
             continue
 
-        # Enemy attacks NH
+        # Enemy attacks a random target
         print()
-        enemy_attack(enemy_mon, player_mon)
+        alive_targets = [t for t in [player_mon, nico_mon] if t["hp"] > 0]
+        target = random.choice(alive_targets)
+        enemy_attack(enemy_mon, target)
         print()
 
         # Check if player mon fainted
