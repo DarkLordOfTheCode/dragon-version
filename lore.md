@@ -32,7 +32,7 @@ Long ago a communist Fairy regime ruled Draconia — a propaganda state that con
 - **Sheki** — Where Zygarde hides in the depths. Major city of culture and lights. Also gym 6.
 - **Eon Palace** — Hidden sanctuary of Latias and Latios. Dragon trainers fled here during the civil war. Source of the three starter Pokémon.
 - **Mirage Island** — Exile home of all Fairy-type Pokémon since the revolution.
-- **Sumgait** — Aytən's gym. Team Fairy hijack the massive Radio Tower (10x bigger than HGSS) to broadcast for a new leader. NH and Nico reunite here and clear the tower before challenging the gym.
+- **Sumgait** — Whiteout's gym. Team Fairy hijack the massive Radio Tower (10x bigger than HGSS) to broadcast for a new leader. NH and Nico reunite here and clear the tower before challenging the gym.
 - Ganja, Sumgait, Lankaran, Mingachevir, Nakhchivan, Sheki, Astara, Gabala — surviving old region capitals, all thriving.
 
 ---
@@ -59,7 +59,7 @@ When the corrupted Diancie explodes in Draconia City, the creature is unleashed.
 
 ## Team Fairy
 
-Secretly run by corrupt senators within the senate — the senate as a whole is the real villain, using Team Fairy as their instrument. **Professor Larch** is their puppet leader — former Fairy regime supporter. Grunts: Fərid, Lalə, Sona. Admin: Cəmilə.
+Secretly run by corrupt senators within the senate — the senate as a whole is the real villain, using Team Fairy as their instrument. **Professor Larch** is their puppet leader — former Fairy regime supporter. Grunts: Fen, Liora, Sable. Admin: Clio.
 
 Their true goal is reassembling **Diancie** — who created the original Fairy regime and shattered into fragments like Zygarde's cells. They worship her and want to restore her to restart the regime. They are also broadcasting from the Sumgait Radio Tower (10x bigger than in HGSS) to find a new leader because Larch is failing.
 
@@ -91,16 +91,16 @@ Sneaks onto the journey — immediately caught because she's terrible at hiding.
 Grew up with NH in Bakil City. Extremely funny, makes everyone laugh — but can snap into genuine sudden anger. **Only eats spaghetti.** When she was six her family took her to a spaghetti restaurant. Her parents ran an experiment to see how long the phase would last. It never ended. Gets emotional if anyone brings it up. Uses **Dark and Psychic-type** Pokémon. Signature Pokémon: **Inkay** → **Malamar** (evolves off-screen on a roller coaster — when NH reunites with Zuma she casually mentions she has a Malamar now, no explanation).
 
 ### Isaac
-Used to be shy, now calm and collected. Just a friend of NH's — no political role. Part of the group. Discovers the senate's corruption alongside NH. Signature Pokémon: **Dragapult**.
+Old friend of NH's from before the journey. Used to be shy, now calm and collected. No political role. Part of the group. Discovers the senate's corruption alongside NH. Signature Pokémon: **Dragapult**.
 
 ### Sam
-Mean personality, but actually one of the good guys. An old friend of NH's (alongside Zuma). Actively fights against Team Fairy. Not the villain despite how he comes across.
+Old friend of NH's from before the journey. Mean personality, but actually one of the good guys. Actively fights against Team Fairy. Not the villain despite how he comes across.
 
 ### Senator Tomas & Senator Arman
 Best friends since birth. Look completely different, share the exact same loud funny personality. **Unaware of the Team Fairy conspiracy.** Give NH and the group supplies throughout the journey. Become Elite Four 2 (double battle). Vote to expose the corrupt senators at the end.
 
 ### Nico
-Kind and funny — just a friend of NH's. Descendant of both Lance and Clair — double Dragon Master bloodline. His family was attacked during the civil war and fled to Eon Palace. Does not know Lance is the Champion. When he sees Lance for the first time at the Champion battle, he is literally speechless — the funny chatty guy has nothing to say. Teams up with NH through the Elite Four (except Haci — that's NH's personal fight). Together they face Lance in a silent double battle, Red vs Gold on Mount Silver style. Signature Pokémon: **Gible** (Garchomp line). First battle team (Ganja): Gible + Caterpie.
+Old friend of NH's from before the journey. Kind and funny. Descendant of both Lance and Clair — double Dragon Master bloodline. His family was attacked during the civil war and fled to Eon Palace. Does not know Lance is the Champion. When he sees Lance for the first time at the Champion battle, he is literally speechless — the funny chatty guy has nothing to say. Teams up with NH through the Elite Four (except Haci — that's NH's personal fight). Together they face Lance in a silent double battle, Red vs Gold on Mount Silver style. Signature Pokémon: **Gible** (Garchomp line). First battle team (Ganja): Gible + Caterpie.
 
 ### Haci (Oil Lord of Bakil City / Elite Four 1)
 Elder of Bakil City. During the communist Fairy regime he **fought for women's rights** and used his wealth to build schools for women. When the regime fell he expanded the schools for both genders. A revered legend in Bakil City. NH knows him personally. Becomes Elite Four 1 — uses **Dragon/Oil types**.
@@ -135,13 +135,13 @@ Order follows gen release order (Gen 1 → 8), with Bakil City last as gym 9.
 | # | City | Leader | Type | Notes |
 |---|---|---|---|---|
 | 1 | Ganja | **Sabina** | Psychic/Dragon | Sabrina's relative — carries the Psychic legacy into the Dragon era. Gym is inside the Ganja mall. Team Fairy hideout on mall floor -1, only accessible after beating Sabina. |
-| 2 | Sumgait | **Aytən** | Normal/Dragon | Whitney's relative — popular performer, crowd-pleaser |
-| 3 | Lankaran | **Mərcan** | Water/Dragon | Old sailor, weathered and calm, around since before the merger |
-| 4 | Mingachevir | **Vasif** | Steel/Dragon | Media mogul, turned the old TV station into a Pokémon battle show |
-| 5 | Nakhchivan | **Rauf** | Dark/Dragon | Street-smart, runs gym out of an old skyscraper, relaxed attitude |
-| 6 | Sheki | **Ləyla** | Fire/Dragon | Lysandre's relative — gym in the city of lights |
-| 7 | Astara | **Tural** | Flying/Dragon | Surfer type, always barefoot, never seems serious until the battle |
-| 8 | Gabala | **Fərhad** | Rock/Dragon | Big, loud, old-school knight energy, takes battles personally |
+| 2 | Sumgait | **Whiteout** | Normal/Dragon | Whitney's relative — popular performer, crowd-pleaser |
+| 3 | Lankaran | **Coral** | Water/Dragon | Old sailor, weathered and calm, around since before the merger |
+| 4 | Mingachevir | **Vance** | Steel/Dragon | Media mogul, turned the old TV station into a Pokémon battle show |
+| 5 | Nakhchivan | **Rook** | Dark/Dragon | Street-smart, runs gym out of an old skyscraper, relaxed attitude |
+| 6 | Sheki | **Lysara** | Fire/Dragon | Lysandre's relative — gym in the city of lights |
+| 7 | Astara | **Tide** | Flying/Dragon | Surfer type, always barefoot, never seems serious until the battle |
+| 8 | Gabala | **Flint** | Rock/Dragon | Big, loud, old-school knight energy, takes battles personally |
 | 9 | Bakil City | **Hasan** | Ground/Dragon | NH's father. Too sick to battle at the start. Recovers after Team Fairy is defeated — fought last. |
 
 ---
