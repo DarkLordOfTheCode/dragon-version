@@ -1199,6 +1199,15 @@ learnsets = {
         1: ["Scratch"],
         5: ["Bug Bite"],
     },
+    "Metapod": {
+        1: ["Scratch"],
+    },
+    "Butterfree": {
+        1: ["Gust"],
+        10: ["Bug Bite"],
+        20: ["Air Slash"],
+        30: ["X-Scissor"],
+    },
     "Poliwag": {
         1: ["Bubble"],
         8: ["Water Gun"],

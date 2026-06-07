@@ -1228,6 +1228,22 @@ pokedex = {
         "speed": 45,
         "special": 20,
     },
+    "Metapod": {
+        "type": ["Bug"],
+        "hp": 50,
+        "attack": 20,
+        "defence": 55,
+        "speed": 30,
+        "special": 25,
+    },
+    "Butterfree": {
+        "type": ["Bug", "Flying"],
+        "hp": 60,
+        "attack": 45,
+        "defence": 50,
+        "speed": 70,
+        "special": 90,
+    },
     "Poliwag": {
         "type": ["Water"],
         "hp": 40,

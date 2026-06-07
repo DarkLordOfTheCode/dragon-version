@@ -625,6 +625,69 @@ def team_fairy_hideout(player):
     return "win"
 
 
+def move_reminder(player):
+    from learnsets import learnsets
+    print()
+    print("=" * 40)
+    print("  MOVE REMINDER  (Free)")
+    print("=" * 40)
+    print()
+    print("Which Pokémon?")
+    print()
+    for i, mon in enumerate(player["party"], 1):
+        print(f"  {i}. {mon['name']} Lv.{mon['level']}")
+    print(f"  {len(player['party']) + 1}. Leave")
+    print()
+    choice = input("Choose: ").strip()
+    print()
+    try:
+        idx = int(choice) - 1
+        if idx == len(player["party"]):
+            return
+        if not (0 <= idx < len(player["party"])):
+            print("Invalid choice.")
+            print()
+            return
+        mon = player["party"][idx]
+        if mon["name"] not in learnsets:
+            print(f"{mon['name']} has no moves to be reminded of.")
+            print()
+            return
+        available = []
+        for lv, moves in learnsets[mon["name"]].items():
+            if lv <= mon["level"]:
+                for move in moves:
+                    if move not in mon["moves"] and move not in available:
+                        available.append(move)
+        if not available:
+            print(f"{mon['name']} already knows all its available moves.")
+            print()
+            return
+        print(f"Moves {mon['name']} can relearn:")
+        print()
+        for i, move in enumerate(available, 1):
+            print(f"  {i}. {move}")
+        print(f"  {len(available) + 1}. Cancel")
+        print()
+        choice = input("Choose: ").strip()
+        print()
+        try:
+            midx = int(choice) - 1
+            if midx == len(available):
+                return
+            if 0 <= midx < len(available):
+                teach_move(player, available[midx])
+            else:
+                print("Invalid choice.")
+                print()
+        except ValueError:
+            print("Invalid choice.")
+            print()
+    except ValueError:
+        print("Invalid choice.")
+        print()
+
+
 def mall(player, state):
     print()
     print("=" * 40)
@@ -643,7 +706,8 @@ def mall(player, state):
             print("  4. Floor -1 — [UNLOCKED]")
         else:
             print("  4. Floor -1 — [LOCKED]")
-        print("  5. Leave the mall")
+        print("  5. Move Reminder (Free)")
+        print("  6. Leave the mall")
         print()
         choice = input("Choose: ").strip()
         print()
@@ -674,6 +738,8 @@ def mall(player, state):
                     return "lose"
                 state["hideout_done"] = True
         elif choice == "5":
+            move_reminder(player)
+        elif choice == "6":
             return "done"
         else:
             print("Invalid choice.")
