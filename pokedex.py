@@ -777,6 +777,18 @@ pokedex = {
         "special": 120,
     },
     # Gen 1 additions
+    "Charmander": {
+        "type": ["Fire"],
+        "hp": 39, "attack": 52, "defence": 43, "speed": 65, "special": 50,
+    },
+    "Charmeleon": {
+        "type": ["Fire"],
+        "hp": 58, "attack": 64, "defence": 58, "speed": 80, "special": 65,
+    },
+    "Charizard": {
+        "type": ["Fire", "Flying"],
+        "hp": 78, "attack": 84, "defence": 78, "speed": 100, "special": 109,
+    },
     "Magikarp": {
         "type": ["Water"],
         "hp": 20,

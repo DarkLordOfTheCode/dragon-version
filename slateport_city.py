@@ -1,6 +1,7 @@
 from pokemon import create_pokemon
 from gym_leaders import gym_leaders
 from battle import battle
+from sprites import show_battle_screen, hp_bar
 
 CORAL = gym_leaders[2]
 
@@ -236,6 +237,276 @@ def move_reminder(player):
         print()
 
 
+def double_battle(player, sam_party, enemy_party):
+    from battle import calculate_damage, enemy_attack, give_exp, switch_pokemon, use_healing_item, HEALING_ITEMS
+    enemy_index = 0
+    enemy_mon = enemy_party[enemy_index]
+    sam_index = 0
+    sam_mon = sam_party[sam_index]
+
+    print(f"\n{enemy_mon['name']} was sent out!")
+    player_mon = next(p for p in player["party"] if p["hp"] > 0)
+    print(f"Go, {player_mon['name']}!")
+    print(f"Sam sent out {sam_mon['name']}!")
+    print()
+
+    while True:
+        show_battle_screen(player_mon, enemy_mon)
+        if sam_mon["hp"] > 0:
+            bar = hp_bar(sam_mon["hp"], sam_mon["max_hp"])
+            print(f"  Sam's {sam_mon['name']} Lv.{sam_mon['level']}  {bar} {sam_mon['hp']}/{sam_mon['max_hp']}")
+            print()
+
+        print("What will you do?")
+        print("  1. Fight")
+        print("  2. Bag")
+        print("  3. Pokémon")
+        action = input("\nChoose: ").strip()
+        print()
+
+        if action == "1":
+            if not player_mon["moves"]:
+                print(f"{player_mon['name']} has no moves!")
+                print()
+                continue
+            print("Choose a move:")
+            for i, move in enumerate(player_mon["moves"], 1):
+                print(f"  {i}. {move}")
+            move_choice = input("Choose: ").strip()
+            print()
+            try:
+                midx = int(move_choice) - 1
+                if 0 <= midx < len(player_mon["moves"]):
+                    move_name = player_mon["moves"][midx]
+                    dmg, eff = calculate_damage(player_mon, move_name, enemy_mon)
+                    enemy_mon["hp"] = max(0, enemy_mon["hp"] - dmg)
+                    print(f"{player_mon['name']} used {move_name}!")
+                    if eff == 0:
+                        print("It had no effect...")
+                    elif eff > 1:
+                        print("It's super effective!")
+                    elif eff < 1:
+                        print("It's not very effective...")
+                    print()
+                else:
+                    print("Invalid choice.")
+                    print()
+                    continue
+            except ValueError:
+                print("Invalid choice.")
+                print()
+                continue
+
+        elif action == "2":
+            result = use_healing_item(player, player_mon)
+            if result == "no_items":
+                print("No healing items.")
+                print()
+                continue
+
+        elif action == "3":
+            result = switch_pokemon(player, player_mon)
+            if result:
+                player_mon = result
+            continue
+
+        else:
+            print("Invalid choice.")
+            print()
+            continue
+
+        if enemy_mon["hp"] <= 0:
+            print(f"{enemy_mon['name']} fainted!")
+            give_exp(player_mon, enemy_mon)
+            print()
+            enemy_index += 1
+            if enemy_index >= len(enemy_party):
+                return "win"
+            enemy_mon = enemy_party[enemy_index]
+            print(f"Foe sent out {enemy_mon['name']}!")
+            print()
+            continue
+
+        if sam_mon["hp"] > 0:
+            sam_move = sam_mon["moves"][0] if sam_mon["moves"] else None
+            if sam_move:
+                dmg, eff = calculate_damage(sam_mon, sam_move, enemy_mon)
+                enemy_mon["hp"] = max(0, enemy_mon["hp"] - dmg)
+                print(f"Sam's {sam_mon['name']} used {sam_move}!")
+                print()
+                if enemy_mon["hp"] <= 0:
+                    print(f"{enemy_mon['name']} fainted!")
+                    give_exp(player_mon, enemy_mon)
+                    print()
+                    enemy_index += 1
+                    if enemy_index >= len(enemy_party):
+                        return "win"
+                    enemy_mon = enemy_party[enemy_index]
+                    print(f"Foe sent out {enemy_mon['name']}!")
+                    print()
+                    continue
+
+        dmg, _ = enemy_attack(enemy_mon, player_mon)
+        player_mon["hp"] = max(0, player_mon["hp"] - dmg)
+        print(f"Enemy {enemy_mon['name']} used {enemy_mon['moves'][0] if enemy_mon['moves'] else 'Tackle'}!")
+        print()
+
+        if player_mon["hp"] <= 0:
+            print(f"{player_mon['name']} fainted!")
+            print()
+            next_mon = next((p for p in player["party"] if p["hp"] > 0), None)
+            if not next_mon:
+                return "lose"
+            player_mon = next_mon
+            print(f"Go, {player_mon['name']}!")
+            print()
+
+        if sam_mon["hp"] <= 0:
+            sam_index += 1
+            if sam_index < len(sam_party):
+                sam_mon = sam_party[sam_index]
+                print(f"Sam sent out {sam_mon['name']}!")
+                print()
+
+
+def submarine(player):
+    print("=" * 40)
+    print("  TEAM FAIRY SUBMARINE")
+    print("=" * 40)
+    print()
+    print("Down at the harbour, a black submarine sits")
+    print("docked between two oil tankers. Team Fairy insignia")
+    print("stamped on the side. No one seems to have noticed.")
+    print()
+    pause()
+
+    print("Sam: *already there when you arrive*")
+    print("Sam: Been watching it for an hour. Three grunts")
+    print("Sam: on the dock, more inside. They're loading something.")
+    print()
+    pause()
+
+    print("NH: What are they loading?")
+    print()
+    pause()
+
+    print("Sam: Don't know. That's why we're going in.")
+    print()
+    pause()
+
+    sam_team = [create_pokemon("Charizard", 30), create_pokemon("Kingdra", 28)]
+
+    # Dock
+    print("Team Fairy Grunt: Hey — this is a restricted dock!")
+    print()
+    pause()
+
+    print("Sam: Great. *sends out Charizard*")
+    print()
+    pause()
+
+    result = double_battle(
+        player, sam_team,
+        [create_pokemon("Clefairy", 25), create_pokemon("Snubbull", 25)]
+    )
+    if result == "lose":
+        return "lose"
+
+    print()
+    print("Team Fairy Grunt: *into radio* We've got trainers on the dock—")
+    print()
+    pause()
+
+    print("Sam: Inside. Now.")
+    print()
+    pause()
+
+    # Inside the submarine
+    print("The interior is cramped. Wiring everywhere.")
+    print("Pink banners in a submarine. Somehow worse than the tower.")
+    print()
+    pause()
+
+    print("Team Fairy Grunt: You shouldn't be in here.")
+    print()
+    pause()
+
+    print("NH: What are you loading?")
+    print()
+    pause()
+
+    print("Team Fairy Grunt: None of your—")
+    print()
+    pause()
+
+    result = double_battle(
+        player, sam_team,
+        [create_pokemon("Granbull", 27), create_pokemon("Sylveon", 26)]
+    )
+    if result == "lose":
+        return "lose"
+
+    print()
+    print("Sam: *finds manifest on a crate*")
+    print("Sam: ...This is a lot of Pokéballs.")
+    print()
+    pause()
+
+    print("NH: They're capturing something.")
+    print()
+    pause()
+
+    print("Sam: Something big, by the looks of it.")
+    print("Sam: We should tell Larch.")
+    print()
+    pause()
+
+    # Commander
+    print("A door opens at the far end of the corridor.")
+    print()
+    pause()
+
+    print("Team Fairy Commander: You've seen too much.")
+    print()
+    pause()
+
+    print("Sam: Yeah. We tend to do that.")
+    print()
+    pause()
+
+    result = double_battle(
+        player, sam_team,
+        [create_pokemon("Togekiss", 29), create_pokemon("Gardevoir", 30)]
+    )
+    if result == "lose":
+        return "lose"
+
+    print()
+    print("Team Fairy Commander: *steps back*")
+    print("Team Fairy Commander: It doesn't matter. It's already done.")
+    print()
+    pause()
+
+    print("The commander retreats. The submarine begins to submerge.")
+    print()
+    pause()
+
+    print("Sam: Time to go.")
+    print()
+    pause()
+
+    print("You and Sam make it off the dock before it sinks below the waterline.")
+    print()
+    pause()
+
+    print("Sam: Whatever they're after — it's underwater.")
+    print("Sam: We'll need to figure that out eventually.")
+    print()
+    pause()
+
+    return "done"
+
+
 def mall(player):
     print()
     print("=" * 40)
@@ -276,7 +547,7 @@ def slateport_city(player):
     print()
     pause()
 
-    state = {"gym_beaten": False}
+    state = {"gym_beaten": False, "submarine_done": False}
 
     while True:
         print("=" * 40)
@@ -287,7 +558,8 @@ def slateport_city(player):
         print("  1. Gym")
         print("  2. Pokémon Center")
         print("  3. Mall")
-        print("  4. Head east")
+        print("  4. Harbour — Team Fairy Submarine")
+        print("  5. Head east")
         print()
         choice = input("Choose: ").strip()
         print()
@@ -330,8 +602,22 @@ def slateport_city(player):
             mall(player)
 
         elif choice == "4":
+            if state["submarine_done"]:
+                print("The harbour is quiet. The submarine is gone.")
+                print()
+            else:
+                result = submarine(player)
+                if result == "lose":
+                    return "lose"
+                state["submarine_done"] = True
+
+        elif choice == "5":
             if not state["gym_beaten"]:
                 print("You should challenge the gym before moving on.")
+                print()
+            elif not state["submarine_done"]:
+                print("Something is going on at the harbour.")
+                print("You should check it out first.")
                 print()
             else:
                 print("You leave Slateport City heading east.")
