@@ -11,7 +11,6 @@
 - **TMs on mall floor 2** — specific TMs in mind, or should a sensible early-game selection be picked?
 - **Coral's gym team** — what Pokémon does Coral use? (Water/Dragon, gym 3, Slateport City — levels should be ~lv25-28 range)
 - **Slateport City layout** — anything special here beyond the gym? Port area, shops, story beat with Team Fairy?
-- **Routes between Goldenrod and Slateport** — do Routes 4–5 need building before Slateport, or go straight to the city?
 - **Nico's Slateport team** — what does Nico bring to the Coral gym double battle? (Gabite will have levelled up by now)
 
 ## Resolved
@@ -21,8 +20,11 @@
 - **City names** — reverted to original Pokémon names (Saffron City, Goldenrod City, Slateport City, etc.); only route trainers use Azerbaijani names
 - **Gym leader names** — kept original (Whiteout, Coral, Vance, Rook, Lysara, Tide, Flint); only route trainers use Azerbaijani names
 - **Isaac, Sam, Nico** — no political roles; just friends of NH who travel with the group
+- **Routes between Saffron and Goldenrod** — all 7 routes built (Routes 1–7 done)
+- **Routes between Goldenrod and Slateport** — 5 routes; need building before Slateport
 
 ## Done
+- [x] route8.py–route12.py — Routes 8–12 with wild Pokémon and trainer battles (Goldenrod → Slateport)
 - [x] goldenrod_city.py — Goldenrod City: arrival, Nico reunite, Radio Tower (3 floors, Clio admin boss), Whiteout gym double battle with Nico
 - [x] saffron_city.py — arrival, Team Fairy grunt blocks exit, city exploration, Nico battle (Gible + Caterpie), mall (shop, TM shop, gym, hideout), Sabina gym battle, Team Fairy hideout on floor -1, exit unlocks after hideout cleared
 - [x] Added Caterpie to pokedex.py and learnsets.py; added Pikachu learnset
@@ -31,7 +33,7 @@
 - [x] moves.py — move database with power, type, category for all moves in learnsets
 - [x] pokemon.py — create_pokemon with level-scaled stats, get_moves, level_up, EXP system
 - [x] route1.py — Route 1: Teymur battle, tall grass wild encounters, Mira battle, arrive at Saffron City
-- [x] Created routes.py — Routes 1, 2, and 3 with wild Pokémon and young trainer battles
+- [x] Created routes.py — Routes 1–7 with wild Pokémon and trainer battles
 - [x] Added Pikachu to pokedex.py
 - [x] Changed Trapinch/Vibrava/Flygon from Ground to Bug type in pokedex.py
 - [x] Resolved all open lore questions and inconsistencies (see Lore Notes section)

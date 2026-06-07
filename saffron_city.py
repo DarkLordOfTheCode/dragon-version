@@ -739,7 +739,8 @@ def saffron_city(player):
                 print("You leave Saffron City.")
                 print()
                 pause()
-                return "done"
+                from route4 import route4
+                return route4(player)
 
         else:
             print("Invalid choice.")

@@ -449,7 +449,8 @@ def goldenrod_city(player):
                 print("You leave Goldenrod City heading north.")
                 print()
                 pause()
-                return "done"
+                from route8 import route8
+                return route8(player)
 
         else:
             print("Invalid choice.")

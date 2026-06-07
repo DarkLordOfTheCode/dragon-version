@@ -59,20 +59,20 @@ def route1(player):
     input("(Press Enter to continue...)")
     print()
 
-    # Tom
-    tom = trainers[0]
-    print(tom["greeting"])
+    # Teymur
+    teymur = trainers[0]
+    print(teymur["greeting"])
     print()
     input("(Press Enter to battle...)")
     print()
-    tom_team = [create_pokemon(name, level) for name, level in tom["team"]]
-    result = battle(player, tom_team, is_wild=False)
+    teymur_team = [create_pokemon(name, level) for name, level in teymur["team"]]
+    result = battle(player, teymur_team, is_wild=False)
     if result == "lose":
         return "lose"
     print()
-    print(tom["defeat_text"])
-    player["money"] += tom["reward"]
-    print(f"{tom['name']} gave you ${tom['reward']}!")
+    print(teymur["defeat_text"])
+    player["money"] += teymur["reward"]
+    print(f"{teymur['name']} gave you ${teymur['reward']}!")
     print()
     input("(Press Enter to continue...)")
     print()
@@ -87,20 +87,20 @@ def route1(player):
         if result == "lose":
             return "lose"
 
-    # Mia
-    mia = trainers[1]
-    print(mia["greeting"])
+    # Nigar
+    nigar = trainers[1]
+    print(nigar["greeting"])
     print()
     input("(Press Enter to battle...)")
     print()
-    mia_team = [create_pokemon(name, level) for name, level in mia["team"]]
-    result = battle(player, mia_team, is_wild=False)
+    nigar_team = [create_pokemon(name, level) for name, level in nigar["team"]]
+    result = battle(player, nigar_team, is_wild=False)
     if result == "lose":
         return "lose"
     print()
-    print(mia["defeat_text"])
-    player["money"] += mia["reward"]
-    print(f"{mia['name']} gave you ${mia['reward']}!")
+    print(nigar["defeat_text"])
+    player["money"] += nigar["reward"]
+    print(f"{nigar['name']} gave you ${nigar['reward']}!")
     print()
     input("(Press Enter to continue...)")
     print()

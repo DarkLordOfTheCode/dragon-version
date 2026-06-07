@@ -35,14 +35,14 @@ type_chart = {
                  "Fire": 2, "Ice": 2, "Flying": 2, "Bug": 2},
     "Ghost":    {"Normal": 0, "Dark": 0.5,
                  "Psychic": 2, "Ghost": 2},
-    "Dragon":   {"Steel": 0.5, "Fairy": 0,
-                 "Dragon": 2},
+    "Dragon":   {"Steel": 0.5,
+                 "Dragon": 2, "Fairy": 2},
     "Dark":     {"Fighting": 0.5, "Dark": 0.5, "Fairy": 0.5,
                  "Psychic": 2, "Ghost": 2},
     "Steel":    {"Fire": 0.5, "Water": 0.5, "Electric": 0.5, "Steel": 0.5,
                  "Ice": 2, "Rock": 2, "Fairy": 2},
-    "Fairy":    {"Fire": 0.5, "Poison": 0.5, "Steel": 0.5,
-                 "Fighting": 2, "Dragon": 2, "Dark": 2},
+    "Fairy":    {"Fire": 0.5, "Poison": 0.5, "Steel": 0.5, "Dragon": 0.5,
+                 "Fighting": 2, "Dark": 2},
 }
 
 
