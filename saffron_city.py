@@ -247,15 +247,15 @@ def nico_encounter(player):
     print()
     pause()
 
-    print("Nico: NH. WHAT.")
+    print("NR: NH. WHAT.")
     print()
     pause()
 
-    print("NH: Nico?!")
+    print("NH: NR?!")
     print()
     pause()
 
-    print("Nico: What are you doing in Saffron City?")
+    print("NR: What are you doing in Saffron City?")
     print()
     pause()
 
@@ -263,7 +263,7 @@ def nico_encounter(player):
     print()
     pause()
 
-    print("Nico: I asked first.")
+    print("NR: I asked first.")
     print()
     pause()
 
@@ -271,8 +271,8 @@ def nico_encounter(player):
     print()
     pause()
 
-    print("Nico: *stares*")
-    print("Nico: Me too.")
+    print("NR: *stares*")
+    print("NR: Me too.")
     print()
     pause()
 
@@ -280,7 +280,7 @@ def nico_encounter(player):
     print()
     pause()
 
-    print("Nico: I left three weeks ago. Didn't tell anyone.")
+    print("NR: I left three weeks ago. Didn't tell anyone.")
     print()
     pause()
 
@@ -288,8 +288,8 @@ def nico_encounter(player):
     print()
     pause()
 
-    print("Nico: I told my mum.")
-    print("Nico: ...She cried.")
+    print("NR: I told my mum.")
+    print("NR: ...She cried.")
     print()
     pause()
 
@@ -297,7 +297,7 @@ def nico_encounter(player):
     print()
     pause()
 
-    print("Nico: Battle. Obviously.")
+    print("NR: Battle. Obviously.")
     print()
     pause()
 
@@ -305,7 +305,7 @@ def nico_encounter(player):
     print()
     pause()
 
-    print("Nico: Food after. Battle now. I've been waiting")
+    print("NR: Food after. Battle now. I've been waiting")
     print("two years for this.")
     print()
     pause()
@@ -319,8 +319,8 @@ def nico_encounter(player):
         return "lose"
 
     print()
-    print("Nico: *looks at his Pokémon*")
-    print("Nico: ...Okay.")
+    print("NR: *looks at his Pokémon*")
+    print("NR: ...Okay.")
     print()
     pause()
 
@@ -328,7 +328,7 @@ def nico_encounter(player):
     print()
     pause()
 
-    print("Nico: He's got heart.")
+    print("NR: He's got heart.")
     print()
     pause()
 
@@ -336,12 +336,12 @@ def nico_encounter(player):
     print()
     pause()
 
-    print("Nico: He's building character.")
-    print("Nico: Rematch after the gym. Don't disappear.")
+    print("NR: He's building character.")
+    print("NR: Rematch after the gym. Don't disappear.")
     print()
     pause()
 
-    print("Nico pushed further into the mall.")
+    print("NR pushed further into the mall.")
     print()
     pause()
 
@@ -375,7 +375,7 @@ def show_double_battle_screen(player_mon, nico_mon, enemy_mon):
     n_bar = hp_bar(nico_mon["hp"], nico_mon["max_hp"])
     e_bar = hp_bar(enemy_mon["hp"], enemy_mon["max_hp"])
     p_label = f"  {player_mon['name']} Lv.{player_mon['level']}  {p_bar} {player_mon['hp']}/{player_mon['max_hp']}"
-    n_label = f"  Nico's {nico_mon['name']} Lv.{nico_mon['level']}  {n_bar} {nico_mon['hp']}/{nico_mon['max_hp']}"
+    n_label = f"  NR's {nico_mon['name']} Lv.{nico_mon['level']}  {n_bar} {nico_mon['hp']}/{nico_mon['max_hp']}"
     e_label = f"  {enemy_mon['name']} Lv.{enemy_mon['level']}  {e_bar} {enemy_mon['hp']}/{enemy_mon['max_hp']}"
     print(p_label.ljust(p_width + len(gap_in)) + n_label.ljust(n_width + len(gap_out)) + e_label)
     print()
@@ -390,7 +390,7 @@ def gym_double_battle(player, nico_party, enemy_party):
     print(f"\n{enemy_mon['name']} was sent out!")
     player_mon = next(p for p in player["party"] if p["hp"] > 0)
     print(f"Go, {player_mon['name']}!")
-    print(f"Nico sent out {nico_mon['name']}!")
+    print(f"NR sent out {nico_mon['name']}!")
     print()
 
     while True:
@@ -460,7 +460,7 @@ def gym_double_battle(player, nico_party, enemy_party):
         if nico_mon["hp"] > 0 and enemy_hp_before > 0:
             move_name = random.choice(nico_mon["moves"])
             damage, effectiveness = calculate_damage(nico_mon, move_name, enemy_mon)
-            print(f"  Nico's {nico_mon['name']} used {move_name}!")
+            print(f"  NR's {nico_mon['name']} used {move_name}!")
             if enemy_mon["hp"] > 0:
                 enemy_mon["hp"] = max(0, enemy_mon["hp"] - damage)
                 if effectiveness > 1:
@@ -502,13 +502,13 @@ def gym_double_battle(player, nico_party, enemy_party):
             player_mon = next_mon
             print(f"Go, {player_mon['name']}!")
 
-        # Check if Nico's mon fainted
+        # Check if NR's mon fainted
         if nico_mon["hp"] <= 0:
-            print(f"  Nico's {nico_mon['name']} fainted!")
+            print(f"  NR's {nico_mon['name']} fainted!")
             nico_index += 1
             if nico_index < len(nico_party):
                 nico_mon = nico_party[nico_index]
-                print(f"  Nico sent out {nico_mon['name']}!")
+                print(f"  NR sent out {nico_mon['name']}!")
 
 
 def gym_battle(player):
@@ -523,8 +523,8 @@ def gym_battle(player):
     print()
     pause()
 
-    print("Nico: *appears beside you*")
-    print("Nico: Double battle?")
+    print("NR: *appears beside you*")
+    print("NR: Double battle?")
     print()
     pause()
 
@@ -532,7 +532,7 @@ def gym_battle(player):
     print()
     pause()
 
-    print("Nico: I wanted a good spot.")
+    print("NR: I wanted a good spot.")
     print()
     pause()
 

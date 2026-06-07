@@ -21,14 +21,14 @@ def double_battle(player, nico_party, enemy_party):
     print(f"\n{enemy_mon['name']} was sent out!")
     player_mon = next(p for p in player["party"] if p["hp"] > 0)
     print(f"Go, {player_mon['name']}!")
-    print(f"Nico sent out {nico_mon['name']}!")
+    print(f"NR sent out {nico_mon['name']}!")
     print()
 
     while True:
         show_battle_screen(player_mon, enemy_mon)
         if nico_mon["hp"] > 0:
             bar = hp_bar(nico_mon["hp"], nico_mon["max_hp"])
-            print(f"  Nico's {nico_mon['name']} Lv.{nico_mon['level']}  {bar} {nico_mon['hp']}/{nico_mon['max_hp']}")
+            print(f"  NR's {nico_mon['name']} Lv.{nico_mon['level']}  {bar} {nico_mon['hp']}/{nico_mon['max_hp']}")
             print()
 
         print("What will you do?")
@@ -95,7 +95,7 @@ def double_battle(player, nico_party, enemy_party):
             move_name = random.choice(nico_mon["moves"])
             damage, effectiveness = calculate_damage(nico_mon, move_name, enemy_mon)
             enemy_mon["hp"] = max(0, enemy_mon["hp"] - damage)
-            print(f"  Nico's {nico_mon['name']} used {move_name}!")
+            print(f"  NR's {nico_mon['name']} used {move_name}!")
             if effectiveness > 1:
                 print("  It's super effective!")
             elif effectiveness < 1:
@@ -129,11 +129,11 @@ def double_battle(player, nico_party, enemy_party):
             print(f"Go, {player_mon['name']}!")
 
         if nico_mon["hp"] <= 0:
-            print(f"  Nico's {nico_mon['name']} fainted!")
+            print(f"  NR's {nico_mon['name']} fainted!")
             nico_index += 1
             if nico_index < len(nico_party):
                 nico_mon = nico_party[nico_index]
-                print(f"  Nico sent out {nico_mon['name']}!")
+                print(f"  NR sent out {nico_mon['name']}!")
 
 
 def pokecenter(player):
@@ -180,7 +180,7 @@ def nico_reunite(player):
     print()
     pause()
 
-    print("Nico: I've been waiting for twenty minutes.")
+    print("NR: I've been waiting for twenty minutes.")
     print()
     pause()
 
@@ -188,7 +188,7 @@ def nico_reunite(player):
     print()
     pause()
 
-    print("Nico: I didn't. I've been here three days.")
+    print("NR: I didn't. I've been here three days.")
     print()
     pause()
 
@@ -196,9 +196,9 @@ def nico_reunite(player):
     print()
     pause()
 
-    print("Nico: They won't let anyone near the tower.")
-    print("Nico: Team Fairy took the whole thing. Every floor.")
-    print("Nico: I've been waiting for someone worth going in with.")
+    print("NR: They won't let anyone near the tower.")
+    print("NR: Team Fairy took the whole thing. Every floor.")
+    print("NR: I've been waiting for someone worth going in with.")
     print()
     pause()
 
@@ -206,7 +206,7 @@ def nico_reunite(player):
     print()
     pause()
 
-    print("Nico: You showed up.")
+    print("NR: You showed up.")
     print()
     pause()
 
@@ -260,7 +260,7 @@ def radio_tower(player):
     print()
     pause()
 
-    print("Nico: We actually made it up here.")
+    print("NR: We actually made it up here.")
     print()
     pause()
 
@@ -300,7 +300,7 @@ def radio_tower(player):
     print()
     pause()
 
-    print("Nico: You built all of this just to run an ad?")
+    print("NR: You built all of this just to run an ad?")
     print()
     pause()
 
@@ -328,8 +328,8 @@ def radio_tower(player):
     print()
     pause()
 
-    print("Nico: *looks at the blank screens*")
-    print("Nico: That's it?")
+    print("NR: *looks at the blank screens*")
+    print("NR: That's it?")
     print()
     pause()
 
@@ -352,8 +352,8 @@ def gym_battle(player):
     print()
     pause()
 
-    print("Nico: *steps up beside you*")
-    print("Nico: Might as well.")
+    print("NR: *steps up beside you*")
+    print("NR: Might as well.")
     print()
     pause()
 
@@ -361,7 +361,7 @@ def gym_battle(player):
     print()
     pause()
 
-    print("Nico: You say that like it's a bad thing.")
+    print("NR: You say that like it's a bad thing.")
     print()
     pause()
 

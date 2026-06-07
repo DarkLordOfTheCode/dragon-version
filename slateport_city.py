@@ -247,14 +247,14 @@ def double_battle(player, sam_party, enemy_party):
     print(f"\n{enemy_mon['name']} was sent out!")
     player_mon = next(p for p in player["party"] if p["hp"] > 0)
     print(f"Go, {player_mon['name']}!")
-    print(f"Sam sent out {sam_mon['name']}!")
+    print(f"S sent out {sam_mon['name']}!")
     print()
 
     while True:
         show_battle_screen(player_mon, enemy_mon)
         if sam_mon["hp"] > 0:
             bar = hp_bar(sam_mon["hp"], sam_mon["max_hp"])
-            print(f"  Sam's {sam_mon['name']} Lv.{sam_mon['level']}  {bar} {sam_mon['hp']}/{sam_mon['max_hp']}")
+            print(f"  S's {sam_mon['name']} Lv.{sam_mon['level']}  {bar} {sam_mon['hp']}/{sam_mon['max_hp']}")
             print()
 
         print("What will you do?")
@@ -332,7 +332,7 @@ def double_battle(player, sam_party, enemy_party):
             if sam_move:
                 dmg, eff = calculate_damage(sam_mon, sam_move, enemy_mon)
                 enemy_mon["hp"] = max(0, enemy_mon["hp"] - dmg)
-                print(f"Sam's {sam_mon['name']} used {sam_move}!")
+                print(f"S's {sam_mon['name']} used {sam_move}!")
                 print()
                 if enemy_mon["hp"] <= 0:
                     print(f"{enemy_mon['name']} fainted!")
@@ -365,7 +365,7 @@ def double_battle(player, sam_party, enemy_party):
             sam_index += 1
             if sam_index < len(sam_party):
                 sam_mon = sam_party[sam_index]
-                print(f"Sam sent out {sam_mon['name']}!")
+                print(f"S sent out {sam_mon['name']}!")
                 print()
 
 
@@ -380,9 +380,9 @@ def submarine(player):
     print()
     pause()
 
-    print("Sam: *already there when you arrive*")
-    print("Sam: Been watching it for an hour. Three grunts")
-    print("Sam: on the dock, more inside. They're loading something.")
+    print("S: *already there when you arrive*")
+    print("S: Been watching it for an hour. Three grunts")
+    print("S: on the dock, more inside. They're loading something.")
     print()
     pause()
 
@@ -390,7 +390,7 @@ def submarine(player):
     print()
     pause()
 
-    print("Sam: Don't know. That's why we're going in.")
+    print("S: Don't know. That's why we're going in.")
     print()
     pause()
 
@@ -401,7 +401,7 @@ def submarine(player):
     print()
     pause()
 
-    print("Sam: Great. *sends out Charizard*")
+    print("S: Great. *sends out Charizard*")
     print()
     pause()
 
@@ -417,7 +417,7 @@ def submarine(player):
     print()
     pause()
 
-    print("Sam: Inside. Now.")
+    print("S: Inside. Now.")
     print()
     pause()
 
@@ -447,8 +447,8 @@ def submarine(player):
         return "lose"
 
     print()
-    print("Sam: *finds manifest on a crate*")
-    print("Sam: ...This is a lot of Pokéballs.")
+    print("S: *finds manifest on a crate*")
+    print("S: ...This is a lot of Pokéballs.")
     print()
     pause()
 
@@ -456,8 +456,8 @@ def submarine(player):
     print()
     pause()
 
-    print("Sam: Something big, by the looks of it.")
-    print("Sam: We should tell Larch.")
+    print("S: Something big, by the looks of it.")
+    print("S: We should tell Larch.")
     print()
     pause()
 
@@ -470,7 +470,7 @@ def submarine(player):
     print()
     pause()
 
-    print("Sam: Yeah. We tend to do that.")
+    print("S: Yeah. We tend to do that.")
     print()
     pause()
 
@@ -491,16 +491,16 @@ def submarine(player):
     print()
     pause()
 
-    print("Sam: Time to go.")
+    print("S: Time to go.")
     print()
     pause()
 
-    print("You and Sam make it off the dock before it sinks below the waterline.")
+    print("You and S make it off the dock before it sinks below the waterline.")
     print()
     pause()
 
-    print("Sam: Whatever they're after — it's underwater.")
-    print("Sam: We'll need to figure that out eventually.")
+    print("S: Whatever they're after — it's underwater.")
+    print("S: We'll need to figure that out eventually.")
     print()
     pause()
 

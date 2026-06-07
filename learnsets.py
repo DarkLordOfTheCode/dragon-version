@@ -326,6 +326,26 @@ learnsets = {
         28: ["Dragon Pulse"],
         40: ["Hydro Pump"],
     },
+    "Charmander": {
+        1: ["Scratch"],
+        5: ["Ember"],
+        12: ["Flame Charge"],
+        20: ["Flamethrower"],
+        36: ["Fire Blast"],
+    },
+    "Charmeleon": {
+        1: ["Ember"],
+        5: ["Flame Charge"],
+        20: ["Flamethrower"],
+        36: ["Fire Blast"],
+    },
+    "Charizard": {
+        1: ["Flamethrower"],
+        5: ["Air Slash"],
+        20: ["Fire Blast"],
+        36: ["Dragon Pulse"],
+        50: ["Outrage"],
+    },
     "Kingdra": {
         1: ["Water Gun"],
         5: ["Dragon Rage"],
