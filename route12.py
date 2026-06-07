@@ -5,4 +5,5 @@ def route12(player):
     result = run_route(player, "Route 12", "Slateport City")
     if result == "lose":
         return "lose"
-    return "done"
+    from slateport_city import slateport_city
+    return slateport_city(player)

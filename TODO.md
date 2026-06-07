@@ -9,8 +9,8 @@
 
 ## Open Questions (need answers before building)
 - **TMs on mall floor 2** — specific TMs in mind, or should a sensible early-game selection be picked?
-- **Coral's gym team** — what Pokémon does Coral use? (Water/Dragon, gym 3, Slateport City — levels should be ~lv25-28 range)
-- **Slateport City layout** — anything special here beyond the gym? Port area, shops, story beat with Team Fairy?
+- **Coral's gym team** — Horsea (28), Seadra (32), Kingdra (35); gym battle wired up in slateport_city.py
+- **Slateport City layout** — mall is done; anything else beyond the gym? Port area, story beat with Team Fairy?
 - **Nico's Slateport team** — what does Nico bring to the Coral gym double battle? (Gabite will have levelled up by now)
 
 ## Resolved
