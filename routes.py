@@ -428,5 +428,114 @@ routes = {
             },
         ],
     },
+
+    "Route 13": {
+        "description": "A long road climbing out of the coastal lowlands. The air gets drier the further north you go.",
+        "wild_pokemon": [
+            {"name": "Axew",     "min_level": 28, "max_level": 31, "rate": 30},
+            {"name": "Sandile",  "min_level": 28, "max_level": 30, "rate": 25},
+            {"name": "Druddigon","min_level": 29, "max_level": 31, "rate": 25},
+            {"name": "Pawniard", "min_level": 28, "max_level": 30, "rate": 20},
+        ],
+        "trainers": [
+            {
+                "name": "Dan",
+                "class": "Young Trainer",
+                "team": [("Axew", 29), ("Sandile", 28)],
+                "greeting": "Dan: Left Slateport two days ago. Haven't lost a battle yet.",
+                "defeat_text": "Dan: Make that two days and one loss.",
+                "reward": 1950,
+            },
+            {
+                "name": "Fiona",
+                "class": "Young Trainer",
+                "team": [("Pawniard", 29), ("Druddigon", 30)],
+                "greeting": "Fiona: Steel and Dragon. Try cutting through that.",
+                "defeat_text": "Fiona: You found a way through. Impressive.",
+                "reward": 2000,
+            },
+            {
+                "name": "Chris",
+                "class": "Young Trainer",
+                "team": [("Axew", 30), ("Pawniard", 29), ("Sandile", 30)],
+                "greeting": "Chris: I've been training on this route for a week straight. You're in for it.",
+                "defeat_text": "Chris: A week of training and still not enough. Back to it.",
+                "reward": 2100,
+            },
+        ],
+    },
+
+    "Route 14": {
+        "description": "Rocky highland scrubland. Evolved Pokémon patrol the high ground.",
+        "wild_pokemon": [
+            {"name": "Fraxure",  "min_level": 30, "max_level": 33, "rate": 25},
+            {"name": "Krokorok", "min_level": 30, "max_level": 32, "rate": 25},
+            {"name": "Druddigon","min_level": 30, "max_level": 33, "rate": 25},
+            {"name": "Bisharp",  "min_level": 30, "max_level": 32, "rate": 25},
+        ],
+        "trainers": [
+            {
+                "name": "Leo",
+                "class": "Young Trainer",
+                "team": [("Fraxure", 31), ("Krokorok", 30)],
+                "greeting": "Leo: Fraxure can crack boulders with one swing. You're softer than a boulder.",
+                "defeat_text": "Leo: Apparently not softer. My mistake.",
+                "reward": 2050,
+            },
+            {
+                "name": "Iris",
+                "class": "Young Trainer",
+                "team": [("Bisharp", 31), ("Druddigon", 32)],
+                "greeting": "Iris: These highlands belong to the strong. Prove you belong here.",
+                "defeat_text": "Iris: You belong here. I'll accept that.",
+                "reward": 2100,
+            },
+            {
+                "name": "Marcus",
+                "class": "Young Trainer",
+                "team": [("Fraxure", 32), ("Bisharp", 31), ("Krokorok", 32)],
+                "greeting": "Marcus: Three fully evolved lines by Route 14. I've put in the work.",
+                "defeat_text": "Marcus: You put in more. Noted.",
+                "reward": 2200,
+            },
+        ],
+    },
+
+    "Route 15": {
+        "description": "The final approach to Jubilife City. The skyline is already visible on the horizon.",
+        "wild_pokemon": [
+            {"name": "Fraxure",  "min_level": 32, "max_level": 34, "rate": 25},
+            {"name": "Dragonair","min_level": 31, "max_level": 34, "rate": 20},
+            {"name": "Larvitar", "min_level": 31, "max_level": 34, "rate": 25},
+            {"name": "Druddigon","min_level": 32, "max_level": 35, "rate": 20},
+            {"name": "Bisharp",  "min_level": 32, "max_level": 34, "rate": 10},
+        ],
+        "trainers": [
+            {
+                "name": "Ben",
+                "class": "Young Trainer",
+                "team": [("Dragonair", 32), ("Larvitar", 31)],
+                "greeting": "Ben: Dragonair evolved last night. I haven't stopped smiling since.",
+                "defeat_text": "Ben: Still smiling. Just less.",
+                "reward": 2150,
+            },
+            {
+                "name": "Lucy",
+                "class": "Young Trainer",
+                "team": [("Fraxure", 33), ("Druddigon", 33)],
+                "greeting": "Lucy: Jubilife's right there. One last fight before the city.",
+                "defeat_text": "Lucy: Good warmup for whoever you face in there.",
+                "reward": 2200,
+            },
+            {
+                "name": "Adrian",
+                "class": "Ace Trainer",
+                "team": [("Dragonair", 34), ("Fraxure", 33), ("Druddigon", 35)],
+                "greeting": "Adrian: Jubilife has seen war. The trainers who walk through its gates should be ready for anything.",
+                "defeat_text": "Adrian: You're ready. Walk through.",
+                "reward": 2500,
+            },
+        ],
+    },
 }
 

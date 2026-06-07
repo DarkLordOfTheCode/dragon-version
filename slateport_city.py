@@ -623,7 +623,8 @@ def slateport_city(player):
                 print("You leave Slateport City heading east.")
                 print()
                 pause()
-                return "done"
+                from route13 import route13
+                return route13(player)
 
         else:
             print("Invalid choice.")
