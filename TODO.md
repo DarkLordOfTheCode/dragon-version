@@ -2,16 +2,11 @@
 
 ## Next
 - Design Nico's full rival team progression
-- Build Slateport City (gym 3, Coral, Water/Dragon)
 
 ## In Progress
 - Nothing currently in progress
 
 ## Open Questions (need answers before building)
-- **TMs on mall floor 2** — specific TMs in mind, or should a sensible early-game selection be picked?
-- **Coral's gym team** — Horsea (28), Seadra (32), Kingdra (35); gym battle wired up in slateport_city.py
-- **Slateport City layout** — mall is done; anything else beyond the gym? Port area, story beat with Team Fairy?
-- **Nico's Slateport team** — what does Nico bring to the Coral gym double battle? (Gabite will have levelled up by now)
 
 ## Resolved
 - **Nico's first battle team** — Gible + Caterpie
@@ -24,6 +19,9 @@
 - **Routes between Goldenrod and Slateport** — 5 routes; need building before Slateport
 
 ## Done
+- [x] jubilife_city.py — Jubilife City: Z arrival + Mega Stone, Team Fairy Airship double battles with S, dungeon rescue with Z, Vance gym (Iron Badge), Jubilife Mall (shop + TM shop + Move Reminder)
+- [x] route13.py–route15.py — Routes 13–15 with wild Pokémon and trainer battles (Slateport → Jubilife)
+- [x] slateport_city.py — Slateport City: Coral gym (gym 3, Water/Dragon), mall, Team Fairy story beat
 - [x] route8.py–route12.py — Routes 8–12 with wild Pokémon and trainer battles (Goldenrod → Slateport)
 - [x] goldenrod_city.py — Goldenrod City: arrival, Nico reunite, Radio Tower (3 floors, Clio admin boss), Whiteout gym double battle with Nico
 - [x] saffron_city.py — arrival, Team Fairy grunt blocks exit, city exploration, Nico battle (Gible + Caterpie), mall (shop, TM shop, gym, hideout), Sabina gym battle, Team Fairy hideout on floor -1, exit unlocks after hideout cleared

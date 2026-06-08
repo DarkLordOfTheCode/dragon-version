@@ -16,6 +16,14 @@ pokedex = {
         "speed": 50,
         "special": 75,
     },
+    "Dramimic": {
+        "type": ["Dragon", "Ghost"],
+        "hp": 55,
+        "attack": 85,
+        "defence": 75,
+        "speed": 90,
+        "special": 65,
+    },
     "Draponie": {
         "type": ["Dragon", "Fairy"],
         "hp": 80,

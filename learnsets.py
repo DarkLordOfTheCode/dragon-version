@@ -1,5 +1,13 @@
 learnsets = {
     # Custom Draconia Pokemon
+    "Dramimic": {
+        1: ["Shadow Sneak"],
+        5: ["Dragon Rage"],
+        15: ["Phantom Force"],
+        25: ["Dragon Pulse"],
+        38: ["Shadow Ball"],
+        50: ["Draco Meteor"],
+    },
     "Frodger": {
         1: ["Scratch"],
         5: ["Ember"],

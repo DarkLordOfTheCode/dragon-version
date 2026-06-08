@@ -5,6 +5,7 @@ from sprites import get_sprite
 def create_player(starter_name):
     return {
         "name": "NH",
+        "starter": starter_name,
         "party": [create_pokemon(starter_name, 10)],
         "bag": {
             "Poké Ball": 5,

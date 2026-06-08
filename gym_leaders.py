@@ -31,7 +31,7 @@ gym_leaders = [
         "title": "Jubilife City Gym Leader",
         "gym_number": 4,
         "type": "Steel/Dragon",
-        "greeting": "Vance: This battle is going live. Fifteen million viewers. Try not to embarrass yourself.",
+        "greeting": "Vance: I've held this city through three sieges. Steel and Dragon — the armour and the cause. Show me you're worth fighting beside.",
         "team": [("Steelbit", 37), ("Doublade", 40), ("Ironmaw", 44)],
         "reward": 4500,
     },
