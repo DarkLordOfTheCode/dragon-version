@@ -5,7 +5,7 @@ gym_leaders = [
         "gym_number": 1,
         "type": "Psychic/Dragon",
         "greeting": "Sabina: The psychic bond between trainer and Pokémon — that is what I test here. Can your mind match mine?",
-        "team": [("Ralts", 11), ("Goomy", 13), ("Gallade", 17)],
+        "team": [("Ralts", 11), ("Goomy", 13), ("Kirlia", 17)],
         "reward": 1500,
     },
     {

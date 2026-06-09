@@ -9,6 +9,10 @@
 ## Open Questions (need answers before building)
 
 ## Resolved
+- **Isaac's in-game name** — goes by "I" in all dialogue (same initial-nickname system as NH, Z, S)
+- **Castelia City story beat** — Team Fairy convoy of armoured cars; NH and I flip them with a steel pipe; senate seal found in documents; NH gets Diancie Fragment
+- **Route 21 Hydrapple event** — Team Fairy bullying a Hydrapple; NH drives them off; Hydrapple joins the party at starter's current level
+- **Sabina's team** — Gallade changed to Kirlia
 - **Nico's first battle team** — Gible + Caterpie
 - **Saffron City mall** — the main hub; gym is inside the mall; Team Fairy hideout is on floor -1, only accessible after beating the gym
 - **Draconia gimmick** — Azerbaijan parallel: senate oligarchy, oil wealth, "Land of Fire and Scale"; no emperor
@@ -19,6 +23,9 @@
 - **Routes between Goldenrod and Slateport** — 5 routes; need building before Slateport
 
 ## Done
+- [x] castelia_city.py — Castelia City: Team Fairy convoy (NH + I flip 3 cars with steel pipe), senate seal discovery, Diancie Fragment obtained, Rook skyscraper gym (Shadow Badge), street shop + TM dealer
+- [x] route16.py–route21.py — Routes 16–21 with wild Pokémon and trainer battles (Jubilife → Castelia); Route 21 has mid-route Hydrapple event
+- [x] Added Hydrapple, Tropius, Skiddo, Gogoat to pokedex, learnsets, evolutions; added Energy Ball, Leaf Blade, Night Slash, Brick Break to moves
 - [x] jubilife_city.py — Jubilife City: Z arrival + Mega Stone, Team Fairy Airship double battles with S, dungeon rescue with Z, Vance gym (Iron Badge), Jubilife Mall (shop + TM shop + Move Reminder)
 - [x] route13.py–route15.py — Routes 13–15 with wild Pokémon and trainer battles (Slateport → Jubilife)
 - [x] slateport_city.py — Slateport City: Coral gym (gym 3, Water/Dragon), mall, Team Fairy story beat

@@ -896,10 +896,11 @@ def jubilife_city(player):
                 print("Vance: The north road is no place for someone without a badge.")
                 print()
             else:
-                print("You leave Jubilife City heading north.")
+                print("You leave Jubilife City heading east.")
                 print()
                 pause()
-                return "done"
+                from route16 import route16
+                return route16(player)
 
         else:
             print("Invalid choice.")

@@ -20,6 +20,8 @@ moves = {
     "Razor Leaf":     {"power": 55,  "type": "Grass",    "category": "physical"},
     "Giga Drain":     {"power": 75,  "type": "Grass",    "category": "special"},
     "Solar Beam":     {"power": 120, "type": "Grass",    "category": "special"},
+    "Energy Ball":    {"power": 90,  "type": "Grass",    "category": "special"},
+    "Leaf Blade":     {"power": 90,  "type": "Grass",    "category": "physical"},
 
     # Dragon
     "Dragon Rage":    {"power": 40,  "type": "Dragon",   "category": "special"},
@@ -59,11 +61,13 @@ moves = {
     "Phantom Force":  {"power": 90,  "type": "Ghost",    "category": "physical"},
 
     # Dark
+    "Night Slash":    {"power": 70,  "type": "Dark",     "category": "physical"},
     "Bite":           {"power": 60,  "type": "Dark",     "category": "physical"},
     "Crunch":         {"power": 80,  "type": "Dark",     "category": "physical"},
     "Dark Pulse":     {"power": 80,  "type": "Dark",     "category": "special"},
 
     # Fighting
+    "Brick Break":    {"power": 75,  "type": "Fighting", "category": "physical"},
     "Karate Chop":    {"power": 50,  "type": "Fighting", "category": "physical"},
     "Close Combat":   {"power": 120, "type": "Fighting", "category": "physical"},
 

@@ -97,6 +97,8 @@ evolutions = {
     "Bronzor":    ("Bronzong",   33),
     # A's line
     "Poliwag":    ("Poliwhirl",  15),
+    # Route 21 additions
+    "Skiddo":     ("Gogoat",     32),
 }
 
 # (pokemon_name, item_name) -> evolved_form

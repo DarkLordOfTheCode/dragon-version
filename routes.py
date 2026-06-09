@@ -501,6 +501,214 @@ routes = {
         ],
     },
 
+    "Route 16": {
+        "description": "Smog-stained roads and chain-link fences east of Jubilife City. Dark-type Pokémon own this stretch.",
+        "wild_pokemon": [
+            {"name": "Sandile",  "min_level": 36, "max_level": 38, "rate": 30},
+            {"name": "Krokorok", "min_level": 37, "max_level": 39, "rate": 25},
+            {"name": "Pawniard", "min_level": 36, "max_level": 38, "rate": 25},
+            {"name": "Zorua",    "min_level": 35, "max_level": 38, "rate": 20},
+        ],
+        "trainers": [
+            {
+                "name": "Marcus",
+                "class": "Young Trainer",
+                "team": [("Sandile", 37), ("Pawniard", 37)],
+                "greeting": "Marcus: Everyone heading east thinks it gets easier. It doesn't.",
+                "defeat_text": "Marcus: You knew that already. Good.",
+                "reward": 2200,
+            },
+            {
+                "name": "Lily",
+                "class": "Young Trainer",
+                "team": [("Zorua", 38), ("Krokorok", 38)],
+                "greeting": "Lily: Zorua can look like anything. Right now it looks like something you can't beat.",
+                "defeat_text": "Lily: It needed a better disguise. Got it.",
+                "reward": 2300,
+            },
+            {
+                "name": "Dana",
+                "class": "Ace Trainer",
+                "team": [("Krokorok", 39), ("Pawniard", 38), ("Zorua", 39)],
+                "greeting": "Dana: Dark types don't just fight in the shadows. They fight anywhere.",
+                "defeat_text": "Dana: Point taken.",
+                "reward": 2600,
+            },
+        ],
+    },
+
+    "Route 17": {
+        "description": "Abandoned freight yards. Rails that haven't run in decades. Sneasel streak between the old boxcars.",
+        "wild_pokemon": [
+            {"name": "Krokorok", "min_level": 38, "max_level": 40, "rate": 30},
+            {"name": "Sneasel",  "min_level": 38, "max_level": 40, "rate": 25},
+            {"name": "Pawniard", "min_level": 38, "max_level": 40, "rate": 25},
+            {"name": "Zoroark",  "min_level": 40, "max_level": 42, "rate": 20},
+        ],
+        "trainers": [
+            {
+                "name": "Tyler",
+                "class": "Young Trainer",
+                "team": [("Krokorok", 39), ("Sneasel", 38)],
+                "greeting": "Tyler: These yards go on forever. I've been training here for months.",
+                "defeat_text": "Tyler: You trained somewhere better than freight yards.",
+                "reward": 2350,
+            },
+            {
+                "name": "Eve",
+                "class": "Young Trainer",
+                "team": [("Sneasel", 40), ("Pawniard", 39)],
+                "greeting": "Eve: Fast and sharp. That's all you need out here.",
+                "defeat_text": "Eve: Not all you need. Noted.",
+                "reward": 2400,
+            },
+            {
+                "name": "Finn",
+                "class": "Ace Trainer",
+                "team": [("Zoroark", 41), ("Krokorok", 40), ("Sneasel", 39)],
+                "greeting": "Finn: I spent six months in these yards. Don't tell me you walk in and just win.",
+                "defeat_text": "Finn: You walked in and just won. I hate that.",
+                "reward": 2700,
+            },
+        ],
+    },
+
+    "Route 18": {
+        "description": "A crumbling factory district. Broken windows, overgrown pipes. The kind of place that feels like it's watching you.",
+        "wild_pokemon": [
+            {"name": "Zoroark",  "min_level": 41, "max_level": 43, "rate": 25},
+            {"name": "Weavile",  "min_level": 41, "max_level": 43, "rate": 25},
+            {"name": "Bisharp",  "min_level": 42, "max_level": 44, "rate": 25},
+            {"name": "Krokorok", "min_level": 40, "max_level": 42, "rate": 25},
+        ],
+        "trainers": [
+            {
+                "name": "Cara",
+                "class": "Young Trainer",
+                "team": [("Zoroark", 42), ("Krokorok", 41)],
+                "greeting": "Cara: Zoroark illusioned itself as the road ahead. You almost walked past me.",
+                "defeat_text": "Cara: You've got sharp eyes.",
+                "reward": 2500,
+            },
+            {
+                "name": "Leo",
+                "class": "Young Trainer",
+                "team": [("Weavile", 43), ("Bisharp", 42)],
+                "greeting": "Leo: Weavile set a new speed record yesterday. You'll blink and it'll be over.",
+                "defeat_text": "Leo: You didn't blink.",
+                "reward": 2600,
+            },
+            {
+                "name": "Jade",
+                "class": "Ace Trainer",
+                "team": [("Zoroark", 44), ("Weavile", 43), ("Bisharp", 43)],
+                "greeting": "Jade: Three different types of ruthless. Think you can handle all of them?",
+                "defeat_text": "Jade: Yeah. You can handle all of them.",
+                "reward": 3000,
+            },
+        ],
+    },
+
+    "Route 19": {
+        "description": "Open wasteland. Dried riverbeds, sparse grass, and wide sky. The dark types thin out here.",
+        "wild_pokemon": [
+            {"name": "Weavile",  "min_level": 42, "max_level": 44, "rate": 25},
+            {"name": "Bisharp",  "min_level": 42, "max_level": 44, "rate": 25},
+            {"name": "Druddigon","min_level": 42, "max_level": 44, "rate": 25},
+            {"name": "Goomy",    "min_level": 41, "max_level": 43, "rate": 25},
+        ],
+        "trainers": [
+            {
+                "name": "Ryan",
+                "class": "Young Trainer",
+                "team": [("Weavile", 43), ("Druddigon", 42)],
+                "greeting": "Ryan: These wastelands go on longer than you'd think.",
+                "defeat_text": "Ryan: So do you, apparently.",
+                "reward": 2650,
+            },
+            {
+                "name": "Jess",
+                "class": "Young Trainer",
+                "team": [("Goomy", 43), ("Bisharp", 43)],
+                "greeting": "Jess: Goomy doesn't look dangerous. That's kind of the point.",
+                "defeat_text": "Jess: You didn't underestimate it. Good instincts.",
+                "reward": 2700,
+            },
+            {
+                "name": "Owen",
+                "class": "Ace Trainer",
+                "team": [("Druddigon", 44), ("Weavile", 44), ("Goomy", 43)],
+                "greeting": "Owen: The closer you get to Castelia, the harder the trainers get. I'm just a preview.",
+                "defeat_text": "Owen: That preview didn't go well for me.",
+                "reward": 3100,
+            },
+        ],
+    },
+
+    "Route 20": {
+        "description": "Rolling hills. The first patches of green in days. Applin orchards line the slopes in the distance.",
+        "wild_pokemon": [
+            {"name": "Druddigon","min_level": 43, "max_level": 45, "rate": 25},
+            {"name": "Goomy",    "min_level": 43, "max_level": 44, "rate": 25},
+            {"name": "Applin",   "min_level": 43, "max_level": 45, "rate": 25},
+            {"name": "Skiddo",   "min_level": 42, "max_level": 44, "rate": 25},
+        ],
+        "trainers": [
+            {
+                "name": "Ren",
+                "class": "Young Trainer",
+                "team": [("Druddigon", 44), ("Goomy", 43)],
+                "greeting": "Ren: It's nice out here. I don't want to fight. But here we are.",
+                "defeat_text": "Ren: Still nice out here, at least.",
+                "reward": 2800,
+            },
+            {
+                "name": "Mia",
+                "class": "Young Trainer",
+                "team": [("Applin", 45), ("Skiddo", 44)],
+                "greeting": "Mia: Applin rolled down that hill and hit my foot and I just... kept it.",
+                "defeat_text": "Mia: It's still a great Pokémon. Even after that.",
+                "reward": 2850,
+            },
+            {
+                "name": "Cal",
+                "class": "Ace Trainer",
+                "team": [("Druddigon", 45), ("Applin", 45), ("Goomy", 44)],
+                "greeting": "Cal: One more route after this. Don't blow it.",
+                "defeat_text": "Cal: You're not going to blow it.",
+                "reward": 3200,
+            },
+        ],
+    },
+
+    "Route 21": {
+        "description": "A dense forest. Tropius nest in the canopy. The last stretch before Castelia City.",
+        "wild_pokemon": [
+            {"name": "Applin",  "min_level": 44, "max_level": 46, "rate": 30},
+            {"name": "Tropius", "min_level": 44, "max_level": 46, "rate": 25},
+            {"name": "Skiddo",  "min_level": 44, "max_level": 45, "rate": 25},
+            {"name": "Goomy",   "min_level": 44, "max_level": 46, "rate": 20},
+        ],
+        "trainers": [
+            {
+                "name": "Bex",
+                "class": "Young Trainer",
+                "team": [("Tropius", 45), ("Applin", 44)],
+                "greeting": "Bex: Tropius has been following me since I entered this forest. I think it wants to fight.",
+                "defeat_text": "Bex: It did want to fight. It lost. We'll work on that.",
+                "reward": 2900,
+            },
+            {
+                "name": "Drew",
+                "class": "Young Trainer",
+                "team": [("Skiddo", 46), ("Goomy", 46)],
+                "greeting": "Drew: Castelia's just past these trees. One last battle before the city.",
+                "defeat_text": "Drew: Walk in strong. You've got this.",
+                "reward": 3000,
+            },
+        ],
+    },
+
     "Route 15": {
         "description": "The final approach to Jubilife City. The skyline is already visible on the horizon.",
         "wild_pokemon": [

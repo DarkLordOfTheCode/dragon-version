@@ -1236,6 +1236,36 @@ learnsets = {
         20: ["Air Slash"],
         30: ["X-Scissor"],
     },
+    # Route 21 Grass types
+    "Hydrapple": {
+        1: ["Leafage"],
+        5: ["Dragon Rage"],
+        15: ["Razor Leaf"],
+        25: ["Giga Drain"],
+        35: ["Dragon Pulse"],
+        45: ["Energy Ball"],
+        55: ["Draco Meteor"],
+    },
+    "Tropius": {
+        1: ["Gust"],
+        10: ["Razor Leaf"],
+        20: ["Air Slash"],
+        30: ["Giga Drain"],
+        40: ["Solar Beam"],
+        50: ["Dragon Pulse"],
+    },
+    "Skiddo": {
+        1: ["Leafage"],
+        10: ["Razor Leaf"],
+        25: ["Giga Drain"],
+        40: ["Leaf Blade"],
+    },
+    "Gogoat": {
+        1: ["Razor Leaf"],
+        10: ["Giga Drain"],
+        30: ["Leaf Blade"],
+        45: ["Solar Beam"],
+    },
     "Poliwag": {
         1: ["Bubble"],
         8: ["Water Gun"],
