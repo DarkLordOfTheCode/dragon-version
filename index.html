@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>POKéMON DRAGON VERSION</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+<style>
+  /* ============ THEME — Land of Fire and Scale ============ */
+  :root{
+    --sky-top:#160d2e;
+    --sky-mid:#3a1747;
+    --sky-glow:#8a2a3a;
+    --horizon:#c4452f;
+    --ember:#ff7a18;
+    --gold:#ffd23f;
+    --gold-lt:#ffe98a;
+    --crimson:#d6263b;
+    --crimson-dk:#8e1530;
+    --scale:#2bb673;
+    --ocean:#2d8fe8;
+    --ink:#160a16;
+    --box-bg:#f6f4e9;
+    --box-line:#08294a;
+    --box-line2:#3f6fb0;
+    --txt:#241a2e;
+    --fire:#e8552d;
+    --grass:#2bb673;
+    --water:#2d8fe8;
+    --dragon:#7a4fd6;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ height:100%; }
+  body{
+    background:#05030c;
+    font-family:'VT323', monospace;
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    min-height:100vh;
+    overflow:hidden;
+    /* subtle outer carpet texture */
+    background-image:
+      radial-gradient(circle at 50% 40%, #120a22 0%, #05030c 70%);
+    -webkit-font-smoothing:none;
+  }
+  img,canvas{ image-rendering:pixelated; image-rendering:crisp-edges; }
+
+  /* ============ THE DEVICE / CRT FRAME ============ */
+  .device{
+    position:relative;
+    width:min(96vw, 920px);
+    aspect-ratio:3/2;
+    border-radius:18px;
+    padding:clamp(10px,2.4vw,26px);
+    background:
+      linear-gradient(150deg,#2a1138,#160a26 55%,#0c0618);
+    box-shadow:
+      0 0 0 2px #3a2150,
+      0 0 0 6px #0a0414,
+      0 30px 70px -20px #000,
+      inset 0 2px 0 #5a3a82,
+      inset 0 -6px 14px #000;
+  }
+  .device::after{ /* little brand etch */
+    content:"DRACONIA ADVANCE";
+    position:absolute; bottom:6px; right:24px;
+    font-family:'Press Start 2P'; font-size:8px;
+    color:#5a3a82; letter-spacing:1px;
+  }
+  .device::before{ /* power LED */
+    content:""; position:absolute; left:22px; bottom:14px;
+    width:8px; height:8px; border-radius:50%;
+    background:radial-gradient(circle,#ff5a3c,#7a1208);
+    box-shadow:0 0 8px #ff5a3c, 0 0 2px #fff;
+    animation:led 3.4s steps(2) infinite;
+  }
+  @keyframes led{ 0%,92%{opacity:1} 95%{opacity:.35} 100%{opacity:1} }
+
+  .screen{
+    position:relative; width:100%; height:100%;
+    border-radius:8px; overflow:hidden;
+    background:linear-gradient(var(--sky-top),var(--sky-mid) 58%, var(--sky-glow));
+    box-shadow: inset 0 0 0 3px #000, inset 0 0 40px rgba(0,0,0,.6);
+    cursor:crosshair;
+  }
+
+  /* ============ SKY / BACKGROUND LAYERS ============ */
+  .sun{
+    position:absolute; left:50%; bottom:14%;
+    width:46%; aspect-ratio:1; transform:translateX(-50%);
+    border-radius:50%;
+    background:radial-gradient(circle, #ffd98f 0%, #ff8a3c 26%, rgba(214,38,59,.45) 52%, transparent 70%);
+    filter:blur(.4px);
+    animation:sunPulse 6s ease-in-out infinite;
+  }
+  @keyframes sunPulse{ 0%,100%{opacity:.9; transform:translateX(-50%) scale(1)} 50%{opacity:1; transform:translateX(-50%) scale(1.04)} }
+
+  .stars{ position:absolute; inset:0; }
+  .star{ position:absolute; width:2px; height:2px; background:#fff; opacity:.8;
+    animation:tw 2.2s steps(2) infinite; }
+  @keyframes tw{ 0%,100%{opacity:.85} 50%{opacity:.18} }
+
+  /* layered pixel landscape */
+  .land{ position:absolute; left:0; right:0; bottom:0; height:42%; }
+  .hill{ position:absolute; left:-2%; right:-2%; bottom:0; }
+  .hill.far{ height:62%;
+    background:linear-gradient(#5a2350,#3c1640);
+    clip-path:polygon(0 60%,12% 44%,26% 56%,40% 38%,55% 52%,70% 34%,84% 50%,100% 40%,100% 100%,0 100%);
+    opacity:.9; }
+  .hill.mid{ height:46%;
+    background:linear-gradient(#3a1338,#260c2a);
+    clip-path:polygon(0 70%,16% 52%,30% 66%,46% 48%,62% 64%,78% 46%,92% 62%,100% 54%,100% 100%,0 100%); }
+  .hill.near{ height:30%;
+    background:linear-gradient(#1c0a20,#0c0414);
+    clip-path:polygon(0 64%,20% 78%,38% 60%,54% 80%,72% 58%,88% 78%,100% 66%,100% 100%,0 100%); }
+
+  /* Tower of Draconia silhouette */
+  .tower{
+    position:absolute; bottom:18%; left:50%; transform:translateX(-50%);
+    width:5%; height:54%;
+    background:#190820;
+    clip-path:polygon(20% 100%,20% 16%,35% 16%,35% 6%,50% 0,65% 6%,65% 16%,80% 16%,80% 100%);
+    box-shadow:0 0 10px rgba(255,122,24,.25);
+  }
+  .tower::before{ content:""; position:absolute; top:6%; left:50%; transform:translateX(-50%);
+    width:3px; height:3px; background:var(--ember); box-shadow:0 0 8px var(--ember); animation:led 2s steps(2) infinite; }
+  /* oil derrick nod (Bakil) */
+  .derrick{ position:absolute; bottom:14%; left:16%; width:7%; height:26%;
+    background:#150619;
+    clip-path:polygon(0 100%,38% 0,62% 0,100% 100%,82% 100%,50% 30%,18% 100%); opacity:.85; }
+
+  /* drifting embers */
+  .embers{ position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+  .ember{ position:absolute; bottom:-12px; width:3px; height:3px; border-radius:1px;
+    background:var(--ember); box-shadow:0 0 6px var(--ember);
+    animation:rise linear infinite; }
+  @keyframes rise{
+    0%{ transform:translateY(0) translateX(0); opacity:0; }
+    12%{ opacity:1; }
+    100%{ transform:translateY(-120vh) translateX(var(--dx)); opacity:0; }
+  }
+
+  /* ============ OVERLAYS ============ */
+  .scanlines{ position:absolute; inset:0; pointer-events:none; z-index:60;
+    background:repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.22) 2px 3px);
+    mix-blend-mode:multiply; }
+  .scanlines.off{ display:none; }
+  .vignette{ position:absolute; inset:0; pointer-events:none; z-index:61;
+    box-shadow: inset 0 0 60px 10px rgba(0,0,0,.55), inset 0 0 140px 30px rgba(20,0,30,.4);
+    border-radius:8px; }
+  .flicker{ position:absolute; inset:0; pointer-events:none; z-index:62; background:#fff; opacity:0;
+    animation:fl 7s steps(1) infinite; }
+  @keyframes fl{ 0%,99.4%{opacity:0} 99.6%{opacity:.04} 100%{opacity:0} }
+
+  /* power-on sweep */
+  .poweron{ position:absolute; inset:0; z-index:90; background:#000; pointer-events:none; }
+  .poweron::before{ content:""; position:absolute; left:0; right:0; top:50%; height:3px; background:#cfe; box-shadow:0 0 20px #cfe; transform:scaleX(1); }
+  .device.on .poweron{ animation:po .65s ease-out forwards; }
+  @keyframes po{
+    0%{ clip-path:inset(49.6% 0 49.6% 0); background:#000; }
+    55%{ clip-path:inset(49.6% 0 49.6% 0); }
+    100%{ clip-path:inset(0 0 0 0); background:transparent; }
+  }
+
+  /* ============ PANELS (state machine) ============ */
+  .panel{ position:absolute; inset:0; z-index:30; display:none;
+    flex-direction:column; align-items:center; justify-content:center;
+    padding:4% 6%; }
+  .panel.active{ display:flex; animation:fadein .45s ease both; }
+  @keyframes fadein{ from{opacity:0} to{opacity:1} }
+
+  /* ---- TITLE ---- */
+  .brand{ display:flex; flex-direction:column; align-items:center; gap:2px; margin-top:-4%; }
+  .pkmn{
+    font-family:'Press Start 2P'; font-size:clamp(14px,3.4vw,30px);
+    color:var(--gold);
+    letter-spacing:1px;
+    text-shadow:
+      -2px 0 var(--box-line),2px 0 var(--box-line),0 -2px var(--box-line),0 2px var(--box-line),
+      -2px -2px var(--box-line),2px 2px var(--box-line),2px -2px var(--box-line),-2px 2px var(--box-line),
+      0 5px var(--box-line2);
+  }
+  .logo-main{
+    font-family:'Press Start 2P';
+    font-size:clamp(26px,7.6vw,68px);
+    line-height:1;
+    background:linear-gradient(#fff6cf 4%, var(--gold) 38%, var(--ember) 66%, var(--crimson) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    text-shadow:
+      -3px 0 #2a0810,3px 0 #2a0810,0 -3px #2a0810,0 3px #2a0810,
+      -3px 3px #2a0810,3px 3px #2a0810,-3px -3px #2a0810,3px -3px #2a0810,
+      0 7px #5a0d18, 0 9px #2a0810;
+    transform:rotate(-2deg);
+    margin:6px 0 2px;
+  }
+  .logo-sub{
+    font-family:'Press Start 2P'; font-size:clamp(11px,2.7vw,22px);
+    color:#fff;
+    letter-spacing:2px;
+    text-shadow:-2px 0 var(--crimson-dk),2px 0 var(--crimson-dk),0 -2px var(--crimson-dk),0 2px var(--crimson-dk),0 4px #2a0810;
+    transform:rotate(-2deg);
+  }
+  .dragon-wrap{ position:relative; margin:1% 0 0; }
+  .dragon-glow{ position:absolute; left:50%; top:54%; transform:translate(-50%,-50%);
+    width:150%; aspect-ratio:1; border-radius:50%;
+    background:radial-gradient(circle, rgba(255,122,24,.42), transparent 62%); }
+  #dragon{ position:relative; width:clamp(180px,30vw,300px); height:auto; display:block;
+    animation:bob 3.4s ease-in-out infinite; filter:drop-shadow(0 8px 0 rgba(0,0,0,.35)); }
+  @keyframes bob{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } }
+
+  .pressstart{
+    font-family:'Press Start 2P'; font-size:clamp(9px,2vw,15px);
+    color:#fff; margin-top:3%;
+    text-shadow:0 2px var(--box-line),0 0 8px rgba(255,210,63,.6);
+    animation:blink 1.1s steps(2) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0 } }
+
+  .copy{ position:absolute; bottom:5%; left:0; right:0; text-align:center;
+    font-family:'Press Start 2P'; font-size:clamp(6px,1.3vw,9px); color:#e7d6ff; opacity:.85;
+    text-shadow:0 1px var(--box-line); }
+
+  /* ---- generic pixel BOX (Pokémon dialogue/menu) ---- */
+  .box{
+    background:var(--box-bg);
+    color:var(--txt);
+    border-radius:8px;
+    position:relative;
+    box-shadow:
+      0 0 0 3px var(--box-bg),
+      0 0 0 6px var(--box-line2),
+      0 0 0 9px var(--box-line),
+      0 10px 0 9px rgba(0,0,0,.35);
+    padding:18px 20px;
+    font-size:clamp(16px,2.6vw,24px);
+    line-height:1.25;
+  }
+
+  /* ---- MENU ---- */
+  .menu{ align-self:flex-end; }
+  .menu-box{ min-width:min(64%,360px); }
+  .menu-box h3{ font-family:'Press Start 2P'; font-size:11px; color:var(--box-line); margin-bottom:10px; letter-spacing:1px; }
+  .menu-item{ display:flex; align-items:center; gap:10px; padding:5px 4px; font-size:clamp(17px,2.8vw,26px); letter-spacing:1px; cursor:pointer; }
+  .menu-item .cur{ width:14px; height:14px; visibility:hidden; }
+  .menu-item.sel .cur{ visibility:visible; animation:bob 0.6s steps(2) infinite; }
+  .menu-item.disabled{ color:#9a93a8; }
+  .menu-note{ margin-top:8px; min-height:1.3em; font-size:clamp(14px,2.3vw,20px); color:var(--crimson-dk); }
+
+  /* ---- INTRO dialogue ---- */
+  .intro{ justify-content:flex-end; }
+  .prof{ display:flex; align-items:center; gap:14px; align-self:flex-start; margin:0 0 12px 4%; }
+  .prof .name{ font-family:'Press Start 2P'; font-size:11px; color:#fff;
+    background:var(--crimson-dk); padding:8px 12px; border-radius:6px;
+    box-shadow:0 0 0 3px var(--box-line); letter-spacing:1px; }
+  .dlg{ width:90%; max-width:760px; align-self:center; margin-bottom:4%; min-height:5.2em; }
+  .dlg .txt{ display:block; }
+  .arrow{ position:absolute; right:18px; bottom:12px; width:0;height:0;
+    border-left:9px solid transparent;border-right:9px solid transparent;border-top:11px solid var(--box-line);
+    animation:bob .5s steps(2) infinite; }
+  .arrow[hidden]{ display:none; }
+
+  /* ---- STARTER select ---- */
+  .heading{ font-family:'Press Start 2P'; font-size:clamp(11px,2.4vw,18px); color:#fff;
+    text-shadow:0 2px var(--box-line),0 0 8px rgba(255,210,63,.5); margin-bottom:3%; text-align:center; }
+  .cards{ display:flex; gap:clamp(8px,2vw,22px); align-items:stretch; justify-content:center; flex-wrap:wrap; }
+  .card{ width:clamp(150px,23vw,210px); background:var(--box-bg); border-radius:10px; color:var(--txt);
+    padding:14px 12px 16px; text-align:center; cursor:pointer; position:relative;
+    box-shadow:0 0 0 3px var(--box-bg),0 0 0 6px var(--box-line),0 8px 0 6px rgba(0,0,0,.3);
+    transition:transform .12s steps(2); }
+  .card .ball{ position:absolute; top:-10px; left:50%; transform:translateX(-50%); width:22px; height:22px; visibility:hidden; }
+  .card.sel{ transform:translateY(-10px); box-shadow:0 0 0 3px var(--box-bg),0 0 0 6px var(--gold),0 0 0 9px var(--box-line),0 14px 0 9px rgba(0,0,0,.35); }
+  .card.sel .ball{ visibility:visible; animation:bob .6s steps(2) infinite; }
+  .card canvas{ width:84px; height:84px; }
+  .card .mon{ font-family:'Press Start 2P'; font-size:12px; color:var(--box-line); margin:6px 0 8px; letter-spacing:1px; }
+  .types{ display:flex; gap:5px; justify-content:center; margin-bottom:8px; }
+  .badge{ font-family:'Press Start 2P'; font-size:7px; color:#fff; padding:5px 6px; border-radius:4px;
+    box-shadow:0 2px 0 rgba(0,0,0,.3); letter-spacing:.5px; }
+  .b-dragon{ background:var(--dragon); }
+  .b-fire{ background:var(--fire); }
+  .b-water{ background:var(--water); }
+  .b-grass{ background:var(--grass); }
+  .dex{ font-size:clamp(13px,1.9vw,17px); line-height:1.15; color:#43354f; min-height:4.2em; }
+
+  /* ---- CONFIRM / DONE ---- */
+  .big-mon canvas{ width:clamp(140px,24vw,200px); height:clamp(140px,24vw,200px);
+    animation:bob 2.4s ease-in-out infinite; filter:drop-shadow(0 8px 0 rgba(0,0,0,.4)); }
+  .lead{ font-family:'Press Start 2P'; font-size:clamp(12px,2.6vw,20px); color:var(--gold);
+    text-shadow:0 2px var(--box-line); text-align:center; margin:2% 0; line-height:1.6; }
+  .lead .nm{ color:#fff; }
+  .sub{ font-size:clamp(16px,2.4vw,22px); text-align:center; color:#f0e6ff; text-shadow:0 1px var(--box-line); }
+  .btn{ margin-top:4%; font-family:'Press Start 2P'; font-size:clamp(10px,2vw,14px);
+    color:var(--box-line); background:var(--gold); padding:14px 18px; border-radius:8px; cursor:pointer;
+    box-shadow:0 0 0 3px var(--box-line),0 6px 0 #b88500; letter-spacing:1px;
+    transition:transform .08s steps(2); }
+  .btn:active{ transform:translateY(4px); box-shadow:0 0 0 3px var(--box-line),0 2px 0 #b88500; }
+  .loading{ font-family:'Press Start 2P'; font-size:clamp(9px,1.8vw,13px); color:#fff; margin-top:6%;
+    letter-spacing:1px; }
+  .loading::after{ content:""; animation:dots 1.2s steps(4) infinite; }
+  @keyframes dots{ 0%{content:""} 25%{content:"."} 50%{content:".."} 75%{content:"..."} }
+  .loadbar{ margin-top:14px; width:min(60%,300px); height:14px; background:var(--box-bg);
+    border-radius:7px; box-shadow:0 0 0 3px var(--box-line); overflow:hidden; }
+  .loadbar span{ display:block; height:100%; width:0%;
+    background:linear-gradient(90deg,var(--ember),var(--gold)); transition:width .12s steps(2); }
+
+  /* ---- HUD ---- */
+  .hud{ position:absolute; top:10px; right:10px; z-index:70; display:flex; gap:6px; }
+  .hud button{ font-family:'Press Start 2P'; font-size:9px; color:#fff; background:rgba(8,41,74,.7);
+    border:2px solid #fff; border-radius:6px; padding:6px 7px; cursor:pointer; }
+  .hud button:hover{ background:var(--crimson-dk); }
+  .hint{ position:absolute; bottom:8px; left:10px; z-index:70; font-family:'Press Start 2P';
+    font-size:8px; color:#dcd0ff; opacity:.8; text-shadow:0 1px var(--box-line); }
+
+  @media (max-width:560px){
+    .logo-main{ font-size:34px; }
+    .card .dex{ display:none; }
+    .device::after{ display:none; }
+  }
+</style>
+</head>
+<body>
+  <div class="device" id="device">
+    <div class="screen" id="screen">
+
+      <!-- background -->
+      <div class="sun"></div>
+      <div class="stars" id="stars"></div>
+      <div class="land">
+        <div class="hill far"></div>
+        <div class="derrick"></div>
+        <div class="hill mid"></div>
+        <div class="tower"></div>
+        <div class="hill near"></div>
+      </div>
+      <div class="embers" id="embers"></div>
+
+      <!-- HUD -->
+      <div class="hud">
+        <button id="soundBtn" title="Toggle sound">♪ ON</button>
+        <button id="scanBtn" title="Toggle scanlines">CRT</button>
+      </div>
+      <div class="hint" id="hint">▶ PRESS ENTER / TAP</div>
+
+      <!-- ============ TITLE ============ -->
+      <section class="panel active" id="p-title">
+        <div class="brand">
+          <div class="pkmn">POKéMON</div>
+          <div class="dragon-wrap">
+            <div class="dragon-glow"></div>
+            <canvas id="dragon" width="96" height="88"></canvas>
+          </div>
+          <div class="logo-main">DRAGON</div>
+          <div class="logo-sub">★ VERSION ★</div>
+        </div>
+        <div class="pressstart">PRESS START</div>
+        <div class="copy">©2026 NH · DARKLORD STUDIOS · DRACONIA REGION</div>
+      </section>
+
+      <!-- ============ MENU ============ -->
+      <section class="panel menu" id="p-menu">
+        <div class="box menu-box">
+          <h3>MAIN MENU</h3>
+          <div class="menu-item disabled" data-act="continue"><canvas class="cur ball-cur"></canvas>CONTINUE</div>
+          <div class="menu-item sel" data-act="new"><canvas class="cur ball-cur"></canvas>NEW GAME</div>
+          <div class="menu-item" data-act="option"><canvas class="cur ball-cur"></canvas>OPTION</div>
+          <div class="menu-note" id="menuNote"></div>
+        </div>
+      </section>
+
+      <!-- ============ OPTIONS ============ -->
+      <section class="panel menu" id="p-option">
+        <div class="box menu-box">
+          <h3>OPTION</h3>
+          <div class="menu-item sel" data-opt="sound"><canvas class="cur ball-cur"></canvas>SOUND&nbsp;&nbsp;:&nbsp;<span id="optSound">ON</span></div>
+          <div class="menu-item" data-opt="scan"><canvas class="cur ball-cur"></canvas>SCREEN :&nbsp;<span id="optScan">CRT</span></div>
+          <div class="menu-item" data-opt="back"><canvas class="cur ball-cur"></canvas>BACK</div>
+        </div>
+      </section>
+
+      <!-- ============ INTRO ============ -->
+      <section class="panel intro" id="p-intro">
+        <div class="prof"><span class="name">PROF. LARCH</span></div>
+        <div class="box dlg">
+          <span class="txt" id="dlgTxt"></span>
+          <span class="arrow" id="dlgArrow" hidden></span>
+        </div>
+      </section>
+
+      <!-- ============ STARTER ============ -->
+      <section class="panel" id="p-starter">
+        <div class="heading">CHOOSE YOUR FIRST PARTNER</div>
+        <div class="cards" id="cards">
+          <div class="card sel" data-i="0">
+            <canvas class="ball ball-cur"></canvas>
+            <canvas class="spr" data-mon="frodger"></canvas>
+            <div class="mon">FRODGER</div>
+            <div class="types"><span class="badge b-dragon">DRAGON</span><span class="badge b-fire">FIRE</span></div>
+            <div class="dex">The Emberfin Pokémon. Its throat glows just before it breathes fire.</div>
+          </div>
+          <div class="card" data-i="1">
+            <canvas class="ball ball-cur"></canvas>
+            <canvas class="spr" data-mon="buliz"></canvas>
+            <div class="mon">BULIZ</div>
+            <div class="types"><span class="badge b-dragon">DRAGON</span><span class="badge b-water">WATER</span></div>
+            <div class="dex">The Tidescale Pokémon. It rides river currents to ambush its prey.</div>
+          </div>
+          <div class="card" data-i="2">
+            <canvas class="ball ball-cur"></canvas>
+            <canvas class="spr" data-mon="falake"></canvas>
+            <div class="mon">FALAKE</div>
+            <div class="types"><span class="badge b-dragon">DRAGON</span><span class="badge b-grass">GRASS</span></div>
+            <div class="dex">The Frondwing Pokémon. The leaf on its head bends toward danger.</div>
+          </div>
+        </div>
+        <div class="hint" style="position:static;margin-top:3%;opacity:.9">◀ ▶ SELECT &nbsp;·&nbsp; ENTER CONFIRM</div>
+      </section>
+
+      <!-- ============ CONFIRM ============ -->
+      <section class="panel" id="p-confirm">
+        <div class="big-mon"><canvas id="confSpr"></canvas></div>
+        <div class="lead">YOU CHOSE<br><span class="nm" id="confName">FRODGER</span>!</div>
+        <div class="sub">The road out of BAKIL CITY awaits.</div>
+        <div class="btn" id="beginBtn">BEGIN ADVENTURE ▶</div>
+      </section>
+
+      <!-- ============ DONE ============ -->
+      <section class="panel" id="p-done">
+        <div class="big-mon"><canvas id="doneSpr"></canvas></div>
+        <div class="lead">A NEW DRAGON<br>LEGEND BEGINS</div>
+        <div class="sub" id="doneSub">NH &amp; FRODGER set out from Bakil City...</div>
+        <div class="loading" id="doneLoad">NOW LOADING</div>
+        <div class="loadbar"><span id="loadFill"></span></div>
+        <div class="pressstart" id="donePrompt" style="display:none;margin-top:3%">▶ PRESS ENTER</div>
+        <div class="copy" id="doneCopy">RETURN TO TITLE SCREEN</div>
+      </section>
+
+      <!-- overlays -->
+      <div class="scanlines" id="scan"></div>
+      <div class="vignette"></div>
+      <div class="flicker"></div>
+      <div class="poweron"></div>
+    </div>
+  </div>
+
+<script>
+/* =====================================================================
+   POKéMON DRAGON VERSION — retro title screen
+   ===================================================================== */
+const $  = (s,r=document)=>r.querySelector(s);
+const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+
+/* ---------- audio (Game Boy style blips) ---------- */
+let AC=null, soundOn=true;
+function ac(){ if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return AC; }
+function beep(freq, dur=0.06, type='square', vol=0.12){
+  if(!soundOn) return; const a=ac(); if(!a) return;
+  if(a.state==='suspended') a.resume();
+  const o=a.createOscillator(), g=a.createGain();
+  o.type=type; o.frequency.value=freq;
+  g.gain.setValueAtTime(0.0001,a.currentTime);
+  g.gain.exponentialRampToValueAtTime(vol,a.currentTime+0.008);
+  g.gain.exponentialRampToValueAtTime(0.0001,a.currentTime+dur);
+  o.connect(g).connect(a.destination); o.start(); o.stop(a.currentTime+dur+0.02);
+}
+const sCursor =()=>beep(660,0.05,'square',0.10);
+const sSelect =()=>{ beep(880,0.06); setTimeout(()=>beep(1320,0.09),60); };
+const sDeny   =()=>beep(160,0.18,'square',0.12);
+const sText   =()=>beep(1500,0.018,'square',0.05);
+const sStart  =()=>{ beep(523,0.09); setTimeout(()=>beep(784,0.09),90); setTimeout(()=>beep(1046,0.16),180); };
+
+/* ---------- pixel sprite from char-map ---------- */
+function renderMap(canvas, rows, palette, scale){
+  const h=rows.length, w=rows[0].length;
+  canvas.width=w; canvas.height=h;
+  if(scale){ canvas.style.width=(w*scale)+'px'; canvas.style.height=(h*scale)+'px'; }
+  const ctx=canvas.getContext('2d'); ctx.imageSmoothingEnabled=false;
+  ctx.clearRect(0,0,w,h);
+  for(let y=0;y<h;y++) for(let x=0;x<w;x++){
+    const c=rows[y][x]; const col=palette[c];
+    if(col){ ctx.fillStyle=col; ctx.fillRect(x,y,1,1); }
+  }
+}
+
+/* ---- starter base silhouette (16x16) ---- */
+const STARTER = [
+  "   H        H   ",
+  "  HHH      HHH  ",
+  "  ............  ",
+  " .bbbbbbbbbbbb. ",
+  " .bOObbbbbbOOb. ",
+  " .bOXbbbbbbXOb. ",
+  " .bbbbbbbbbbbb. ",
+  "  .bbbbYYbbbb.  ",
+  "  .bbbbbbbbbb.  ",
+  " .bbYYYYYYYYbb. ",
+  " .bbYYYYYYYYbb. ",
+  "  .bYYYYYYYYb.  ",
+  "  .bbYYYYYYbb.  ",
+  "  .bbbbbbbbbb.  ",
+  "  .bb.    .bb.  ",
+  "   ..      ..   ",
+];
+const STARTER_PAL = {
+  frodger:{ '.':'#3a0d10','b':'#e8552d','Y':'#ffd23f','O':'#ffffff','X':'#1a1a2a','H':'#ffcf3f' },
+  buliz:  { '.':'#0b1f3a','b':'#2d8fe8','Y':'#bfeaff','O':'#ffffff','X':'#13243f','H':'#9fe0ff' },
+  falake: { '.':'#0d2a14','b':'#2bb673','Y':'#e3f7a6','O':'#ffffff','X':'#10241a','H':'#aef06a' },
+};
+
+/* ---- pokéball cursor (12x12) ---- */
+const BALL = [
+  "    ....    ",
+  "  ..rrrr..  ",
+  " .rrrrrrrr. ",
+  " .rrrrrrrr. ",
+  ".rrrr..rrrr.",
+  ".kk..ww..kk.",
+  ".kk..ww..kk.",
+  ".wwww..wwww.",
+  " .wwwwwwww. ",
+  " .wwwwwwww. ",
+  "  ..wwww..  ",
+  "    ....    ",
+];
+const BALL_PAL = { '.':'#15090c','r':'#e23b3b','k':'#1a1320','w':'#f4f0e4' };
+
+/* ---------- the DRAGON mascot (drawn low-res, pixelated) ---------- */
+const dCanvas=$('#dragon'), dctx=dCanvas.getContext('2d');
+dctx.imageSmoothingEnabled=false;
+const COL={ out:'#2a0810', body:'#cf2740', bodyDk:'#8e1530', gold:'#ffd23f', goldLt:'#ffe98a',
+            fire:'#ff7a18', fireY:'#ffd23f', white:'#fff', eye:'#19111f' };
+function poly(c,pts){ c.beginPath(); c.moveTo(pts[0][0],pts[0][1]); for(let i=1;i<pts.length;i++)c.lineTo(pts[i][0],pts[i][1]); c.closePath(); }
+function fillStroke(c,fill,stroke,lw){ if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=lw||2;c.lineJoin='round';c.stroke();} }
+
+function drawDragon(t){
+  const c=dctx; c.clearRect(0,0,96,88);
+  c.lineJoin='round'; c.lineCap='round';
+
+  // back frill spikes (gold)
+  for(let i=0;i<4;i++){
+    const y=30+i*9;
+    poly(c,[[76,y],[78,y+4],[92,y+1+i*1.5]]);
+    fillStroke(c,COL.gold,COL.out,2);
+  }
+
+  // horns (gold, swept up-right)
+  poly(c,[[58,28],[66,30],[95,5]]); fillStroke(c,COL.goldLt,COL.out,2);
+  poly(c,[[52,30],[59,35],[86,13]]); fillStroke(c,COL.gold,COL.out,2);
+
+  // main head + neck silhouette (crimson, outlined)
+  poly(c,[
+    [10,46],[24,37],[40,29],[58,26],[74,30],[84,40],
+    [80,54],[82,82],[54,82],[44,62],[26,58],[16,55],[12,52]
+  ]);
+  fillStroke(c,COL.body,COL.out,3);
+
+  // throat / belly patch (gold)
+  poly(c,[[26,56],[44,60],[50,78],[30,76]]);
+  fillStroke(c,COL.goldLt,null);
+
+  // cheek shading scales
+  c.fillStyle=COL.bodyDk;
+  for(const [sx,sy] of [[52,40],[60,44],[56,52],[64,52]]){
+    c.beginPath(); c.arc(sx,sy,3,Math.PI*0.15,Math.PI*0.95); c.fill();
+  }
+
+  // nostril
+  c.fillStyle=COL.out; c.beginPath(); c.arc(17,46,1.6,0,7); c.fill();
+
+  // eye (glowing gold, slit pupil)
+  const pulse=0.6+0.4*Math.abs(Math.sin(t/520));
+  c.save(); c.globalAlpha=0.55*pulse; c.fillStyle=COL.fireY;
+  c.beginPath(); c.arc(34,42,7,0,7); c.fill(); c.restore();
+  c.fillStyle=COL.gold;  c.beginPath(); c.ellipse(34,42,4.4,5.2,0,0,7); c.fill();
+  c.fillStyle=COL.eye;   c.beginPath(); c.ellipse(34,42,1.5,4,0,0,7); c.fill();
+  c.fillStyle=COL.white; c.beginPath(); c.arc(32.5,40,1.1,0,7); c.fill();
+
+  // mouth line
+  c.strokeStyle=COL.out; c.lineWidth=1.4; c.beginPath(); c.moveTo(12,52); c.lineTo(26,53); c.stroke();
+
+  // FIRE breath at snout (flicker)
+  const f=Math.sin(t/120), f2=Math.sin(t/70+1);
+  c.save(); c.translate(8,48);
+  // outer
+  c.fillStyle=COL.fire;
+  poly(c,[[0,-2],[-7-2*f,-8],[-3,-16-3*f],[ -1,-9],[2,-15-2*f2],[4,-7],[9+2*f2,-9],[5,0],[ -2,4]]);
+  c.fill();
+  // inner
+  c.fillStyle=COL.fireY;
+  poly(c,[[0,-1],[-3,-7],[-1,-12-2*f],[1,-6],[3,-11-2*f2],[4,-4],[2,2]]);
+  c.fill();
+  // core
+  c.fillStyle=COL.white;
+  poly(c,[[0,0],[-1.5,-5],[0,-8],[1.5,-4],[1,1]]); c.fill();
+  c.restore();
+}
+let dragonRAF;
+function animDragon(ts){ drawDragon(ts); dragonRAF=requestAnimationFrame(animDragon); }
+requestAnimationFrame(animDragon);
+
+/* ---------- build background decoration ---------- */
+(function stars(){
+  const wrap=$('#stars'), n=46;
+  for(let i=0;i<n;i++){
+    const s=document.createElement('div'); s.className='star';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*58+'%';
+    s.style.animationDelay=(Math.random()*2.2)+'s';
+    if(Math.random()>.7){ s.style.width='3px'; s.style.height='3px'; }
+    wrap.appendChild(s);
+  }
+})();
+(function embers(){
+  const wrap=$('#embers'), n=26;
+  for(let i=0;i<n;i++){
+    const e=document.createElement('div'); e.className='ember';
+    e.style.left=Math.random()*100+'%';
+    const dur=6+Math.random()*8;
+    e.style.animationDuration=dur+'s';
+    e.style.animationDelay=(-Math.random()*dur)+'s';
+    e.style.setProperty('--dx',(Math.random()*40-20)+'px');
+    const sz=2+Math.floor(Math.random()*3); e.style.width=sz+'px'; e.style.height=sz+'px';
+    if(Math.random()>.6) e.style.background='var(--gold)', e.style.boxShadow='0 0 6px var(--gold)';
+    wrap.appendChild(e);
+  }
+})();
+
+/* render sprites */
+$$('.spr').forEach(cv=> renderMap(cv, STARTER, STARTER_PAL[cv.dataset.mon], 0));
+$$('.ball-cur').forEach(cv=> renderMap(cv, BALL, BALL_PAL, 0));
+
+/* ---------- STATE MACHINE ---------- */
+const MON=[
+  {key:'frodger', name:'FRODGER'},
+  {key:'buliz',   name:'BULIZ'},
+  {key:'falake',  name:'FALAKE'},
+];
+let screen='title';
+let menuIdx=1;            // start on NEW GAME
+let optIdx=0;
+let starterIdx=0;
+let chosen=0;
+
+const panels={
+  title:$('#p-title'), menu:$('#p-menu'), option:$('#p-option'),
+  intro:$('#p-intro'), starter:$('#p-starter'), confirm:$('#p-confirm'), done:$('#p-done')
+};
+const hint=$('#hint');
+function setScreen(s){
+  screen=s;
+  Object.values(panels).forEach(p=>p.classList.remove('active'));
+  panels[s].classList.add('active');
+  hint.style.display = (s==='title') ? 'block':'none';
+  if(s==='intro') startDialogue();
+}
+
+/* ---------- MENU ---------- */
+function paintMenu(){
+  $$('#p-menu .menu-item').forEach((el,i)=> el.classList.toggle('sel', i===menuIdx));
+}
+function menuMove(d){ menuIdx=(menuIdx+d+3)%3; sCursor(); paintMenu(); $('#menuNote').textContent=''; }
+function menuSelect(){
+  const act=$$('#p-menu .menu-item')[menuIdx].dataset.act;
+  if(act==='continue'){ sDeny(); $('#menuNote').textContent='No saved adventure...'; return; }
+  if(act==='new'){ sSelect(); setScreen('intro'); return; }
+  if(act==='option'){ sSelect(); optIdx=0; paintOpt(); setScreen('option'); return; }
+}
+
+/* ---------- OPTIONS ---------- */
+function paintOpt(){ $$('#p-option .menu-item').forEach((el,i)=> el.classList.toggle('sel', i===optIdx)); }
+function optMove(d){ optIdx=(optIdx+d+3)%3; sCursor(); paintOpt(); }
+function optSelect(){
+  const opt=$$('#p-option .menu-item')[optIdx].dataset.opt;
+  if(opt==='sound'){ soundOn=!soundOn; $('#optSound').textContent=soundOn?'ON':'OFF'; $('#soundBtn').textContent=soundOn?'♪ ON':'♪ OFF'; sSelect(); }
+  else if(opt==='scan'){ const off=$('#scan').classList.toggle('off'); $('#optScan').textContent=off?'FLAT':'CRT'; sSelect(); }
+  else if(opt==='back'){ sSelect(); setScreen('menu'); }
+}
+
+/* ---------- INTRO dialogue ---------- */
+const LINES=[
+  "Welcome to the world of POKéMON!",
+  "I am Professor Larch. Some folk call me the Dragon Professor.",
+  "This vast land is the region of DRACONIA...",
+  "...the Land of Fire and Scale, where DRAGON POKéMON are revered above all.",
+  "A hundred years ago, ZYGARDE drew nine worlds together into one.",
+  "And now a new journey is ready to begin. Yours.",
+  "But first — choose the partner who will walk it beside you!",
+];
+let li=0, ci=0, typing=false, tTimer=null;
+function startDialogue(){ li=0; showLine(); }
+function showLine(){
+  const box=$('#dlgTxt'); box.textContent=''; ci=0; typing=true; $('#dlgArrow').hidden=true;
+  clearTimeout(tTimer); tick();
+}
+function tick(){
+  const box=$('#dlgTxt'), line=LINES[li];
+  if(ci<line.length){
+    box.textContent+=line[ci];
+    if(line[ci]!==' ' && ci%2===0) sText();
+    ci++; tTimer=setTimeout(tick,34);
+  } else { typing=false; $('#dlgArrow').hidden=false; }
+}
+function dlgAdvance(){
+  if(typing){ clearTimeout(tTimer); $('#dlgTxt').textContent=LINES[li]; typing=false; $('#dlgArrow').hidden=false; sText(); return; }
+  li++;
+  if(li<LINES.length){ sCursor(); showLine(); }
+  else { sSelect(); setScreen('starter'); paintStarter(); }
+}
+
+/* ---------- STARTER ---------- */
+function paintStarter(){
+  $$('#cards .card').forEach((el,i)=> el.classList.toggle('sel', i===starterIdx));
+}
+function starterMove(d){ starterIdx=(starterIdx+d+3)%3; sCursor(); paintStarter(); }
+function starterSelect(){
+  chosen=starterIdx; sSelect();
+  renderMap($('#confSpr'), STARTER, STARTER_PAL[MON[chosen].key], 0);
+  $('#confName').textContent=MON[chosen].name;
+  setScreen('confirm');
+}
+
+/* ---------- CONFIRM / DONE ---------- */
+let doneReady=false, loadTimer=null;
+function begin(){
+  sStart();
+  renderMap($('#doneSpr'), STARTER, STARTER_PAL[MON[chosen].key], 0);
+  $('#doneSub').textContent=`NH & ${MON[chosen].name} set out from Bakil City...`;
+  setScreen('done');
+  // animate the loading bar, then reveal the continue prompt
+  doneReady=false;
+  const fill=$('#loadFill'), load=$('#doneLoad'), prompt=$('#donePrompt'), copy=$('#doneCopy');
+  fill.style.width='0%'; load.textContent='NOW LOADING'; load.style.display='block';
+  prompt.style.display='none'; copy.textContent='RETURN TO TITLE SCREEN';
+  let pct=0; clearInterval(loadTimer);
+  loadTimer=setInterval(()=>{
+    pct+=4+Math.random()*9; if(pct>=100){ pct=100; clearInterval(loadTimer); finishLoad(); }
+    fill.style.width=pct+'%';
+    if(Math.random()>0.4) beep(900+pct*4,0.015,'square',0.04);
+  },90);
+}
+function finishLoad(){
+  doneReady=true; sSelect();
+  $('#doneLoad').textContent='ADVENTURE START!';
+  $('#donePrompt').style.display='block';
+}
+function resetToTitle(){ if(!doneReady) return; sCursor(); menuIdx=1; starterIdx=0; setScreen('title'); }
+
+/* ---------- A-button (advance/confirm by screen) ---------- */
+function aButton(){
+  switch(screen){
+    case 'title':   sStart(); setScreen('menu'); paintMenu(); break;
+    case 'menu':    menuSelect(); break;
+    case 'option':  optSelect(); break;
+    case 'intro':   dlgAdvance(); break;
+    case 'starter': starterSelect(); break;
+    case 'confirm': begin(); break;
+    case 'done':    resetToTitle(); break;
+  }
+}
+function bButton(){
+  if(screen==='option'){ sCursor(); setScreen('menu'); }
+  else if(screen==='menu'){ sCursor(); setScreen('title'); }
+  else if(screen==='starter'){ sCursor(); setScreen('intro'); }
+}
+
+/* ---------- keyboard ---------- */
+window.addEventListener('keydown', e=>{
+  const k=e.key;
+  if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' ','Enter'].includes(k)) e.preventDefault();
+  if(k==='Enter'||k===' '||k==='z'||k==='Z'){ aButton(); return; }
+  if(k==='Backspace'||k==='x'||k==='X'||k==='Escape'){ bButton(); return; }
+  if(screen==='menu'){ if(k==='ArrowUp')menuMove(-1); if(k==='ArrowDown')menuMove(1); }
+  else if(screen==='option'){ if(k==='ArrowUp')optMove(-1); if(k==='ArrowDown')optMove(1); }
+  else if(screen==='starter'){ if(k==='ArrowLeft')starterMove(-1); if(k==='ArrowRight')starterMove(1); }
+});
+
+/* ---------- mouse / touch ---------- */
+$('#screen').addEventListener('click', e=>{
+  if(e.target.closest('.hud')||e.target.closest('.menu-item')||e.target.closest('.card')||e.target.closest('.btn')) return;
+  if(screen==='title'||screen==='intro'||screen==='done') aButton();
+});
+$$('#p-menu .menu-item').forEach((el,i)=> el.addEventListener('click',()=>{ menuIdx=i; paintMenu(); menuSelect(); }));
+$$('#p-option .menu-item').forEach((el,i)=> el.addEventListener('click',()=>{ optIdx=i; paintOpt(); optSelect(); }));
+$$('#cards .card').forEach((el,i)=> el.addEventListener('click',()=>{
+  if(starterIdx===i){ starterSelect(); } else { starterIdx=i; sCursor(); paintStarter(); }
+}));
+$('#beginBtn').addEventListener('click', begin);
+
+/* HUD buttons */
+$('#soundBtn').addEventListener('click',()=>{ soundOn=!soundOn; $('#soundBtn').textContent=soundOn?'♪ ON':'♪ OFF'; $('#optSound').textContent=soundOn?'ON':'OFF'; if(soundOn) sSelect(); });
+$('#scanBtn').addEventListener('click',()=>{ const off=$('#scan').classList.toggle('off'); $('#optScan').textContent=off?'FLAT':'CRT'; sCursor(); });
+
+/* ---------- power-on ---------- */
+window.addEventListener('load',()=> setTimeout(()=> $('#device').classList.add('on'), 60));
+</script>
+</body>
+</html>

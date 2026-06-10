@@ -311,9 +311,30 @@ def double_battle(player, sam_party, enemy_party):
                 continue
 
         elif action == "2":
-            result = use_healing_item(player, player_mon)
-            if result == "no_items":
+            heal_options = [(n, a) for n, a in HEALING_ITEMS.items() if player["bag"].get(n, 0) > 0]
+            if not heal_options:
                 print("No healing items.")
+                print()
+                continue
+            for i, (name, _) in enumerate(heal_options, 1):
+                print(f"  {i}. {name}  x{player['bag'].get(name, 0)}")
+            print(f"  {len(heal_options) + 1}. Back")
+            print()
+            bag_choice = input("Choose: ").strip()
+            print()
+            try:
+                bidx = int(bag_choice) - 1
+                if bidx == len(heal_options):
+                    continue
+                if 0 <= bidx < len(heal_options):
+                    item_name, heal_amount = heal_options[bidx]
+                    use_healing_item(player, player_mon, item_name, heal_amount)
+                else:
+                    print("Invalid choice.")
+                    print()
+                    continue
+            except (ValueError, IndexError):
+                print("Invalid choice.")
                 print()
                 continue
 
@@ -330,7 +351,7 @@ def double_battle(player, sam_party, enemy_party):
 
         if enemy_mon["hp"] <= 0:
             print(f"{enemy_mon['name']} fainted!")
-            give_exp(player_mon, enemy_mon)
+            give_exp(player_mon, enemy_mon, is_trainer=True)
             print()
             enemy_index += 1
             if enemy_index >= len(enemy_party):
@@ -349,7 +370,7 @@ def double_battle(player, sam_party, enemy_party):
                 print()
                 if enemy_mon["hp"] <= 0:
                     print(f"{enemy_mon['name']} fainted!")
-                    give_exp(player_mon, enemy_mon)
+                    give_exp(player_mon, enemy_mon, is_trainer=True)
                     print()
                     enemy_index += 1
                     if enemy_index >= len(enemy_party):
