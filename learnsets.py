@@ -1236,6 +1236,27 @@ learnsets = {
         20: ["Air Slash"],
         30: ["X-Scissor"],
     },
+    # Gen 3 Grass starters
+    "Treecko": {
+        1:  ["Leafage"],
+        10: ["Razor Leaf"],
+        25: ["Giga Drain"],
+        38: ["Leaf Blade"],
+    },
+    "Grovyle": {
+        1:  ["Leafage"],
+        5:  ["Razor Leaf"],
+        20: ["Giga Drain"],
+        30: ["Leaf Blade"],
+    },
+    "Sceptile": {
+        1:  ["Razor Leaf"],
+        10: ["Giga Drain"],
+        20: ["Leaf Blade"],
+        35: ["Solar Beam"],
+        45: ["Dragon Pulse"],
+        60: ["Draco Meteor"],
+    },
     # Route 21 Grass types
     "Hydrapple": {
         1: ["Leafage"],

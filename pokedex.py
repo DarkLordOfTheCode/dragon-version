@@ -1264,6 +1264,31 @@ pokedex = {
         "speed": 70,
         "special": 90,
     },
+    # Gen 3 Grass starters
+    "Treecko": {
+        "type": ["Grass"],
+        "hp": 40,
+        "attack": 45,
+        "defence": 35,
+        "speed": 70,
+        "special": 65,
+    },
+    "Grovyle": {
+        "type": ["Grass"],
+        "hp": 50,
+        "attack": 65,
+        "defence": 45,
+        "speed": 95,
+        "special": 85,
+    },
+    "Sceptile": {
+        "type": ["Grass"],
+        "hp": 70,
+        "attack": 85,
+        "defence": 65,
+        "speed": 120,
+        "special": 105,
+    },
     # Route 21 Grass types
     "Hydrapple": {
         "type": ["Grass", "Dragon"],

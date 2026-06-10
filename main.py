@@ -13,6 +13,7 @@ def create_player(starter_name):
             "Ether": 1,
         },
         "money": 0,
+        "box": [],
     }
 
 
@@ -201,5 +202,120 @@ def main():
         print("Game over.")
 
 
+def debug_start():
+    import sys
+
+    locations = {
+        "1":  ("Bakil City",       "route1",          "route1"),
+        "2":  ("Saffron City",     "saffron_city",    "saffron_city"),
+        "3":  ("Goldenrod City",   "goldenrod_city",  "goldenrod_city"),
+        "4":  ("Slateport City",   "slateport_city",  "slateport_city"),
+        "5":  ("Jubilife City",    "jubilife_city",   "jubilife_city"),
+        "6":  ("Route 16",         "route16",         "route16"),
+        "7":  ("Route 21",         "route21",         "route21"),
+        "8":  ("Castelia City",    "castelia_city",   "castelia_city"),
+    }
+
+    preset_team = [
+        ("Hydrapple", 50),
+        ("Psyake",    50),
+        ("Dragonite", 50),
+        ("Dragapult", 50),
+        ("Rayquaza",  50),
+        ("Sceptile",  50),
+    ]
+
+    print("=" * 40)
+    print("  DEBUG MODE")
+    print("=" * 40)
+    print()
+    print("Pick a starting location:")
+    for key, (name, _, _) in locations.items():
+        print(f"  {key}. {name}")
+    print()
+    loc_choice = input("Choose: ").strip()
+    print()
+
+    if loc_choice not in locations:
+        print("Invalid choice.")
+        return
+
+    loc_name, module_name, func_name = locations[loc_choice]
+
+    player = {
+        "name": "NH",
+        "starter": "Frodger",
+        "party": [],
+        "bag": {
+            "Poké Ball":    10,
+            "Potion":       5,
+            "Super Potion": 5,
+            "Hyper Potion": 5,
+            "Max Potion":   5,
+            "Revive":       5,
+            "Ultra Ball":   10,
+        },
+        "money": 9999999,
+        "box": [],
+    }
+
+    print("Team options:")
+    print("  1. Preset team (Hydrapple / Psyake / Dragonite / Dragapult / Rayquaza / Sceptile — all Lv.50)")
+    print("  2. Build custom team")
+    print()
+    team_choice = input("Choose: ").strip()
+    print()
+
+    if team_choice == "1":
+        for name, lvl in preset_team:
+            mon = create_pokemon(name, lvl)
+            player["party"].append(mon)
+            print(f"  Added {mon['name']} Lv.{lvl}")
+    else:
+        print("Build your team. Enter Pokémon name and level (blank to stop).")
+        print("Example:  Garchomp 50")
+        print()
+        while len(player["party"]) < 6:
+            entry = input(f"  Slot {len(player['party']) + 1}: ").strip()
+            if not entry:
+                break
+            parts = entry.rsplit(" ", 1)
+            if len(parts) != 2:
+                print("  Format: PokemonName Level")
+                continue
+            name, lvl = parts
+            try:
+                lvl = int(lvl)
+            except ValueError:
+                print("  Level must be a number.")
+                continue
+            try:
+                mon = create_pokemon(name, lvl)
+                player["party"].append(mon)
+                print(f"  Added {mon['name']} Lv.{lvl}")
+            except Exception as e:
+                print(f"  Couldn't create {name}: {e}")
+
+        if not player["party"]:
+            print("No Pokémon added — adding Garchomp Lv.50 as default.")
+            player["party"].append(create_pokemon("Garchomp", 50))
+
+    print()
+    print(f"Starting at {loc_name} with {len(player['party'])} Pokémon. Money: $9,999,999")
+    print()
+    input("(Press Enter to begin...)")
+    print()
+
+    module = __import__(module_name)
+    func = getattr(module, func_name)
+    result = func(player)
+    if result == "lose":
+        print("Game over.")
+
+
 if __name__ == "__main__":
-    main()
+    import sys
+    if "--debug" in sys.argv:
+        debug_start()
+    else:
+        main()

@@ -97,6 +97,9 @@ evolutions = {
     "Bronzor":    ("Bronzong",   33),
     # A's line
     "Poliwag":    ("Poliwhirl",  15),
+    # Gen 3 Grass starters
+    "Treecko":    ("Grovyle",    16),
+    "Grovyle":    ("Sceptile",   36),
     # Route 21 additions
     "Skiddo":     ("Gogoat",     32),
 }

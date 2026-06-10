@@ -137,19 +137,31 @@ def double_battle(player, nico_party, enemy_party):
 
 
 def pokecenter(player):
-    print("=" * 40)
-    print("  POKÉMON CENTER")
-    print("=" * 40)
-    print()
-    print("Nurse Joy: Welcome! We'll restore your")
-    print("Pokémon to full health.")
-    print()
-    pause()
-    for mon in player["party"]:
-        mon["hp"] = mon["max_hp"]
-    print("Your Pokémon have been healed!")
-    print()
-    pause()
+    from pc import pc_box
+    while True:
+        print("=" * 40)
+        print("  POKÉMON CENTER")
+        print("=" * 40)
+        print()
+        print("  1. Heal Pokémon")
+        print("  2. PC Box")
+        print("  3. Leave")
+        print()
+        choice = input("Choose: ").strip()
+        print()
+        if choice == "1":
+            for mon in player["party"]:
+                mon["hp"] = mon["max_hp"]
+            print("Nurse Joy: Your Pokémon have been healed!")
+            print()
+            pause()
+        elif choice == "2":
+            pc_box(player)
+        elif choice == "3":
+            return
+        else:
+            print("Invalid choice.")
+            print()
 
 
 def arrive(player):
