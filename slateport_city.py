@@ -2,6 +2,7 @@ from pokemon import create_pokemon
 from gym_leaders import gym_leaders
 from battle import battle
 from sprites import show_battle_screen, hp_bar
+from sky_buggy import sky_buggy, destinations_before
 
 CORAL = gym_leaders[2]
 
@@ -593,7 +594,8 @@ def slateport_city(player):
         print("  2. Pokémon Center")
         print("  3. Mall")
         print("  4. Harbour — Team Fairy Submarine")
-        print("  5. Head east")
+        print("  5. Sky Buggy")
+        print("  6. Head east")
         print()
         choice = input("Choose: ").strip()
         print()
@@ -646,6 +648,13 @@ def slateport_city(player):
                 state["submarine_done"] = True
 
         elif choice == "5":
+            result = sky_buggy(player, destinations_before("Slateport City"))
+            if result == "lose":
+                return "lose"
+            if result is not None:
+                return result
+
+        elif choice == "6":
             if not state["gym_beaten"]:
                 print("You should challenge the gym before moving on.")
                 print()

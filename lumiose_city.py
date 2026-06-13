@@ -2,6 +2,7 @@ from pokemon import create_pokemon
 from gym_leaders import gym_leaders
 from battle import battle
 from sprites import show_battle_screen, hp_bar
+from sky_buggy import sky_buggy, destinations_before
 
 LYSARA = gym_leaders[5]
 
@@ -566,7 +567,8 @@ def lumiose_city(player):
             print("  5. Prism Tower — Team Fairy")
         else:
             print("  5. (Prism Tower cleared)")
-        print("  6. Head east")
+        print("  6. Sky Buggy")
+        print("  7. Head east")
         print()
         choice = input("Choose: ").strip()
         print()
@@ -603,6 +605,13 @@ def lumiose_city(player):
                 print()
 
         elif choice == "6":
+            result = sky_buggy(player, destinations_before("Lumiose City"))
+            if result == "lose":
+                return "lose"
+            if result is not None:
+                return result
+
+        elif choice == "7":
             if not state["tower_done"]:
                 print("S: We're not leaving a whole city in the dark. Tower first.")
                 print()

@@ -2,6 +2,7 @@ from pokemon import create_pokemon
 from gym_leaders import gym_leaders
 from battle import battle
 from sprites import show_battle_screen, hp_bar
+from sky_buggy import sky_buggy, destinations_before
 
 VANCE = gym_leaders[3]
 
@@ -861,7 +862,8 @@ def jubilife_city(player):
             print("  4. Northern Gate — Rescue NR and S")
         else:
             print("  4. (Nothing else to do here)")
-        print("  5. Head north")
+        print("  5. Sky Buggy")
+        print("  6. Head north")
         print()
         choice = input("Choose: ").strip()
         print()
@@ -923,6 +925,13 @@ def jubilife_city(player):
                 print()
 
         elif choice == "5":
+            result = sky_buggy(player, destinations_before("Jubilife City"))
+            if result == "lose":
+                return "lose"
+            if result is not None:
+                return result
+
+        elif choice == "6":
             if not state["dungeon_done"]:
                 print("You can't leave yet — NR and S are still being held.")
                 print()

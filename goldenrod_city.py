@@ -3,6 +3,7 @@ from battle import battle, calculate_damage, enemy_attack, give_exp, switch_poke
 from pokemon import create_pokemon
 from gym_leaders import gym_leaders
 from sprites import show_battle_screen, hp_bar
+from sky_buggy import sky_buggy, destinations_before
 
 WHITEOUT = gym_leaders[1]
 
@@ -645,113 +646,6 @@ def mall(player):
             print()
 
 
-def bakil_home_visit(player):
-    print("=" * 40)
-    print("  BAKIL CITY — HOME")
-    print("=" * 40)
-    print()
-    print("The Sky Buggy sets down on the dusty road outside your house.")
-    print("The door opens before you even reach it.")
-    print()
-    pause()
-
-    print("Mom: NH! You're home!")
-    print("Mom: Look at you. Come here — let me look at you properly.")
-    print()
-    pause()
-
-    print("Dad: *sniff*")
-    print("Dad: Is that... NH?")
-    print()
-    pause()
-
-    print("NH: Dad? You're STILL sick?")
-    print()
-    pause()
-
-    print("Dad: It's the same cold. *sniff*")
-    print("Dad: It's a strong one. Don't judge it.")
-    print()
-    pause()
-
-    print("Mom: He won't rest. I keep telling him.")
-    print()
-    pause()
-
-    print("Dad: *slowly gets up anyway*")
-    print("Dad: Come here. ...You're really out there, aren't you.")
-    print("Dad: I said I'd be waiting. *sniff* I meant it.")
-    print("Dad: Win some badges. Come home when you can.")
-    print()
-    pause()
-
-    print("Mom: Sit down, both of you. I'll make something warm.")
-    print("Mom: ...And NH, your Pokémon look worn out. Let them rest a while.")
-    print()
-    pause()
-
-    for mon in player["party"]:
-        mon["hp"] = mon["max_hp"]
-    print("Your team rested at home and recovered fully!")
-    print()
-    pause()
-
-    print("After a warm meal, you head back out to the Sky Buggy.")
-    print()
-    pause()
-
-
-def sky_buggy(player):
-    # Everywhere you've explored by the time you reach Goldenrod.
-    # Each entry: (display name, module, function). Travelling there
-    # re-enters the game at that point.
-    destinations = [
-        ("Bakil City",   "route1",       "route1"),
-        ("Route 1",      "route1",       "route1"),
-        ("Route 2",      "route2",       "route2"),
-        ("Route 3",      "route3",       "route3"),
-        ("Route 4",      "route4",       "route4"),
-        ("Route 5",      "route5",       "route5"),
-        ("Route 6",      "route6",       "route6"),
-        ("Route 7",      "route7",       "route7"),
-        ("Saffron City", "saffron_city", "saffron_city"),
-    ]
-
-    while True:
-        print("=" * 40)
-        print("  SKY BUGGY")
-        print("=" * 40)
-        print()
-        print("The Sky Buggy can take you anywhere you've already explored.")
-        print("Where to?")
-        for i, (name, _, _) in enumerate(destinations, 1):
-            print(f"  {i}. {name}")
-        print(f"  {len(destinations) + 1}. Stay in Goldenrod")
-        print()
-        choice = input("Choose: ").strip()
-        print()
-
-        if choice == str(len(destinations) + 1):
-            print("You climb back out of the buggy.")
-            print()
-            return None
-
-        if choice.isdigit() and 1 <= int(choice) <= len(destinations):
-            name, module_name, func_name = destinations[int(choice) - 1]
-            if name == "Bakil City":
-                bakil_home_visit(player)
-                continue
-            print(f"The Sky Buggy lifts off and carries you to {name}.")
-            print()
-            pause()
-            module = __import__(module_name)
-            func = getattr(module, func_name)
-            return func(player)
-
-        print("Invalid choice.")
-        print()
-
-
 def goldenrod_city(player):
     arrive(player)
     nico_reunite(player)
@@ -802,7 +696,7 @@ def goldenrod_city(player):
             mall(player)
 
         elif choice == "5":
-            result = sky_buggy(player)
+            result = sky_buggy(player, destinations_before("Goldenrod City"))
             if result == "lose":
                 return "lose"
             if result is not None:

@@ -25,7 +25,7 @@
 ## Done
 - [x] route22.py–route27.py — Routes 22–27 with wild Pokémon and trainer battles (Castelia → Lumiose), levels 47–51; rewired Castelia exit to lead into Route 22
 - [x] Debug menu (main.py) now lists every location: all 7 cities + Routes 1–27
-- [x] Goldenrod City — added Sky Buggy: fast-travel to anywhere explored by Goldenrod (Bakil, Saffron, Routes 1–7)
+- [x] Sky Buggy — shared module (sky_buggy.py); available in every city except Saffron (Goldenrod, Slateport, Jubilife, Castelia, Lumiose); each lists everywhere explored up to that point; Bakil City option plays the home cutscene (Mom + sick Dad) and heals the team
 - [x] Designed NR's full rival team progression (Gible→Gabite ace, Caterpie→Butterfree; battles in saffron_city.py and goldenrod_city.py)
 - [x] castelia_city.py — Castelia City: Team Fairy convoy (NH + I flip 3 cars with steel pipe), senate seal discovery, Diancie Fragment obtained, Rook skyscraper gym (Shadow Badge), street shop + TM dealer
 - [x] route16.py–route21.py — Routes 16–21 with wild Pokémon and trainer battles (Jubilife → Castelia); Route 21 has mid-route Hydrapple event

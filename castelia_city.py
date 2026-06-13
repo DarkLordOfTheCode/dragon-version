@@ -2,6 +2,7 @@ from pokemon import create_pokemon
 from gym_leaders import gym_leaders
 from battle import battle
 from sprites import show_battle_screen, hp_bar
+from sky_buggy import sky_buggy, destinations_before
 
 ROOK = gym_leaders[4]
 
@@ -669,7 +670,8 @@ def castelia_city(player):
             print("  5. South District — Team Fairy Convoy")
         else:
             print("  5. (Convoy cleared)")
-        print("  6. Head east")
+        print("  6. Sky Buggy")
+        print("  7. Head east")
         print()
         choice = input("Choose: ").strip()
         print()
@@ -707,6 +709,13 @@ def castelia_city(player):
                 print()
 
         elif choice == "6":
+            result = sky_buggy(player, destinations_before("Castelia City"))
+            if result == "lose":
+                return "lose"
+            if result is not None:
+                return result
+
+        elif choice == "7":
             if not state["convoy_done"]:
                 print("I: We can't leave while Team Fairy is running convoys through the city.")
                 print()
