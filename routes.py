@@ -745,5 +745,173 @@ routes = {
             },
         ],
     },
+
+    "Route 22": {
+        "description": "East of Castelia the road climbs into dry, sunlit hills. The air gets warmer with every step — somewhere ahead, the ground is on fire.",
+        "wild_pokemon": [
+            {"name": "Salandit",  "min_level": 47, "max_level": 48, "rate": 35},
+            {"name": "Druddigon", "min_level": 47, "max_level": 48, "rate": 25},
+            {"name": "Houndour",  "min_level": 47, "max_level": 48, "rate": 25},
+            {"name": "Noibat",    "min_level": 47, "max_level": 48, "rate": 15},
+        ],
+        "trainers": [
+            {
+                "name": "Cole",
+                "class": "Ace Trainer",
+                "team": [("Houndoom", 48), ("Druddigon", 47)],
+                "greeting": "Cole: Castelia's behind you now. Out here the rules get hotter.",
+                "defeat_text": "Cole: Hot enough for you? Keep moving.",
+                "reward": 3300,
+            },
+            {
+                "name": "Tessa",
+                "class": "Young Trainer",
+                "team": [("Salandit", 47), ("Houndour", 48)],
+                "greeting": "Tessa: My Salandit loves it out here. Says it reminds her of home.",
+                "defeat_text": "Tessa: Okay, she's a little homesick now.",
+                "reward": 3300,
+            },
+        ],
+    },
+
+    "Route 23": {
+        "description": "The hills give way to cracked black rock. Steam vents hiss between the stones and Salazzle bask on the warm slabs.",
+        "wild_pokemon": [
+            {"name": "Salandit",  "min_level": 47, "max_level": 49, "rate": 30},
+            {"name": "Salazzle",  "min_level": 48, "max_level": 49, "rate": 20},
+            {"name": "Houndoom",  "min_level": 48, "max_level": 49, "rate": 25},
+            {"name": "Fraxure",   "min_level": 48, "max_level": 49, "rate": 25},
+        ],
+        "trainers": [
+            {
+                "name": "Wade",
+                "class": "Ace Trainer",
+                "team": [("Salazzle", 49), ("Fraxure", 48)],
+                "greeting": "Wade: Watch the vents. They'll cook you if you stand still too long.",
+                "defeat_text": "Wade: You move well. You'll survive Lumiose.",
+                "reward": 3450,
+            },
+            {
+                "name": "Nora",
+                "class": "Young Trainer",
+                "team": [("Houndoom", 48), ("Salandit", 49)],
+                "greeting": "Nora: Everyone out here is heading to the same place. The city of light.",
+                "defeat_text": "Nora: See you under those lights, then.",
+                "reward": 3450,
+            },
+        ],
+    },
+
+    "Route 24": {
+        "description": "A narrow pass between two ridges of cooling lava. The rock glows faintly orange in the cracks underfoot.",
+        "wild_pokemon": [
+            {"name": "Salazzle",   "min_level": 48, "max_level": 49, "rate": 25},
+            {"name": "Turtonator", "min_level": 49, "max_level": 49, "rate": 20},
+            {"name": "Druddigon",  "min_level": 48, "max_level": 49, "rate": 30},
+            {"name": "Litwick",    "min_level": 48, "max_level": 49, "rate": 25},
+        ],
+        "trainers": [
+            {
+                "name": "Hugo",
+                "class": "Ace Trainer",
+                "team": [("Turtonator", 49), ("Druddigon", 49)],
+                "greeting": "Hugo: Turtonator's shell explodes when it cracks. Try me and find out.",
+                "defeat_text": "Hugo: Lucky it held. This time.",
+                "reward": 3600,
+            },
+            {
+                "name": "Faye",
+                "class": "Young Trainer",
+                "team": [("Litwick", 49), ("Salazzle", 48)],
+                "greeting": "Faye: My Litwick's flame burns brighter the closer we get to Lumiose.",
+                "defeat_text": "Faye: Almost there now. I can feel it.",
+                "reward": 3600,
+            },
+        ],
+    },
+
+    "Route 25": {
+        "description": "The pass opens onto a high plateau. From here you can see it — a glow on the horizon that isn't the sun. Lumiose.",
+        "wild_pokemon": [
+            {"name": "Turtonator", "min_level": 49, "max_level": 50, "rate": 25},
+            {"name": "Lampent",    "min_level": 49, "max_level": 50, "rate": 25},
+            {"name": "Salazzle",   "min_level": 49, "max_level": 50, "rate": 25},
+            {"name": "Noivern",    "min_level": 49, "max_level": 50, "rate": 25},
+        ],
+        "trainers": [
+            {
+                "name": "Sean",
+                "class": "Ace Trainer",
+                "team": [("Noivern", 50), ("Lampent", 49)],
+                "greeting": "Sean: Noivern hears the city before we can see it. It never stops listening.",
+                "defeat_text": "Sean: It heard that coming, too.",
+                "reward": 3750,
+            },
+            {
+                "name": "Paige",
+                "class": "Young Trainer",
+                "team": [("Turtonator", 50), ("Salazzle", 49)],
+                "greeting": "Paige: Two routes left. Then the brightest city in Draconia.",
+                "defeat_text": "Paige: Don't let the lights blind you in there.",
+                "reward": 3750,
+            },
+        ],
+    },
+
+    "Route 26": {
+        "description": "Lantern posts begin to line the road — the city keeps the outer routes lit at night. Chandelure drift between them like they belong.",
+        "wild_pokemon": [
+            {"name": "Lampent",    "min_level": 49, "max_level": 50, "rate": 25},
+            {"name": "Chandelure", "min_level": 50, "max_level": 50, "rate": 15},
+            {"name": "Salazzle",   "min_level": 49, "max_level": 50, "rate": 30},
+            {"name": "Noivern",    "min_level": 50, "max_level": 51, "rate": 30},
+        ],
+        "trainers": [
+            {
+                "name": "Dean",
+                "class": "Ace Trainer",
+                "team": [("Chandelure", 51), ("Salazzle", 50)],
+                "greeting": "Dean: The lanterns aren't decoration. They keep the shadows out. Lumiose doesn't trust the dark.",
+                "defeat_text": "Dean: Step into the light. You've earned it.",
+                "reward": 3900,
+            },
+            {
+                "name": "Iris",
+                "class": "Ace Trainer",
+                "team": [("Noivern", 51), ("Lampent", 50)],
+                "greeting": "Iris: One more route. Then the gates. Then Lysara, if you're brave.",
+                "defeat_text": "Iris: You're brave enough. Go on.",
+                "reward": 3900,
+            },
+        ],
+    },
+
+    "Route 27": {
+        "description": "The final stretch. A wide, lamp-lit boulevard runs straight to the gates of Lumiose City, the towers ahead blazing gold against the dusk.",
+        "wild_pokemon": [
+            {"name": "Salazzle",   "min_level": 50, "max_level": 51, "rate": 30},
+            {"name": "Chandelure", "min_level": 50, "max_level": 51, "rate": 20},
+            {"name": "Turtonator", "min_level": 50, "max_level": 51, "rate": 25},
+            {"name": "Noivern",    "min_level": 50, "max_level": 51, "rate": 25},
+        ],
+        "trainers": [
+            {
+                "name": "Marcus",
+                "class": "Ace Trainer",
+                "team": [("Salazzle", 51), ("Turtonator", 51), ("Chandelure", 50)],
+                "greeting": "Marcus: I guard the last road into Lumiose. Nobody reaches Lysara without going through me first.",
+                "defeat_text": "Marcus: Then go. The gates are open for you.",
+                "reward": 4200,
+            },
+            {
+                "name": "Hannah",
+                "class": "Young Trainer",
+                "team": [("Chandelure", 51), ("Noivern", 50)],
+                "greeting": "Hannah: You can read by the city's light from here. That's how close you are.",
+                "defeat_text": "Hannah: Welcome to Lumiose. Almost.",
+                "reward": 4200,
+            },
+        ],
+    },
 }
 

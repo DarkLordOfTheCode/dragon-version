@@ -468,7 +468,7 @@ def gym_double_battle(player, nico_party, enemy_party):
         if not used_turn:
             continue
 
-        # Nico auto-attacks
+        # NR auto-attacks
         if nico_mon["hp"] > 0 and enemy_hp_before > 0:
             move_name = random.choice(nico_mon["moves"])
             damage, effectiveness = calculate_damage(nico_mon, move_name, enemy_mon)

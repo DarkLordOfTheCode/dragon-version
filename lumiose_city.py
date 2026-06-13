@@ -3,7 +3,7 @@ from gym_leaders import gym_leaders
 from battle import battle
 from sprites import show_battle_screen, hp_bar
 
-ROOK = gym_leaders[4]
+LYSARA = gym_leaders[5]
 
 
 def pause():
@@ -95,10 +95,10 @@ def teach_move(player, move_name):
         print()
 
 
-def street_shop(player):
+def boutique(player):
     print()
     print("=" * 40)
-    print("  STREET STALL")
+    print("  LUMIOSE BOUTIQUE")
     print("=" * 40)
     print()
 
@@ -107,6 +107,7 @@ def street_shop(player):
         ("Max Potion",   2500),
         ("Ultra Ball",   1200),
         ("Revive",       1500),
+        ("Max Revive",   4000),
     ]
 
     while True:
@@ -143,16 +144,16 @@ def street_shop(player):
 def tm_vendor(player):
     print()
     print("=" * 40)
-    print("  BACK-ALLEY TM DEALER")
+    print("  PRISM TOWER TM STAND")
     print("=" * 40)
     print()
 
     tms = [
-        ("Night Slash", "Dark",     2000),
-        ("Dark Pulse",  "Dark",     2500),
-        ("Brick Break", "Fighting", 2000),
-        ("Energy Ball", "Grass",    2000),
-        ("Dragon Pulse","Dragon",   2500),
+        ("Flamethrower", "Fire",   2500),
+        ("Fire Blast",   "Fire",   3000),
+        ("Dragon Pulse", "Dragon", 2500),
+        ("Draco Meteor", "Dragon", 3500),
+        ("Energy Ball",  "Grass",  2000),
     ]
 
     while True:
@@ -186,7 +187,7 @@ def tm_vendor(player):
             print()
 
 
-def double_battle(player, partner_party, enemy_party, partner_name="I"):
+def double_battle(player, partner_party, enemy_party, partner_name="S"):
     from battle import calculate_damage, enemy_attack, give_exp, switch_pokemon, use_healing_item, HEALING_ITEMS
     enemy_index = 0
     enemy_mon = enemy_party[enemy_index]
@@ -339,129 +340,103 @@ def double_battle(player, partner_party, enemy_party, partner_name="I"):
                 print()
 
 
-def convoy(player, state):
+def prism_tower(player, state):
     print("=" * 40)
-    print("  SOUTH DISTRICT — TEAM FAIRY CONVOY")
+    print("  PRISM TOWER")
     print("=" * 40)
     print()
-    print("The south district is gridlocked.")
-    print("Three armoured cars, pink tarps draped over the cargo,")
-    print("Team Fairy grunts on foot alongside each one.")
+    print("Lumiose is the City of Lights — but tonight it's dark.")
+    print("The boulevards are black. The cafés are shuttered.")
+    print("Only one thing is still lit: Prism Tower, blazing pink")
+    print("at the centre of the city, humming like a hornet's nest.")
     print()
     pause()
 
-    print("I: *steps out from a doorway*")
-    print("I: They've been running these convoys all morning.")
-    print("I: Whatever they're moving — they don't want anyone to see it.")
+    print("S: *waiting at the base of the tower, arms crossed*")
+    print("S: There you are. They cut the whole grid an hour ago.")
+    print("S: Team Fairy walked into the tower and took the power core.")
     print()
     pause()
 
-    print("NH: *spots a length of steel pipe lying on the kerb*")
+    print("NH: The whole city? For one tower?")
     print()
     pause()
 
-    print("NH: *picks it up*")
+    print("S: They're not lighting the tower. They're draining the city")
+    print("S: INTO it. Siphoning every watt in Lumiose up to the top.")
+    print("S: Whatever they're charging up there, it's big.")
     print()
     pause()
 
-    print("I: ...What are you doing?")
+    print("S: I'm coming with you. Let's go turn the lights back on.")
     print()
     pause()
 
-    print("NH: Watch.")
+    # --- Lobby: grunt ---
+    print("Inside, the lobby lights flicker. A grunt blocks the lift.")
     print()
-    pause()
-
-    # --- CAR ONE ---
-    print("Team Fairy Grunt: Get away from the convoy. Now.")
+    print("Team Fairy Grunt: The tower's closed for... maintenance.")
     print()
     input("(Press Enter to battle...)")
     print()
 
     result = battle(
         player,
-        [create_pokemon("Houndour", 42), create_pokemon("Snubbull", 41)],
+        [create_pokemon("Clefable", 50), create_pokemon("Granbull", 51)],
         is_wild=False
     )
     if result == "lose":
         return "lose"
 
     print()
-    print("NH sets the pipe under the car's rear axle.")
+    print("S: Lift's clear. Up we go.")
     print()
     pause()
 
-    print("NH: I.")
+    # --- Mid-tower: double battle ---
+    print("Halfway up, the lift jolts to a stop. Two admins are")
+    print("waiting on the gantry, cables snaking past their feet.")
     print()
-    pause()
-
-    print("I: ...Yeah?")
-    print()
-    pause()
-
-    print("NH: Push.")
-    print()
-    pause()
-
-    print("The car tips.")
-    print("It tips further.")
-    print("And then it goes over with a sound like a small earthquake.")
-    print()
-    pause()
-
-    print("I: *stares at it*")
-    print("I: You just...")
-    print()
-    pause()
-
-    print("NH: Two more.")
-    print()
-    pause()
-
-    # --- CAR TWO ---
-    print("Team Fairy Grunt: There are TWO of them—")
-    print("Team Fairy Grunt 2: Take them both out!")
+    print("Team Fairy Grunt: You don't shut this down. Nobody does.")
     print()
     input("(Press Enter to battle...)")
     print()
 
-    i_team = [create_pokemon("Dragapult", 45), create_pokemon("Weavile", 43)]
+    s_team = [create_pokemon("Alakazam", 53), create_pokemon("Zoroark", 54)]
 
     result = double_battle(
-        player, i_team,
-        [create_pokemon("Granbull", 43), create_pokemon("Sylveon", 44)],
-        partner_name="I"
+        player, s_team,
+        [create_pokemon("Sylveon", 52), create_pokemon("Togekiss", 53)],
+        partner_name="S"
     )
     if result == "lose":
         return "lose"
 
     print()
-    print("NH and I find their angle on the second car.")
-    print("It goes over faster — they're getting better at this.")
+    print("S: *stepping over a cable* The hum's louder up here.")
     print()
     pause()
 
-    # --- CAR THREE ---
-    print("Team Fairy Commander: *steps out of the last car*")
-    print("Team Fairy Commander: I will not let you flip this one.")
+    # --- Summit: admin boss ---
+    print("The lift doors open on the summit chamber.")
+    print("The power core floats in a cradle of pink light, and")
+    print("every cable in the city seems to feed into it.")
     print()
     pause()
 
-    print("NH: *looks at I*")
+    print("Team Fairy Admin: You came all the way up here to unplug a lamp?")
+    print("Team Fairy Admin: The Senate pays for this power. We're just")
+    print("Team Fairy Admin: collecting. Now get off my tower.")
     print()
-    pause()
-
-    print("I: I've got the pipe.")
-    print()
-    input("(Press Enter to battle...)")
+    input("(Press Enter to battle the Admin...)")
     print()
 
     result = battle(
         player,
         [
-            create_pokemon("Togekiss",  46),
-            create_pokemon("Gardevoir", 45),
-            create_pokemon("Mimikyu",   44),
+            create_pokemon("Mimikyu",   54),
+            create_pokemon("Gardevoir", 55),
+            create_pokemon("Clefable",  56),
         ],
         is_wild=False
     )
@@ -469,173 +444,94 @@ def convoy(player, state):
         return "lose"
 
     print()
-    print("The last car goes over.")
-    print("The crate inside hits the asphalt and splits open.")
+    print("The Admin backs away from the cradle.")
     print()
     pause()
 
-    print("Something hard and pink rolls across the street.")
+    print("S: *yanks the main cable free of the core*")
     print()
     pause()
 
-    print("NH: *picks it up*")
-    print("NH: What is this?")
+    print("Far below, the city comes back on all at once —")
+    print("a wave of light rolling out across Lumiose.")
     print()
     pause()
 
-    print("I: *pulling papers from the car floor*")
-    print("I: NH.")
+    print("S: *reading a console* It wasn't random. This power was")
+    print("S: routed out of the city. South. Under a Senate authorisation.")
     print()
     pause()
 
-    print("I: Look at this seal.")
+    print("NH: The Senate again.")
     print()
     pause()
 
-    print("NH: *looks at the papers*")
+    print("S: That same Senate seal you turned up in Castelia. They're")
+    print("S: charging something, somewhere, and they don't want it on the")
+    print("S: grid where anyone could trace it.")
     print()
     pause()
 
-    print("I: That's the Senate's seal.")
+    print("S: We can't chase it tonight. But Lumiose has its lights back —")
+    print("S: and the gym just reopened. Go take your badge.")
     print()
     pause()
 
-    print("NH: The Senate.")
-    print()
-    pause()
-
-    print("I: These weren't Team Fairy's cars.")
-    print("I: These were government vehicles.")
-    print("I: The Senate has been running this.")
-    print()
-    pause()
-
-    player["bag"]["Diancie Fragment"] = player["bag"].get("Diancie Fragment", 0) + 1
-    print("NH received a Diancie Fragment!")
-    print()
-    pause()
-
-    print("Neither of them says anything for a moment.")
-    print()
-    pause()
-
-    print("I: We need to keep moving.")
-    print()
-    pause()
-
-    print("Then, from above:")
-    print()
-    pause()
-
-    print("Rook: *leans out of a window forty floors up*")
-    print("Rook: Huh.")
-    print()
-    pause()
-
-    print("Rook: Didn't think you'd actually flip those.")
-    print()
-    pause()
-
-    print("Rook: Gym's open. Come find the top floor.")
-    print()
-    pause()
-
-    state["convoy_done"] = True
+    state["tower_done"] = True
     return "done"
 
 
 def gym(player, state):
     print("=" * 40)
-    print("  CASTELIA CITY GYM")
+    print("  LUMIOSE CITY GYM")
     print("=" * 40)
     print()
-    print("The lobby of Castelia Tower.")
-    print("Steel walls, no trophies — just an elevator and a sign:")
-    print("ROOK — TOP FLOOR.")
+    print("The gym is a hall of mirrors and open flame.")
+    print("Every wall throws your reflection back at you, lit gold.")
     print()
     pause()
 
-    # Floor 10 trainer
-    print("Floor 10.")
-    print()
-    pause()
-
-    print("Gym Trainer Mel: You want the top? You fight through every floor.")
+    print("Gym Trainer Solène: Lysara says light reveals everything.")
+    print("Gym Trainer Solène: Let's see what yours reveals.")
     print()
     input("(Press Enter to battle...)")
     print()
 
     result = battle(
         player,
-        [create_pokemon("Houndour", 43), create_pokemon("Krokorok", 44)],
+        [create_pokemon("Houndoom", 52), create_pokemon("Turtonator", 53)],
         is_wild=False
     )
     if result == "lose":
         return "lose"
 
     print()
-    print("Mel: Keep going.")
+    print("Solène: She's at the end of the hall. Don't keep her waiting.")
     print()
     pause()
 
-    # Floor 25 trainer
-    print("Floor 25.")
+    print("Lysara stands in a column of firelight, perfectly still.")
     print()
-    pause()
-
-    print("Gym Trainer Jay: Rook doesn't let people up unless they're worth his time.")
-    print("Gym Trainer Jay: Prove you're worth it.")
+    print(LYSARA["greeting"])
     print()
-    input("(Press Enter to battle...)")
+    input("(Press Enter to battle Lysara...)")
     print()
 
-    result = battle(
-        player,
-        [create_pokemon("Sneasel", 45), create_pokemon("Zoroark", 46)],
-        is_wild=False
-    )
-    if result == "lose":
-        return "lose"
-
-    print()
-    print("Jay: Top floor. Go.")
-    print()
-    pause()
-
-    # Rook — top floor
-    print("The elevator opens at the top.")
-    print("Floor-to-ceiling windows. The whole city below.")
-    print()
-    pause()
-
-    print("Rook: *leaning on the window ledge, not looking at you*")
-    print("Rook: You made it. Not everyone does.")
-    print()
-    pause()
-
-    print("Rook: I run this gym because this city needs someone who actually knows")
-    print("Rook: how to fight. Not performed fights. Real ones.")
-    print("Rook: *turns around*")
-    print("Rook: Let's see if you've been in any.")
-    print()
-    input("(Press Enter to battle Rook...)")
-    print()
-
-    team = [create_pokemon(name, level) for name, level in ROOK["team"]]
+    team = [create_pokemon(name, level) for name, level in LYSARA["team"]]
     result = battle(player, team, is_wild=False)
     if result == "lose":
         return "lose"
 
     print()
-    print("Rook: *nods*")
-    print("Rook: Not bad. You fight like you've got something to prove.")
-    print("Rook: Good. Means you'll keep going.")
+    print("Lysara: *the firelight dims*")
+    print("Lysara: You carried your own light in here. I couldn't burn it out.")
+    print("Lysara: That's rarer than you know. Take this.")
     print()
     pause()
 
-    player["money"] += ROOK["reward"]
-    print("NH received the Shadow Badge!")
-    print(f"Rook gave you ${ROOK['reward']}!")
+    player["money"] += LYSARA["reward"]
+    print("NH received the Prism Badge!")
+    print(f"Lysara gave you ${LYSARA['reward']}!")
     print()
     pause()
 
@@ -643,32 +539,33 @@ def gym(player, state):
     return "done"
 
 
-def castelia_city(player):
+def lumiose_city(player):
     print("=" * 40)
-    print("  CASTELIA CITY")
+    print("  LUMIOSE CITY")
     print("=" * 40)
     print()
-    print("Castelia City. Towers of glass stacked so high they vanish into the haze.")
-    print("The kind of place that never quiets down.")
+    print("Lumiose City. Boulevards spoke out from a single tower")
+    print("at the heart of it all — the brightest place in Draconia.")
+    print("Or it would be, if the lights were on.")
     print()
     pause()
 
-    state = {"convoy_done": False, "gym_beaten": False}
+    state = {"tower_done": False, "gym_beaten": False}
 
     while True:
         print("=" * 40)
-        print("  CASTELIA CITY")
+        print("  LUMIOSE CITY")
         print("=" * 40)
         print()
         print("What do you want to do?")
         print("  1. Gym")
         print("  2. Pokémon Center")
-        print("  3. Street Stall")
-        print("  4. TM Dealer")
-        if not state["convoy_done"]:
-            print("  5. South District — Team Fairy Convoy")
+        print("  3. Boutique")
+        print("  4. TM Stand")
+        if not state["tower_done"]:
+            print("  5. Prism Tower — Team Fairy")
         else:
-            print("  5. (Convoy cleared)")
+            print("  5. (Prism Tower cleared)")
         print("  6. Head east")
         print()
         choice = input("Choose: ").strip()
@@ -676,12 +573,11 @@ def castelia_city(player):
 
         if choice == "1":
             if state["gym_beaten"]:
-                print("You already have the Shadow Badge.")
+                print("You already have the Prism Badge.")
                 print()
-            elif not state["convoy_done"]:
-                print("Rook: *from somewhere above*")
-                print("Rook: Handle the south district first.")
-                print("Rook: Then we'll talk.")
+            elif not state["tower_done"]:
+                print("The gym is dark — no power. Lysara won't battle until")
+                print("the lights are back. Deal with Prism Tower first.")
                 print()
             else:
                 result = gym(player, state)
@@ -692,35 +588,33 @@ def castelia_city(player):
             pokecenter(player)
 
         elif choice == "3":
-            street_shop(player)
+            boutique(player)
 
         elif choice == "4":
             tm_vendor(player)
 
         elif choice == "5":
-            if not state["convoy_done"]:
-                result = convoy(player, state)
+            if not state["tower_done"]:
+                result = prism_tower(player, state)
                 if result == "lose":
                     return "lose"
             else:
-                print("The south district is clear.")
+                print("Prism Tower is quiet. The city's lights are steady again.")
                 print()
 
         elif choice == "6":
-            if not state["convoy_done"]:
-                print("I: We can't leave while Team Fairy is running convoys through the city.")
+            if not state["tower_done"]:
+                print("S: We're not leaving a whole city in the dark. Tower first.")
                 print()
             elif not state["gym_beaten"]:
-                print("Rook: *from above*")
-                print("Rook: You cleared the streets. Now clear my gym.")
-                print("Rook: Then you can go.")
+                print("Lysara: *from the gym doorway* Leaving without facing me?")
+                print("Lysara: Earn the Prism Badge first.")
                 print()
             else:
-                print("You leave Castelia City heading east.")
+                print("You leave Lumiose City heading east.")
                 print()
                 pause()
-                from route22 import route22
-                return route22(player)
+                return "done"
 
         else:
             print("Invalid choice.")

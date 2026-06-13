@@ -439,36 +439,37 @@ def double_battle(player, partner_party, enemy_party, partner_name="Z"):
                 print()
 
 
-def zuma_arrival(player):
+def z_arrival(player):
     print("=" * 40)
     print("  JUBILIFE CITY OUTSKIRTS")
     print("=" * 40)
     print()
-    print("Before you can reach the city gates, someone")
-    print("steps out from behind a column.")
+    print("Before you can reach the city gates, a familiar")
+    print("figure steps out from behind a column, grinning.")
     print()
     pause()
 
-    print("Z: I've been waiting for you.")
+    print("Z: There you are! I was starting to think you'd")
+    print("Z: gotten lost on the way.")
     print()
     pause()
 
-    print("NH: Who are you?")
+    print("NH: Z! It's been too long — what are you doing here?")
     print()
     pause()
 
-    print("Z: Z. I've been tracking Team Fairy's movements")
-    print("Z: for the past six months. Jubilife's their next target.")
-    print("Z: And you're the one Larch sent, aren't you.")
+    print("Z: Same as always. I've been tracking Team Fairy's")
+    print("Z: movements for the past six months. Jubilife's")
+    print("Z: their next target — figured you'd turn up here too.")
     print()
     pause()
 
-    print("NH: Professor Larch didn't send me—")
+    print("NH: Of course you'd be a step ahead of me.")
     print()
     pause()
 
-    print("Z: He's been watching you. So have I.")
-    print("Z: You can't face what's coming without this.")
+    print("Z: *laughs* Someone has to be. Listen — you can't")
+    print("Z: face what's coming without this.")
     print()
     pause()
 
@@ -843,7 +844,7 @@ def jubilife_city(player):
     state = {"airship_done": False, "dungeon_done": False, "gym_beaten": False}
 
     # Z arrival scene plays once on entry
-    zuma_arrival(player)
+    z_arrival(player)
 
     while True:
         print("=" * 40)

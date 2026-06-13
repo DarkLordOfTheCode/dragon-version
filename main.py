@@ -205,16 +205,17 @@ def main():
 def debug_start():
     import sys
 
-    locations = {
-        "1":  ("Bakil City",       "route1",          "route1"),
-        "2":  ("Saffron City",     "saffron_city",    "saffron_city"),
-        "3":  ("Goldenrod City",   "goldenrod_city",  "goldenrod_city"),
-        "4":  ("Slateport City",   "slateport_city",  "slateport_city"),
-        "5":  ("Jubilife City",    "jubilife_city",   "jubilife_city"),
-        "6":  ("Route 16",         "route16",         "route16"),
-        "7":  ("Route 21",         "route21",         "route21"),
-        "8":  ("Castelia City",    "castelia_city",   "castelia_city"),
-    }
+    _places = [
+        ("Bakil City",     "route1",         "route1"),
+        ("Saffron City",   "saffron_city",   "saffron_city"),
+        ("Goldenrod City", "goldenrod_city", "goldenrod_city"),
+        ("Slateport City", "slateport_city", "slateport_city"),
+        ("Jubilife City",  "jubilife_city",  "jubilife_city"),
+        ("Castelia City",  "castelia_city",  "castelia_city"),
+        ("Lumiose City",   "lumiose_city",   "lumiose_city"),
+    ]
+    _places += [(f"Route {n}", f"route{n}", f"route{n}") for n in range(1, 28)]
+    locations = {str(i + 1): place for i, place in enumerate(_places)}
 
     preset_team = [
         ("Hydrapple", 50),
