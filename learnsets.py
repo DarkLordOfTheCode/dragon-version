@@ -1302,4 +1302,13 @@ learnsets = {
         10: ["Close Combat"],
         30: ["Hydro Pump"],
     },
+    "Rattata": {
+        1: ["Scratch"],
+        10: ["Body Slam"],
+    },
+    "Ratichacha": {
+        1: ["Play Rough", "Dazzling Gleam"],
+        30: ["Sludge Bomb"],
+        45: ["Moonblast"],
+    },
 }

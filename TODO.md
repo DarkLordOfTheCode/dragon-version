@@ -1,7 +1,9 @@
 # Pokémon Dragon Version — Main Game To Do List
 
 ## Next
-- Nothing currently queued
+- **Hammerlocke City** (the Galar city) — Flint gym (gym 8, Rock/Dragon, already designed in gym_leaders.py); comes after Hau'oli, before Draconia City
+- **Draconia City** — Elite Four + Champion endgame hub (Haci = E4 1, Dragon/Oil)
+- **Mega Evolution** — the Mega Stone Z gives you in Jubilife currently does nothing; add a "Mega Evolve" battle action in battle.py
 
 ## In Progress
 - Nothing currently in progress
@@ -23,6 +25,8 @@
 - **Routes between Goldenrod and Slateport** — 5 routes; need building before Slateport
 
 ## Done
+- [x] flight_to_hauoli.py — hijacked-plane set-piece on the Lumiose → Hau'oli trip: whole gang (Z, S, I, NR) aboard; rogue anarchist Team Fairy admin Vesk seizes the plane wanting to crash it; cabin grunt battle (Zoroark/Salazzle) + Vesk boss (Mismagius/Gengar/Chandelure/Hydreigon) mid-dive; gang's dragons haul it level for a crash-landing on Hau'oli beach; wired into Lumiose's exit (Lumiose → flight → Hau'oli)
+- [x] hauoli_city.py — Hau'oli City: Beach Market, TM Stand, Poké Center, Tide gym (Gale Badge, gym 7, Flying/Dragon), Team Fairy cannery lab beat (Rattata experiments → Ratichacha boss); added Rattata + Ratichacha to pokedex/learnsets/sprites; wired into Lumiose exit, sky_buggy WORLD, and debug menu
 - [x] route22.py–route27.py — Routes 22–27 with wild Pokémon and trainer battles (Castelia → Lumiose), levels 47–51; rewired Castelia exit to lead into Route 22
 - [x] Debug menu (main.py) now lists every location: all 7 cities + Routes 1–27
 - [x] Sky Buggy — shared module (sky_buggy.py); available in every city except Saffron (Goldenrod, Slateport, Jubilife, Castelia, Lumiose); each lists everywhere explored up to that point; Bakil City option plays the home cutscene (Mom + sick Dad) and heals the team

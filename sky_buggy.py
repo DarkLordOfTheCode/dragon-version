@@ -37,6 +37,7 @@ WORLD = [
     ("Route 26",       "route26",        "route26"),
     ("Route 27",       "route27",        "route27"),
     ("Lumiose City",   "lumiose_city",   "lumiose_city"),
+    ("Hau'oli City",   "hauoli_city",    "hauoli_city"),
 ]
 
 

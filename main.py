@@ -213,6 +213,7 @@ def debug_start():
         ("Jubilife City",  "jubilife_city",  "jubilife_city"),
         ("Castelia City",  "castelia_city",  "castelia_city"),
         ("Lumiose City",   "lumiose_city",   "lumiose_city"),
+        ("Hau'oli City",   "hauoli_city",    "hauoli_city"),
     ]
     _places += [(f"Route {n}", f"route{n}", f"route{n}") for n in range(1, 28)]
     locations = {str(i + 1): place for i, place in enumerate(_places)}

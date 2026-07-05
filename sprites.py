@@ -1346,6 +1346,23 @@ _sprites = {
         "  \\___/  ",
         " /|   |\\ ",
     ],
+
+    # --- Hau'oli City: Team Fairy Rattata experiment ---
+
+    "Rattata": [
+        "  ^   ^  ",
+        " (o   o) ",
+        " ( >w< ) ",
+        "  \\===/~~",
+        "  \" \"    ",
+    ],
+    "Ratichacha": [
+        " \\|/ \\|/ ",
+        "(X)~*~(X)",
+        "/ >###< \\",
+        "\\__vvv__/",
+        " //   \\\\ ",
+    ],
 }
 
 _default = [

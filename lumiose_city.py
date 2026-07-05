@@ -620,10 +620,12 @@ def lumiose_city(player):
                 print("Lysara: Earn the Prism Badge first.")
                 print()
             else:
-                print("You leave Lumiose City heading east.")
+                print("You leave Lumiose City and head for the airfield —")
+                print("the gang's catching the last light plane south to Hau'oli.")
                 print()
                 pause()
-                return "done"
+                from flight_to_hauoli import flight_to_hauoli
+                return flight_to_hauoli(player)
 
         else:
             print("Invalid choice.")

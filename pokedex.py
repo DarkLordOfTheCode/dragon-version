@@ -1346,4 +1346,20 @@ pokedex = {
         "speed": 70,
         "special": 70,
     },
+    "Rattata": {
+        "type": ["Normal"],
+        "hp": 30,
+        "attack": 20,
+        "defence": 30,
+        "speed": 70,
+        "special": 10,
+    },
+    "Ratichacha": {
+        "type": ["Fairy", "Poison"],
+        "hp": 105,
+        "attack": 115,
+        "defence": 75,
+        "speed": 120,
+        "special": 95,
+    },
 }
